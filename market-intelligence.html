@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Market Intelligence | FARMERS</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<style>
+
+/* =========================
+   MARKET INTELLIGENCE
+========================= */
+
+.intel-page {
+
+    width: min(950px,100%);
+
+    margin: auto;
+
+    padding: 25px 17px 100px;
+}
+
+
+.intel-back {
+
+    margin-bottom: 20px;
+}
+
+
+.intel-back a {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* HERO */
+
+.intel-hero {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,200,120,.15),
+            rgba(0,0,0,.08)
+        );
+
+    border:
+        1px solid
+        rgba(0,255,156,.22);
+
+    margin-bottom: 20px;
+}
+
+
+.intel-label {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+.intel-hero h1 {
+
+    font-size:
+        clamp(28px,8vw,46px);
+
+    margin-top: 8px;
+}
+
+
+.intel-hero h1 span {
+
+    color: var(--emerald);
+}
+
+
+.intel-hero p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-top: 9px;
+}
+
+
+/* SEARCH */
+
+.intel-search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 13px;
+
+    padding: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+.intel-search span {
+
+    padding-left: 8px;
+}
+
+
+.intel-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    background: none;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    padding: 10px 0;
+}
+
+
+.intel-search button {
+
+    border: none;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    border-radius: 9px;
+
+    padding: 10px 13px;
+
+    font-weight: bold;
+}
+
+
+/* FILTERS */
+
+.intel-filters {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 4px;
+}
+
+
+.intel-filter {
+
+    flex-shrink: 0;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background: var(--card);
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+.intel-filter.active {
+
+    color: var(--emerald);
+
+    background:
+        rgba(0,200,120,.08);
+
+    border-color:
+        rgba(0,255,156,.3);
+}
+
+
+/* SECTION */
+
+.intel-section {
+
+    margin-top: 28px;
+}
+
+
+.intel-heading {
+
+    margin-bottom: 13px;
+}
+
+
+.intel-heading span {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: bold;
+}
+
+
+.intel-heading h2 {
+
+    font-size: 20px;
+
+    margin-top: 5px;
+}
+
+
+/* MARKET CARDS */
+
+.market-data-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+}
+
+
+.market-data-card {
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 15px;
+
+    padding: 15px;
+}
+
+
+.market-data-card .crop {
+
+    font-size: 25px;
+}
+
+
+.market-data-card strong {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+}
+
+
+.market-location {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+.market-price {
+
+    color: var(--emerald);
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+.market-change {
+
+    font-size: 9px;
+
+    margin-top: 5px;
+
+    color: #8a9b92;
+}
+
+
+.market-change.up {
+
+    color: #00c878;
+}
+
+
+.market-change.down {
+
+    color: #ff7373;
+}
+
+
+/* OPPORTUNITY */
+
+.opportunity {
+
+    background:
+        rgba(0,200,120,.05);
+
+    border:
+        1px solid
+        rgba(0,255,156,.2);
+
+    border-radius: 16px;
+
+    padding: 18px;
+}
+
+
+.opportunity-title {
+
+    color: var(--emerald);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.opportunity h3 {
+
+    font-size: 17px;
+
+    margin-top: 7px;
+}
+
+
+.opportunity p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-top: 6px;
+}
+
+
+/* SCORE */
+
+.score {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+
+.score-bar {
+
+    flex: 1;
+
+    height: 7px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    overflow: hidden;
+}
+
+
+.score-fill {
+
+    height: 100%;
+
+    width: 78%;
+
+    background: var(--emerald);
+
+    border-radius: 10px;
+}
+
+
+.score-value {
+
+    color: var(--emerald);
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE */
+
+@media (min-width:700px) {
+
+    .market-data-grid {
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<div class="logo">
+    F
+</div>
+
+<div class="brand-text">
+
+<strong>
+    FARMERS
+</strong>
+
+<span>
+    Agricultural Network
+</span>
+
+</div>
+
+</a>
+
+
+<div class="top-actions">
+
+<span class="status-btn">
+
+<span class="status-dot"></span>
+
+<span id="statusText">
+    Online
+</span>
+
+</span>
+
+
+<a
+    href="index.html"
+    class="menu-btn"
+    style="
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    "
+>
+    ←
+</a>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item active" aria-current="page"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="intel-page">
+
+
+<div class="intel-back">
+
+<a href="index.html">
+    ← Back to Dashboard
+</a>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="intel-hero">
+
+<span class="intel-label">
+    AGRICULTURAL MARKET INTELLIGENCE
+</span>
+
+<h1>
+
+Know the
+<span>
+    market.
+</span>
+
+Make better decisions.
+
+</h1>
+
+<p>
+
+Explore agricultural prices,
+market movements and potential
+opportunities to help you make
+better production and selling
+decisions.
+
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="intel-search">
+
+<span>
+</span>
+
+<input
+    id="intelSearch"
+    type="search"
+    placeholder="Search maize, tomatoes, milk..."
+>
+
+<button id="intelSearchButton">
+    Search
+</button>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="intel-filters">
+
+<button
+    class="intel-filter active"
+    data-filter="all"
+>
+    All
+</button>
+
+<button
+    class="intel-filter"
+    data-filter="crops"
+>
+    Crops
+</button>
+
+<button
+    class="intel-filter"
+    data-filter="livestock"
+>
+    Livestock
+</button>
+
+<button
+    class="intel-filter"
+    data-filter="dairy"
+>
+Dairy
+</button>
+
+<button
+    class="intel-filter"
+    data-filter="poultry"
+>
+    Poultry
+</button>
+
+</div>
+<!-- MARKET PRICES -->
+
+<section class="intel-section">
+
+<div class="intel-heading">
+
+<span>
+    MARKET SNAPSHOT
+</span>
+
+<h2>
+    Example market data
+</h2>
+
+</div>
+
+
+<div
+    class="market-data-grid"
+    id="marketData"
+>
+
+
+<!-- MAIZE -->
+
+<div
+    class="market-data-card"
+    data-category="crops"
+    data-name="maize"
+>
+
+<div class="crop">
+    <img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+<strong>
+    Maize
+</strong>
+
+<div class="market-location">
+    Example location
+</div>
+
+<div class="market-price">
+    KSh 4,500
+</div>
+
+<div class="market-change up">
+    ↑ Example trend
+</div>
+
+</div>
+
+
+<!-- TOMATO -->
+
+<div
+    class="market-data-card"
+    data-category="crops"
+    data-name="tomatoes"
+>
+
+<div class="crop">
+    <img src="market-produce.jpg" alt="" loading="lazy">
+</div>
+
+<strong>
+    Tomatoes
+</strong>
+
+<div class="market-location">
+    Example location
+</div>
+
+<div class="market-price">
+    KSh 3,000
+</div>
+
+<div class="market-change up">
+    ↑ Example trend
+</div>
+
+</div>
+
+
+<!-- MILK -->
+
+<div
+    class="market-data-card"
+    data-category="dairy"
+    data-name="milk"
+>
+
+<div class="crop">
+    <img src="dairy-cow.jpg" alt="" loading="lazy">
+</div>
+
+<strong>
+    Milk
+</strong>
+
+<div class="market-location">
+    Example location
+</div>
+
+<div class="market-price">
+    KSh 55
+</div>
+
+<div class="market-change">
+    → Example trend
+</div>
+
+</div>
+
+
+<!-- CHICKEN -->
+
+<div
+    class="market-data-card"
+    data-category="poultry"
+    data-name="chicken"
+>
+
+<div class="crop">
+    <img src="poultry.jpg" alt="" loading="lazy">
+</div>
+
+<strong>
+    Chicken
+</strong>
+
+<div class="market-location">
+    Example location
+</div>
+
+<div class="market-price">
+    KSh 650
+</div>
+
+<div class="market-change down">
+    ↓ Example trend
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- OPPORTUNITY -->
+
+<section class="intel-section">
+
+<div class="intel-heading">
+
+<span>
+    FARMERS INSIGHT
+</span>
+
+<h2>
+    Potential opportunity
+</h2>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-title">
+    OPPORTUNITY SCORE
+</div>
+
+<h3>
+    Diversified vegetable production
+</h3>
+
+<p>
+
+A diversified production strategy
+may reduce dependence on one
+crop and give farmers more
+selling opportunities.
+
+</p>
+
+
+<div class="score">
+
+<div class="score-bar">
+
+<div class="score-fill"></div>
+
+</div>
+
+<div class="score-value">
+    78/100
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRICE COMPARISON -->
+
+<section class="intel-section">
+
+<div class="intel-heading">
+
+<span>
+    DECISION SUPPORT
+</span>
+
+<h2>
+    Compare markets
+</h2>
+
+</div>
+
+
+<div class="opportunity">
+
+<p style="
+    margin-top:0;
+">
+
+Different buyers and locations
+can offer different prices.
+Always compare the actual
+selling price, transport,
+storage and other costs before
+choosing a market.
+
+</p>
+
+
+<button
+    id="compareButton"
+    style="
+        margin-top:13px;
+        padding:10px 13px;
+        border:none;
+        border-radius:9px;
+        background:#00c878;
+        color:#001b0f;
+        font-size:10px;
+        font-weight:bold;
+    "
+>
+
+Compare Markets
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- DATA STATUS -->
+
+<section class="intel-section">
+
+<div
+    class="opportunity"
+    id="dataStatus"
+>
+
+<div class="opportunity-title">
+    DATA STATUS
+</div>
+
+<p>
+
+You are currently viewing
+prototype marketplace data.
+When FARMERS is connected to
+a live agricultural data source,
+this section can display
+updated information.
+
+</p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+<a
+    href="index.html"
+    class="bottom-item"
+>
+
+<span>
+    ⌂
+</span>
+
+<small>
+    Home
+</small>
+
+</a>
+
+
+<a
+    href="farm-hub.html"
+    class="bottom-item"
+>
+
+<span>
+    Farm
+</span>
+
+<small>
+    Farm
+</small>
+
+</a>
+
+
+<a
+    href="marketplace.html"
+    class="bottom-item market"
+>
+
+<span>
+    Market
+</span>
+
+<small>
+    Market
+</small>
+
+</a>
+
+
+<a
+    href="agribusiness.html"
+    class="bottom-item"
+>
+
+<span>
+    ▥
+</span>
+
+<small>
+    Business
+</small>
+
+</a>
+
+
+<a
+    href="profile.html"
+    class="bottom-item"
+>
+
+<span>
+    Profile
+</span>
+
+<small>
+    Profile
+</small>
+
+</a>
+
+
+</nav>
+<script>
+
+/* =========================
+   CONNECTION
+========================= */
+
+function updateConnection() {
+
+    const status =
+        document.getElementById(
+            "statusText"
+        );
+
+    const dataStatus =
+        document.getElementById(
+            "dataStatus"
+        );
+
+
+    const online =
+        navigator.onLine;
+
+
+    status.textContent =
+        online
+        ? "Online"
+        : "Offline";
+
+
+    if (online) {
+
+        dataStatus.innerHTML = `
+
+            <div class="opportunity-title">
+                DATA STATUS
+            </div>
+
+            <p>
+
+                You are online.
+                Broader market information
+                can be loaded when FARMERS
+                is connected to a live data
+                service.
+
+            </p>
+
+        `;
+
+    } else {
+
+        dataStatus.innerHTML = `
+
+            <div class="opportunity-title">
+                OFFLINE MODE
+            </div>
+
+            <p>
+
+                You are offline.
+                Showing locally available
+                market information.
+
+                <br><br>
+
+                Reconnect to access broader
+                online information.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+updateConnection();
+
+
+window.addEventListener(
+    "online",
+    updateConnection
+);
+
+
+window.addEventListener(
+    "offline",
+    updateConnection
+);
+
+
+/* =========================
+   FILTERS
+========================= */
+
+const filters =
+    document.querySelectorAll(
+        ".intel-filter"
+    );
+
+
+const marketCards =
+    document.querySelectorAll(
+        ".market-data-card"
+    );
+
+
+filters.forEach(filter => {
+
+    filter.addEventListener(
+        "click",
+        () => {
+
+            filters.forEach(item => {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            filter.classList.add(
+                "active"
+            );
+
+
+            const category =
+                filter.dataset.filter;
+
+
+            marketCards.forEach(card => {
+
+                if (
+                    category === "all" ||
+                    card.dataset.category === category
+                ) {
+
+                    card.style.display =
+                        "";
+
+                } else {
+
+                    card.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const searchInput =
+    document.getElementById(
+        "intelSearch"
+    );
+
+
+const searchButton =
+    document.getElementById(
+        "intelSearchButton"
+    );
+
+
+function searchMarket() {
+
+    const query =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    if (!query) {
+
+        marketCards.forEach(card => {
+
+            card.style.display =
+                "";
+
+        });
+
+        return;
+
+    }
+
+
+    let found = 0;
+
+
+    marketCards.forEach(card => {
+
+        const name =
+            card.dataset.name
+                .toLowerCase();
+
+
+        if (
+            name.includes(query)
+        ) {
+
+            card.style.display =
+                "";
+
+            found++;
+
+        } else {
+
+            card.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    if (!found) {
+
+        alert(
+
+            "No local market information found.\n\n" +
+
+            (
+                navigator.onLine
+
+                ? "You are online. Broader search can be added when FARMERS connects to a live market-data service."
+
+                : "You are offline. Connect to the internet for broader information."
+
+            )
+
+        );
+
+    }
+
+}
+
+
+searchButton.addEventListener(
+    "click",
+    searchMarket
+);
+
+
+searchInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            searchMarket();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   MARKET COMPARISON
+========================= */
+
+document
+    .getElementById(
+        "compareButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const crop =
+                prompt(
+                    "What product would you like to compare?"
+                );
+
+
+            if (
+                !crop ||
+                !crop.trim()
+            ) {
+
+                return;
+
+            }
+
+
+            alert(
+
+                "MARKET COMPARISON\n\n" +
+
+                "Product: " +
+                crop +
+
+                "\n\n" +
+
+                "The full comparison system will eventually compare:\n\n" +
+
+                "• Market price\n" +
+
+                "• Buyer price\n" +
+
+                "• Transport cost\n" +
+
+                "• Storage cost\n" +
+
+                "• Expected profit\n\n" +
+
+                "This will help calculate the most profitable market."
+
+            );
+
+        }
+    );
+
+</script>
+<script src="plan-access.js"></script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

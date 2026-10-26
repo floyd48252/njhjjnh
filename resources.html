@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS - Resources</title>
+
+
+<style>
+
+/* =========================
+   FARMERS RESOURCES
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #050807;
+
+    color: #e8f5ef;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    background: #07100c;
+
+    border-bottom:
+        1px solid #164d36;
+
+    padding: 18px;
+
+}
+
+
+.header-inner {
+
+    max-width: 950px;
+
+    margin: auto;
+
+}
+
+
+.logo {
+
+    color: #00c878;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.subtitle {
+
+    color: #718078;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 16px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b2117,
+            #07100c
+        );
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero h1 {
+
+    color: #00c878;
+
+    margin:
+        0 0 9px;
+
+    font-size: 25px;
+
+}
+
+
+.hero p {
+
+    color: #9aaba3;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin: 0;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+
+    margin-top: 18px;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    border:
+        1px solid #164d36;
+
+    background: #050807;
+
+    color: white;
+
+    outline: none;
+
+}
+
+
+.search-box input:focus {
+
+    border-color: #00c878;
+
+}
+
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title {
+
+    color: #00c878;
+
+    font-size: 17px;
+
+    margin:
+        20px 0 12px;
+
+}
+
+
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-bottom: 25px;
+
+}
+
+
+.category-card {
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 15px;
+
+    background: #09130f;
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        border-color .2s;
+
+}
+
+
+.category-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #00c878;
+
+}
+
+
+.category-icon {
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.category-card h3 {
+
+    color: #00c878;
+
+    font-size: 13px;
+
+    margin:
+        0 0 5px;
+
+}
+
+
+.category-card p {
+
+    color: #718078;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    margin: 0;
+
+}
+
+
+/* =========================
+   RESOURCE GRID
+========================= */
+
+.resource-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    width: 100%;
+
+}
+
+
+.resource-card {
+
+    background: #09130f;
+
+    border:
+        1px solid #123d2b;
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+}
+/* =========================
+   RESOURCE TOPICS
+========================= */
+
+.resource-topics {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+}
+
+
+.resource-topics span {
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: #0b1712;
+
+    border: 1px solid #123d2b;
+
+    color: #718078;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================
+   RESOURCE DETAIL
+========================= */
+
+.resource-detail {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #09130f;
+
+    border: 1px solid #164d36;
+
+    border-radius: 18px;
+
+}
+
+
+.close-resource {
+
+    padding: 9px 12px;
+
+    border-radius: 9px;
+
+    border: 1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+}
+
+
+.close-resource:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+.detail-icon {
+
+    font-size: 45px;
+
+    margin-top: 20px;
+
+}
+
+
+.resource-detail h2 {
+
+    color: #00c878;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.detail-category {
+
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: #0b2117;
+
+    color: #83938b;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+}
+
+
+.detail-description {
+
+    color: #a6b6ae;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-top: 15px;
+
+}
+
+
+.resource-detail h3 {
+
+    color: #e8f5ef;
+
+    font-size: 15px;
+
+    margin-top: 22px;
+
+}
+
+
+.detail-topics {
+
+    display: grid;
+
+    gap: 7px;
+
+}
+
+
+.topic-item {
+
+    padding: 10px;
+
+    background: #07100c;
+
+    border: 1px solid #123d2b;
+
+    border-radius: 9px;
+
+    color: #91a49a;
+
+    font-size: 11px;
+
+}
+
+
+.resource-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+}
+
+
+.detail-action {
+
+    padding: 12px 8px;
+
+    border-radius: 10px;
+
+    border: 1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+}
+
+
+.detail-action:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+.resource-disclaimer {
+
+    margin-top: 18px;
+
+    padding: 12px;
+
+    background: #11150f;
+
+    border: 1px solid #4d4b22;
+
+    border-radius: 10px;
+
+    color: #aaa67c;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .resource-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+.resource-icon {
+
+    font-size: 30px;
+
+}
+
+
+.resource-card h3 {
+
+    color: #e8f5ef;
+
+    font-size: 15px;
+
+    margin:
+        9px 0 7px;
+
+}
+
+
+.resource-card p {
+
+    color: #91a49a;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+.resource-topics {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 10px;
+
+}
+
+
+.resource-topics span {
+
+    padding:
+        5px 7px;
+
+    border-radius: 6px;
+
+    background: #0b1712;
+
+    border:
+        1px solid #123d2b;
+
+    color: #718078;
+
+    font-size: 9px;
+
+}
+
+
+.resource-button {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+}
+
+
+.resource-button:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #718078;
+
+    border:
+        1px dashed #164d36;
+
+    border-radius: 14px;
+
+}
+
+
+/* =========================
+   RESOURCE DETAIL
+========================= */
+
+.resource-detail {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #09130f;
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 18px;
+
+}
+
+
+.close-resource {
+
+    padding:
+        9px 12px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+}
+
+
+.detail-icon {
+
+    font-size: 45px;
+
+    margin-top: 20px;
+
+}
+
+
+.resource-detail h2 {
+
+    color: #00c878;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.detail-category {
+
+    display: inline-block;
+
+    padding:
+        5px 8px;
+
+    border-radius: 7px;
+
+    background: #0b2117;
+
+    color: #83938b;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+}
+
+
+.detail-description {
+
+    color: #a6b6ae;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-top: 15px;
+
+}
+
+
+.resource-detail h3 {
+
+    color: #e8f5ef;
+
+    font-size: 15px;
+
+    margin-top: 22px;
+
+}
+
+
+.detail-topics {
+
+    display: grid;
+
+    gap: 7px;
+
+}
+
+
+.topic-item {
+
+    padding: 10px;
+
+    background: #07100c;
+
+    border:
+        1px solid #123d2b;
+
+    border-radius: 9px;
+
+    color: #91a49a;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================
+   DETAIL ACTIONS
+========================= */
+
+.resource-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+}
+
+
+.detail-action {
+
+    padding:
+        12px 8px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+}
+
+
+.detail-action:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+}
+
+
+.navigation button {
+
+    padding: 11px 5px;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    color: #52635b;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    padding: 30px 10px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .category-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .resource-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .resource-actions {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .category-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .navigation {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+        </div>
+
+        <div class="subtitle">
+            Agricultural Knowledge & Resources
+        </div>
+
+    </div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+
+
+<section class="hero">
+
+    <h1>
+        FARMERS Resources
+    </h1>
+
+    <p>
+        A practical knowledge center for
+        farmers, gardeners, agribusiness
+        owners and anyone interested in
+        agriculture.
+    </p>
+
+
+    <div class="search-box">
+
+        <input
+            id="resourceSearch"
+            type="search"
+            placeholder="Search resources...">
+
+    </div>
+
+</section>
+
+
+<h2 class="section-title">
+    Explore Categories
+</h2>
+
+
+<div class="category-grid">
+
+
+    <div
+        class="category-card"
+        data-category="crops">
+
+        <div class="category-icon">
+            <img src="crop-rows.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Crops
+        </h3>
+
+        <p>
+            Maize, beans, wheat,
+            potatoes, rice and vegetables.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="livestock">
+
+        <div class="category-icon">
+            <img src="dairy-cow.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Livestock
+        </h3>
+
+        <p>
+            Cattle, goats, sheep
+            and pigs.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="poultry">
+
+        <div class="category-icon">
+            <img src="poultry.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Poultry
+        </h3>
+
+        <p>
+            Broilers, layers and
+            indigenous chickens.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="horticulture">
+
+        <div class="category-icon">
+            <img src="market-produce.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Horticulture
+        </h3>
+
+        <p>
+            Flowers, tomatoes,
+            onions, fruits and gardens.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="soil">
+
+        <div class="category-icon">
+            <img src="seedlings.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Soil
+        </h3>
+
+        <p>
+            Soil testing, fertility,
+            compost and conservation.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="water">
+
+        <div class="category-icon">
+            <img src="seedlings.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Water & Climate
+        </h3>
+
+        <p>
+            Irrigation, drought
+            and climate-smart farming.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="pests">
+
+        <div class="category-icon">
+            <img src="fresh-produce.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Pests & Diseases
+        </h3>
+
+        <p>
+            Identification, monitoring
+            and responsible management.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="business">
+
+        <div class="category-icon">
+            <img src="sunset-field.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Agribusiness
+        </h3>
+
+        <p>
+            Budgets, records, markets
+            and value addition.
+        </p>
+
+    </div>
+
+
+    <div
+        class="category-card"
+        data-category="technology">
+
+        <div class="category-icon">
+            <img src="crop-rows.jpg" alt="" loading="lazy">
+        </div>
+
+        <h3>
+            Technology
+        </h3>
+
+        <p>
+            Digital farming, AI
+            and farm technology.
+        </p>
+
+    </div>
+
+</div>
+
+
+<h2 class="section-title">
+    Resource Library
+</h2>
+
+
+<div
+    id="resourceGrid"
+    class="resource-grid">
+</div>
+
+
+<div
+    id="resourceEmpty"
+    class="empty-state"
+    style="display:none;">
+
+    No resources found.
+
+</div>
+<!-- =========================
+     RESOURCE SYSTEM
+========================= -->
+
+<script src="resources-data.js"></script>
+
+<script>
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const resourceGrid =
+    document.getElementById(
+        "resourceGrid"
+    );
+
+const resourceEmpty =
+    document.getElementById(
+        "resourceEmpty"
+    );
+
+const resourceSearch =
+    document.getElementById(
+        "resourceSearch"
+    );
+
+
+/* =========================
+   SAFE RESOURCE DATA HELPERS
+========================= */
+
+function getAllResourcesSafe() {
+    try {
+        if (typeof farmersGetResources === "function") {
+            const result = farmersGetResources();
+            return Array.isArray(result) ? result : [];
+        }
+    } catch (error) {
+        console.error("FARMERS could not load resources:", error);
+    }
+
+    if (Array.isArray(window.FARMERS_RESOURCES)) return window.FARMERS_RESOURCES;
+    if (Array.isArray(window.farmersResources)) return window.farmersResources;
+    return [];
+}
+
+function getResourcesByCategorySafe(category) {
+    try {
+        if (typeof farmersGetResourcesByCategory === "function") {
+            const result = farmersGetResourcesByCategory(category);
+            if (Array.isArray(result)) return result;
+        }
+    } catch (error) {
+        console.warn("Category helper failed; filtering resource data directly.", error);
+    }
+
+    return getAllResourcesSafe().filter(function(resource) {
+        return String(resource.category || "").toLowerCase().replace(/\\s*&\\s*/g, " ")
+            .replace(/[^a-z0-9]+/g, "") ===
+            String(category || "").toLowerCase().replace(/\\s*&\\s*/g, " ")
+            .replace(/[^a-z0-9]+/g, "");
+    });
+}
+
+function searchResourcesSafe(query) {
+    try {
+        if (typeof farmersSearchResources === "function") {
+            const result = farmersSearchResources(query);
+            if (Array.isArray(result)) return result;
+        }
+    } catch (error) {
+        console.warn("Resource search helper failed; searching resource data directly.", error);
+    }
+
+    const q = String(query || "").toLowerCase().trim();
+    if (!q) return getAllResourcesSafe();
+
+    return getAllResourcesSafe().filter(function(resource) {
+        const searchable = [
+            resource.title, resource.description, resource.category,
+            ...(Array.isArray(resource.topics) ? resource.topics : [])
+        ].join(" ").toLowerCase();
+        return searchable.includes(q);
+    });
+}
+
+function getResourcePhoto(resource) {
+    const description = [
+        resource.category,
+        resource.title,
+        resource.description
+    ].join(" ").toLowerCase();
+
+    if (/livestock|cattle|dairy|goat|animal/.test(description)) {
+        return "dairy-cow.jpg";
+    }
+    if (/poultry|chicken|bird/.test(description)) {
+        return "poultry.jpg";
+    }
+    if (/fish|aquaculture/.test(description)) {
+        return "fish.jpg";
+    }
+    if (/market|produce|vegetable|fruit|horticulture/.test(description)) {
+        return "market-produce.jpg";
+    }
+    if (/soil|seed|water|irrigation|plant/.test(description)) {
+        return "seedlings.jpg";
+    }
+
+    return "crop-rows.jpg";
+}
+
+/* =========================
+   DISPLAY RESOURCES
+========================= */
+
+function displayResources(resources) {
+
+    resourceGrid.innerHTML = "";
+
+
+    if (
+        !resources ||
+        resources.length === 0
+    ) {
+
+        resourceEmpty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    resourceEmpty.style.display =
+        "none";
+
+
+    resources.forEach(
+        function(resource) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "resource-card";
+
+
+            card.innerHTML = `
+
+                <div class="resource-icon">
+                    <img src="${getResourcePhoto(resource)}" alt="" loading="lazy">
+                </div>
+
+
+                <h3>
+
+                    ${resource.title || "Farming resource"}
+
+                </h3>
+
+
+                <p>
+
+                    ${resource.description || "Practical farming information and guidance."}
+
+                </p>
+
+
+                <div class="resource-topics">
+
+                    ${(Array.isArray(resource.topics) ? resource.topics : [])
+                        .slice(0, 4)
+                        .map(
+                            function(topic) {
+
+                                return `
+
+                                    <span>
+                                        ${topic}
+                                    </span>
+
+                                `;
+
+                            }
+                        )
+                        .join("")}
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="resource-button"
+                    data-resource-id="${resource.id}">
+
+                    Open Resource
+
+                </button>
+
+            `;
+
+
+            resourceGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    connectResourceButtons();
+
+}
+
+
+/* =========================
+   RESOURCE BUTTONS
+========================= */
+
+function connectResourceButtons() {
+
+    const buttons =
+        resourceGrid.querySelectorAll(
+            "[data-resource-id]"
+        );
+
+
+    buttons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                async function() {
+
+                    const id = button.dataset.resourceId;
+                    let resource = null;
+
+                    try {
+                        if (typeof farmersFindResourceById === "function") {
+                            resource = await farmersFindResourceById(id);
+                        }
+                    } catch (error) {
+                        console.warn("Could not load resource by ID; trying local data.", error);
+                    }
+
+                    if (!resource) {
+                        const allResources = getAllResourcesSafe();
+                        resource = allResources.find(function(item) {
+                            return String(item.id) === String(id);
+                        }) || null;
+                    }
+
+                    if (!resource) {
+
+                        console.error(
+                            "Resource not found:",
+                            id
+                        );
+
+                        return;
+
+                    }
+
+
+                    showResource(
+                        resource
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SHOW RESOURCE
+========================= */
+
+function showResource(resource) {
+
+    const oldDetail =
+        document.getElementById(
+            "resourceDetail"
+        );
+
+
+    if (oldDetail) {
+
+        oldDetail.remove();
+
+    }
+
+
+    const detail =
+        document.createElement(
+            "section"
+        );
+
+
+    detail.id =
+        "resourceDetail";
+
+
+    detail.className =
+        "resource-detail";
+
+
+    detail.innerHTML = `
+
+        <button
+            type="button"
+            id="closeResourceDetail"
+            class="close-resource">
+
+            ← Back to Resources
+
+        </button>
+
+
+        <div class="detail-icon">
+            <img src="${getResourcePhoto(resource)}" alt="" loading="lazy">
+        </div>
+
+
+        <h2>
+
+            ${resource.title || "Farming resource"}
+
+        </h2>
+
+
+        <div class="detail-category">
+
+            ${resource.category}
+
+        </div>
+
+
+        <p class="detail-description">
+
+            ${resource.description || "Practical farming information and guidance."}
+
+        </p>
+
+
+        <h3>
+
+            What you can learn
+
+        </h3>
+
+
+        <div class="detail-topics">
+
+            ${(Array.isArray(resource.topics) ? resource.topics : [])
+                .map(
+                    function(topic) {
+
+                        return `
+
+                            <div
+                                class="topic-item">
+
+                                ✓ ${topic}
+
+                            </div>
+
+                        `;
+
+                    }
+                )
+                .join("")}
+
+        </div>
+
+
+        <div class="resource-actions">
+
+
+            <button
+                type="button"
+                class="detail-action"
+                id="askCommunity">
+
+                Ask Community
+
+            </button>
+
+
+            <button
+                type="button"
+                class="detail-action"
+                id="askExpert">
+
+                Ask an Expert
+
+            </button>
+
+
+            <button
+                type="button"
+                class="detail-action"
+                id="findSupplies">
+
+                Find Supplies
+
+            </button>
+
+
+        </div>
+
+
+        <div class="resource-disclaimer">
+
+            ℹ️ FARMERS resources are intended
+            for general educational purposes.
+            For serious crop, animal-health,
+            pesticide or chemical decisions,
+            consult an appropriately qualified
+            professional and follow applicable
+            local guidance.
+
+        </div>
+
+    `;
+
+
+    resourceGrid.parentElement.appendChild(
+        detail
+    );
+
+
+    detail.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "start"
+
+    });
+
+
+    document
+        .getElementById(
+            "closeResourceDetail"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                detail.remove();
+
+
+                resourceGrid.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "askCommunity"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "community.html";
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "askExpert"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "experts.html";
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "findSupplies"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "marketplace.html";
+
+            }
+        );
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+resourceSearch.addEventListener(
+    "input",
+    function() {
+
+        const query =
+            resourceSearch.value
+                .toLowerCase()
+                .trim();
+
+        const results = searchResourcesSafe(query);
+
+
+        displayResources(
+            results
+        );
+
+    }
+);
+
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
+displayResources(getAllResourcesSafe());
+
+</script>
+<script>
+
+/* =========================
+   CATEGORY FILTERS
+========================= */
+
+const categoryCards =
+    document.querySelectorAll(
+        ".category-card"
+    );
+
+
+categoryCards.forEach(
+    function(categoryCard) {
+
+        categoryCard.addEventListener(
+            "click",
+            function() {
+
+                const category =
+                    categoryCard.dataset.category;
+
+
+                const results = getResourcesByCategorySafe(category);
+
+
+                /* Clear search */
+
+                if (resourceSearch) {
+
+                    resourceSearch.value =
+                        "";
+
+                }
+
+
+                /* Display matching resources */
+
+                displayResources(
+                    results
+                );
+
+
+                /* Scroll to Resource Library */
+
+                resourceGrid.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
+
+            }
+        );
+
+    }
+
+);
+/* =========================
+   FARMER TOOLS
+========================= */
+
+document
+    .querySelectorAll("[data-tool]")
+    .forEach(function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                const tool =
+                    button.dataset.tool;
+
+
+                if (tool === "calculator") {
+
+                    openCalculator();
+
+                }
+
+
+                if (tool === "notes") {
+
+                    openNotes();
+
+                }
+
+
+                if (tool === "planner") {
+
+                    openPlanner();
+
+                }
+
+
+                if (tool === "community") {
+
+                    window.location.href =
+                        "community.html";
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+function openCalculator() {
+
+    const expression =
+        prompt(
+            "FARMERS Calculator\n\n" +
+            "Enter a calculation.\n\n" +
+            "Example: 50 * 120"
+        );
+
+
+    if (
+        expression === null ||
+        expression.trim() === ""
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const result =
+            Function(
+                "return (" +
+                expression +
+                ")"
+            )();
+
+
+        if (
+            typeof result !== "number" ||
+            !isFinite(result)
+        ) {
+
+            throw new Error();
+
+        }
+
+
+        alert(
+            "Result: " +
+            result.toLocaleString()
+        );
+
+
+    } catch {
+
+        alert(
+            "That calculation could not be processed."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   FARM NOTES
+========================= */
+
+function openNotes() {
+
+    const oldNotes =
+        localStorage.getItem(
+            "farmersResourceNotes"
+        ) || "";
+
+
+    const notes =
+        prompt(
+            "FARMERS FARM NOTES\n\n" +
+            "Write your notes below:",
+            oldNotes
+        );
+
+
+    if (notes === null) {
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "farmersResourceNotes",
+        notes
+    );
+
+
+    alert(
+        "✓ Your farm notes were saved."
+    );
+
+}
+
+
+/* =========================
+   FARM PLANNER
+========================= */
+
+function openPlanner() {
+
+    const task =
+        prompt(
+            "FARMERS FARM PLANNER\n\n" +
+            "Enter a farm task.\n\n" +
+            "Example: Plant tomatoes"
+        );
+
+
+    if (
+        task === null ||
+        task.trim() === ""
+    ) {
+
+        return;
+
+    }
+
+
+    const date =
+        prompt(
+            "When should you do it?\n\n" +
+            "Example: 25 August 2026"
+        );
+
+
+    if (
+        date === null ||
+        date.trim() === ""
+    ) {
+
+        return;
+
+    }
+
+
+    const plans =
+        JSON.parse(
+            localStorage.getItem(
+                "farmersFarmPlans"
+            ) || "[]"
+        );
+
+
+    plans.push({
+
+        task:
+            task.trim(),
+
+        date:
+            date.trim(),
+
+        created:
+            new Date()
+                .toLocaleString()
+
+    });
+
+
+    localStorage.setItem(
+        "farmersFarmPlans",
+        JSON.stringify(
+            plans
+        )
+    );
+
+
+    alert(
+        "✓ Farm task added to your planner."
+    );
+
+}
+</script>
+<script src="plan-access.js"></script>
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>

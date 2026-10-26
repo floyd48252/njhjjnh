@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agriculture learning notes and study guides for Form One to university students.">
+    <title>Farmers Library | FARMERS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .library-page {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+            padding: 30px 28px 64px;
+        }
+
+        .library-hero {
+            padding: clamp(24px, 5vw, 44px);
+            border: 1px solid rgba(114, 214, 154, .18);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 90% 15%, rgba(114, 214, 154, .1), transparent 18rem),
+                linear-gradient(125deg, #10291c, #0c1d14 70%);
+        }
+
+        .library-eyebrow,
+        .library-section-label {
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .14em;
+        }
+
+        .library-hero h1 {
+            max-width: 760px;
+            margin: 12px 0;
+            font-size: clamp(32px, 6vw, 54px);
+            line-height: 1.08;
+        }
+
+        .library-hero h1 span {
+            color: var(--green);
+        }
+
+        .library-hero p {
+            max-width: 720px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .library-note {
+            margin-top: 20px;
+            padding: 13px 15px;
+            border-left: 3px solid var(--green);
+            border-radius: 0 10px 10px 0;
+            background: rgba(114, 214, 154, .07);
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .library-controls {
+            display: grid;
+            grid-template-columns: minmax(200px, 1fr) minmax(180px, .55fr);
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .library-controls input,
+        .library-controls select {
+            width: 100%;
+            min-height: 46px;
+            padding: 10px 13px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        .library-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 26px 0 14px;
+        }
+
+        .library-heading h2 {
+            margin: 5px 0 0;
+        }
+
+        .library-count {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .study-card {
+            padding: 19px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--surface);
+        }
+
+        .study-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+
+        .study-meta span {
+            padding: 5px 9px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--green);
+            font-size: 11px;
+        }
+
+        .study-card h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .study-card > p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .study-card details {
+            margin-top: 15px;
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+        }
+
+        .study-card summary {
+            color: var(--green);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .study-card details p,
+        .study-card details ul {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .study-card details ul {
+            padding-left: 20px;
+        }
+
+        .library-empty {
+            grid-column: 1 / -1;
+            padding: 24px;
+            border: 1px dashed var(--line);
+            border-radius: 14px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .library-page {
+                padding: 24px 18px 48px;
+            }
+
+            .library-controls,
+            .library-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .library-heading {
+                align-items: start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a href="index.html" class="brand">
+            <span class="logo">F</span>
+            <span class="brand-text"><strong>FARMERS</strong><span>Agricultural Network</span></span>
+        </a>
+        <div class="top-actions">
+            <span class="status-btn"><span class="status-dot"></span><span id="statusText">Online</span></span>
+            <a href="index.html" class="menu-btn" aria-label="Back to home">←</a>
+        </div>
+    </header>
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+        <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+        <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+        <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+        <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+    </nav>
+
+    <main class="library-page">
+        <section class="library-hero">
+            <span class="library-eyebrow">FARMERS LIBRARY</span>
+            <h1>Learn agriculture from <span>Form One to university.</span></h1>
+            <p>Explore clear study notes, practical concepts, and guided learning paths in agriculture, biology, environment, and agribusiness.</p>
+            <div class="library-note">
+                These are supplementary learning materials, not official examination papers or a replacement for your school or university syllabus. Course names and requirements vary by institution.
+            </div>
+        </section>
+
+        <section aria-labelledby="browseTitle">
+            <div class="library-controls">
+                <input id="librarySearch" type="search" placeholder="Search subjects or topics..." aria-label="Search library">
+                <select id="levelFilter" aria-label="Filter by learning level">
+                    <option value="all">All learning levels</option>
+                    <option value="form-1">Form One</option>
+                    <option value="form-2">Form Two</option>
+                    <option value="form-3">Form Three</option>
+                    <option value="form-4">Form Four</option>
+                    <option value="tvet">TVET</option>
+                    <option value="university">University</option>
+                </select>
+            </div>
+            <div class="library-heading">
+                <div>
+                    <span class="library-section-label">STUDY AND GROW</span>
+                    <h2 id="browseTitle">Learning library</h2>
+                </div>
+                <span class="library-count" id="libraryCount" aria-live="polite"></span>
+            </div>
+            <div class="library-grid" id="libraryGrid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <script src="farmers-library.js"></script>
+    <script src="plan-access.js"></script>
+    <footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+        Contact:
+        <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+    </footer>
+</body>
+</html>

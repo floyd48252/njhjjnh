@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="FARMERS - Farming Agribusiness Resource Marketing Enterprise Revolutionary System"
+    >
+
+    <title>FARMERS | Agricultural Network</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
+    <header class="topbar">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <div class="logo">
+                F
+            </div>
+
+            <div class="brand-text">
+
+                <strong>FARMERS</strong>
+
+                <span>
+                    Agricultural Network
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="top-actions">
+
+            <button
+                class="status-btn"
+                id="connectionStatus"
+            >
+                <span class="status-dot"></span>
+                <span id="statusText">
+                    Online
+                </span>
+            </button>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+
+        <a
+            href="index.html"
+            class="primary-nav-item active"
+            aria-current="page"
+        >
+            <span>Home</span>
+        </a>
+
+        <a
+            href="farm-hub.html"
+            class="primary-nav-item"
+        >
+            <span>Farm</span>
+        </a>
+
+        <a
+            href="marketplace.html"
+            class="primary-nav-item"
+        >
+            <span>Market</span>
+        </a>
+
+        <a
+            href="agribusiness.html"
+            class="primary-nav-item"
+        >
+            <span>Business</span>
+        </a>
+
+        <a
+            href="profile.html"
+            class="primary-nav-item"
+        >
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         SIDE MENU
+    ========================== -->
+
+    <aside
+        class="side-menu"
+        id="sideMenu"
+    >
+
+        <div class="menu-header">
+
+            <div class="logo small">
+                F
+            </div>
+
+            <div>
+
+                <strong>
+                    FARMERS
+                </strong>
+
+                <small>
+                    Navigation
+                </small>
+
+            </div>
+
+            <button
+                id="closeMenu"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <nav>
+
+            <a
+                href="index.html"
+                class="menu-link active"
+                >
+                    <span>Dashboard</span>
+                </a>
+
+            <a
+                href="farm-hub.html"
+                class="menu-link"
+            >
+                <span>Farm Hub</span>
+            </a>
+
+            <a
+                href="marketplace.html"
+                class="menu-link"
+            >
+                <span>Marketplace</span>
+            </a>
+
+            <a
+                href="agribusiness.html"
+                class="menu-link"
+            >
+                <span>Agribusiness</span>
+            </a>
+
+            <a
+                href="market-intelligence.html"
+                class="menu-link"
+            >
+                <span>Market Intelligence</span>
+            </a>
+
+            <a
+                href="logistics.html"
+                class="menu-link"
+            >
+                <span>Logistics</span>
+            </a>
+
+            <a
+                href="community.html"
+                class="menu-link"
+            >
+                <span>Community</span>
+            </a>
+
+            <a
+                href="resources.html"
+                class="menu-link"
+            >
+                <span>Resources</span>
+            </a>
+
+            <a
+                href="farmers-library.html"
+                class="menu-link"
+            >
+                <span>Farmers Library</span>
+            </a>
+
+            <a
+                href="experts.html"
+                class="menu-link"
+            >
+                <span>Experts</span>
+            </a>
+
+            <div class="menu-divider"></div>
+
+            <a
+                href="farmers-ai.html"
+                class="menu-link"
+            >
+                <span>Farmers AI</span>
+            </a>
+
+            <a
+                href="subscription.html"
+                class="menu-link premium-link"
+            >
+                <span>FARMERS PRO</span>
+            </a>
+
+            <a
+                href="profile.html"
+                class="menu-link"
+            >
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         OVERLAY
+    ========================== -->
+
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="dashboard">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <img
+                class="welcome-photo"
+                src="hero-field.jpg"
+                alt="Golden sunlight falling over a wide farm field"
+            >
+
+            <div>
+
+                <span class="eyebrow">
+                    FARMING • AGRIBUSINESS • TECHNOLOGY
+                </span>
+
+                <h1>
+                    Grow smarter.
+                    <span>Trade better.</span>
+                </h1>
+
+                <p>
+                    One digital ecosystem connecting
+                    farmers, traders, businesses and
+                    agricultural resources.
+                </p>
+
+                <div class="welcome-actions">
+                    <a class="primary-link" href="farm-hub.html">Explore Farm Hub <span aria-hidden="true">→</span></a>
+                    <a class="secondary-link" href="marketplace.html">Visit Marketplace</a>
+                </div>
+
+            </div>
+
+
+            <div class="connection-card">
+
+                <span class="connection-icon" aria-hidden="true"></span>
+
+                <div>
+
+                    <strong id="modeTitle">
+                        Online Mode
+                    </strong>
+
+                    <p id="modeDescription">
+                        Access broader agricultural
+                        information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <span class="search-icon" aria-hidden="true"></span>
+
+                <input
+                    type="search"
+                    id="globalSearch"
+                    placeholder="Search crops, livestock, markets..."
+                >
+
+                <button id="searchButton">
+                    Search
+                </button>
+
+            </div>
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+        </section>
+
+
+        <!-- QUICK ACCESS -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Your agricultural tools
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="tool-grid">
+
+
+                <a
+                    href="farm-hub.html"
+                    class="tool-card"
+                >
+
+                    <img class="tool-icon" src="crop-rows.jpg" alt="" loading="lazy" decoding="async">
+
+                    <div>
+
+                        <strong>
+                            Farm Hub
+                        </strong>
+
+                        <p>
+                            Farming knowledge
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="marketplace.html"
+                    class="tool-card"
+                >
+
+                    <img class="tool-icon" src="market-produce.jpg" alt="" loading="lazy" decoding="async">
+
+                    <div>
+
+                        <strong>
+                            Marketplace
+                        </strong>
+
+                        <p>
+                            Buy & sell produce
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="agribusiness.html"
+                    class="tool-card"
+                >
+
+                    <img class="tool-icon" src="sunset-field.jpg" alt="" loading="lazy" decoding="async">
+
+                    <div>
+
+                        <strong>
+                            Agribusiness
+                        </strong>
+
+                        <p>
+                            Manage your farm
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="market-intelligence.html"
+                    class="tool-card"
+                >
+
+                    <img class="tool-icon" src="fresh-produce.jpg" alt="" loading="lazy" decoding="async">
+
+                    <div>
+
+                        <strong>
+                            Intelligence
+                        </strong>
+
+                        <p>
+                            Markets & prices
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+                <a
+                    href="farmers-ai.html"
+                    class="tool-card"
+                >
+
+                    <img class="tool-icon" src="crop-rows.jpg" alt="" loading="lazy" decoding="async">
+
+                    <div>
+
+                        <strong>
+                            Farmers AI
+                        </strong>
+
+                        <p>
+                            AI-powered farm assistance
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ECOSYSTEM -->
+
+        <section class="ecosystem">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        FARMERS ECOSYSTEM
+                    </span>
+
+                    <h2>
+                        Everything connected
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="ecosystem-grid">
+
+
+                <a
+                    href="logistics.html"
+                    class="eco-card"
+                >
+
+                    <img class="eco-image" src="sunset-field.jpg" alt="" loading="lazy" decoding="async">
+
+                    <strong>
+                        Logistics
+                    </strong>
+
+                    <p>
+                        Transport & storage
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="community.html"
+                    class="eco-card"
+                >
+
+                    <img class="eco-image" src="market-produce.jpg" alt="" loading="lazy" decoding="async">
+
+                    <strong>
+                        Community
+                    </strong>
+
+                    <p>
+                        Connect with people
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="resources.html"
+                    class="eco-card"
+                >
+
+                    <img class="eco-image" src="crop-rows.jpg" alt="" loading="lazy" decoding="async">
+
+                    <strong>
+                        Resources
+                    </strong>
+
+                    <p>
+                        Agricultural knowledge
+                    </p>
+
+                </a>
+
+                <a
+                    href="farmers-library.html"
+                    class="eco-card"
+                >
+
+                    <img class="eco-image" src="seedlings.jpg" alt="" loading="lazy" decoding="async">
+
+                    <strong>
+                        Farmers Library
+                    </strong>
+
+                    <p>
+                        Study agriculture from school to university
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="experts.html"
+                    class="eco-card"
+                >
+
+                    <img class="eco-image" src="fresh-produce.jpg" alt="" loading="lazy" decoding="async">
+
+                    <strong>
+                        Experts
+                    </strong>
+
+                    <p>
+                        Professional advice
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREMIUM -->
+
+        <section class="premium-banner">
+
+            <div>
+
+                <span class="premium-label">
+                    FARMERS PRO
+                </span>
+
+                <h2>
+                    Built for serious
+                    agricultural businesses.
+                </h2>
+
+                <p>
+                    Advanced analytics, multiple farms,
+                    inventory, teams, reports and more.
+                </p>
+
+            </div>
+
+            <a
+                href="subscription.html"
+                class="premium-button"
+            >
+                Explore Pro
+            </a>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <strong>
+                FARMERS
+            </strong>
+
+            <p>
+                Farming • Agribusiness • Resource
+                • Marketing • Enterprise
+                • Revolutionary • System
+            </p>
+
+            <p>
+                Contact:
+                <a href="mailto:farmersrevolutionarysystem@gmail.com">
+                    farmersrevolutionarysystem@gmail.com
+                </a>
+            </p>
+
+            <small>
+                FARMERS © 2026
+            </small>
+
+        </footer>
+
+    </main>
+
+
+    <script src="app.js"></script>
+    <script src="plan-access.js"></script>
+
+</body>
+
+</html>

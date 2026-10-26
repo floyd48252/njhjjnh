@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS - Agricultural Experts</title>
+
+<style>
+
+/* =========================
+   FARMERS EXPERTS
+   MAIN DESIGN
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050807;
+    color: #e8f5ef;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background: #07100c;
+    border-bottom: 1px solid #123d2b;
+    padding: 18px;
+}
+
+.header-inner {
+    max-width: 950px;
+    margin: auto;
+}
+
+.logo {
+    color: #00c878;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #718078;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 16px;
+}
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #0b2117,
+        #07100c
+    );
+
+    border: 1px solid #164d36;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    color: #00c878;
+    font-size: 25px;
+    margin: 0 0 8px;
+}
+
+.hero p {
+    color: #9aaba3;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.search {
+    margin-top: 18px;
+}
+
+.search input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 11px;
+    border: 1px solid #164d36;
+    background: #050807;
+    color: white;
+    outline: none;
+}
+
+.search input:focus {
+    border-color: #00c878;
+}
+
+.section-title {
+    color: #00c878;
+    font-size: 17px;
+    margin: 20px 0 12px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.filter {
+    flex-shrink: 0;
+    padding: 9px 13px;
+    border-radius: 20px;
+    border: 1px solid #164d36;
+    background: #0b1712;
+    color: #83938b;
+    cursor: pointer;
+}
+
+.filter.active {
+    background: #00c878;
+    color: #031109;
+    border-color: #00c878;
+    font-weight: bold;
+}
+
+.expert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.expert-card {
+    background: #09130f;
+    border: 1px solid #123d2b;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.expert-card:hover {
+    border-color: #00c878;
+}
+
+.expert-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.expert-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #00c878;
+    color: #031109;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.expert-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.expert-title {
+    color: #00c878;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+@media (max-width: 650px) {
+
+    .expert-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="logo">
+<a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+</div>
+
+<div class="subtitle">
+Agricultural Expert Network
+</div>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+
+
+<section class="hero">
+
+<h1>
+Agricultural Experts
+</h1>
+
+<p>
+Explore publicly documented agricultural
+professionals and research specialists.
+Find expertise in crops, livestock,
+horticulture, soil, pests and agribusiness.
+</p>
+
+
+<div class="search">
+
+<input
+id="expertSearch"
+type="search"
+placeholder="Search experts or specialties...">
+
+</div>
+
+</section>
+
+
+<h2 class="section-title">
+Find Expertise
+</h2>
+
+
+<div class="filters">
+
+<button
+class="filter active"
+data-category="all">
+All
+</button>
+
+<button
+class="filter"
+data-category="crops">
+Crops
+</button>
+
+<button
+class="filter"
+data-category="livestock">
+Livestock
+</button>
+
+<button
+class="filter"
+data-category="horticulture">
+Horticulture
+</button>
+
+<button
+class="filter"
+data-category="soil">
+Soil & Climate
+</button>
+
+<button
+class="filter"
+data-category="pests">
+Pests
+</button>
+
+<button
+class="filter"
+data-category="business">
+Agribusiness
+</button>
+
+</div>
+
+
+<h2 class="section-title">
+Featured Agricultural Professionals
+</h2>
+
+
+<div
+id="expertGrid"
+class="expert-grid">
+    <!-- =========================
+     EXPERT 1
+========================= -->
+
+<article
+class="expert-card"
+data-category="crops"
+data-search="josephine ouma agronomy crops cereals legumes fertilizer">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+JO
+</div>
+
+<div>
+
+<div class="expert-name">
+Prof. Josephine Pamela Achieng' Ouma
+</div>
+
+<div class="expert-title">
+Professor of Agronomy
+</div>
+
+</div>
+
+</div>
+
+
+<p class="expert-info">
+<strong>Institution:</strong>
+Egerton University
+</p>
+
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Agronomy, cereal-legume systems,
+fertilizer use and crop propagation.
+</p>
+
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Agronomy.
+</p>
+
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+
+<button
+class="ask-button"
+data-expert="Prof. Josephine Pamela Achieng' Ouma">
+
+Ask About This Field
+
+</button>
+
+
+<button
+class="source-button"
+data-url="https://profiles.egerton.ac.ke/eprofile/18168">
+
+View Institutional Profile
+
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 2
+========================= -->
+
+<article
+class="expert-card"
+data-category="horticulture"
+data-search="arnold opiyo horticulture vegetables postharvest flowers">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+AO
+</div>
+
+<div>
+
+<div class="expert-name">
+Prof. Arnold Mathew Opiyo
+</div>
+
+<div class="expert-title">
+Associate Professor of Horticulture
+</div>
+
+</div>
+
+</div>
+
+
+<p class="expert-info">
+<strong>Institution:</strong>
+Egerton University
+</p>
+
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Horticulture, vegetables,
+postharvest physiology and
+horticultural value chains.
+</p>
+
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Food Science /
+Postharvest Physiology.
+</p>
+
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+
+<button
+class="ask-button"
+data-expert="Prof. Arnold Mathew Opiyo">
+
+Ask About This Field
+
+</button>
+
+
+<button
+class="source-button"
+data-url="https://profiles.egerton.ac.ke/eprofile/18210">
+
+View Institutional Profile
+
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 3
+========================= -->
+
+<article
+class="expert-card"
+data-category="crops"
+data-search="erick cheruiyot agronomy crop physiology agriculture">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+EC
+</div>
+
+<div>
+
+<div class="expert-name">
+Prof. Erick Kimutai Cheruiyot
+</div>
+
+<div class="expert-title">
+Associate Professor
+</div>
+
+</div>
+
+</div>
+
+
+<p class="expert-info">
+<strong>Institution:</strong>
+Egerton University
+</p>
+
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Agronomy, crop physiology and
+crop responses to environmental
+variables.
+</p>
+
+
+<p class="expert-info">
+<strong>Qualifications:</strong>
+PhD Agronomy, MSc Crop Production,
+BSc Agriculture.
+</p>
+
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+
+<button
+class="ask-button"
+data-expert="Prof. Erick Kimutai Cheruiyot">
+
+Ask About This Field
+
+</button>
+
+
+<button
+class="source-button"
+data-url="https://profiles.egerton.ac.ke/eprofile/19379">
+
+View Institutional Profile
+
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 4
+========================= -->
+
+<article
+class="expert-card"
+data-category="business"
+data-search="evans chimoita agricultural extension technology transfer value chains farmers">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+EC
+</div>
+
+<div>
+
+<div class="expert-name">
+Dr. Evans L. Chimoita
+</div>
+
+<div class="expert-title">
+Senior Lecturer
+</div>
+
+</div>
+
+</div>
+
+
+<p class="expert-info">
+<strong>Institution:</strong>
+University of Nairobi
+</p>
+
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Agricultural extension,
+technology transfer, value chains
+and farmer research networks.
+</p>
+
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Agricultural Information
+and Communication Management.
+</p>
+
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+
+<button
+class="ask-button"
+data-expert="Dr. Evans L. Chimoita">
+
+Ask About This Field
+
+</button>
+
+
+<button
+class="source-button"
+data-url="https://agrieconomics.uonbi.ac.ke/staff/dr-evans-l-chimoita">
+
+View Institutional Profile
+
+</button>
+
+</article>
+<!-- =========================
+     EXPERT 5
+========================= -->
+
+<article
+class="expert-card"
+data-category="soil"
+data-search="josiah kinama climate soil water fertilizer meteorology">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+JK
+</div>
+
+<div>
+
+<div class="expert-name">
+Prof. Josiah Mwivandi Kinama
+</div>
+
+<div class="expert-title">
+Associate Professor & Agricultural Scientist
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+University of Nairobi
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Agro-meteorology, climate-change
+modelling, crop water use,
+fertilizer use and soil-water balance.
+</p>
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Meteorology.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Prof. Josiah Mwivandi Kinama">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://profiles.uonbi.ac.ke/jkinama">
+View Institutional Profile
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 6
+========================= -->
+
+<article
+class="expert-card"
+data-category="pests"
+data-search="shepard ndlela insects pests entomology pest management icipe">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+SN
+</div>
+
+<div>
+
+<div class="expert-name">
+Dr. Shepard Ndlela
+</div>
+
+<div class="expert-title">
+Research Scientist
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+International Centre of Insect
+Physiology and Ecology (icipe)
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Insect pests, entomology and
+integrated pest management.
+</p>
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Entomology,
+University of Nairobi.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Dr. Shepard Ndlela">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://www.icipe.org/about/staff/shepard-ndlela">
+View Institutional Profile
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 7
+========================= -->
+
+<article
+class="expert-card"
+data-category="livestock"
+data-search="julie ojango livestock cattle dairy goats animal genetics ilri">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+JO
+</div>
+
+<div>
+
+<div class="expert-name">
+Dr. Julie Ojango
+</div>
+
+<div class="expert-title">
+Senior Scientist
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+International Livestock Research
+Institute (ILRI)
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Animal genetic resources,
+livestock breeds and production
+systems, including dairy cattle
+and small ruminants.
+</p>
+
+<p class="expert-info">
+<strong>Research Area:</strong>
+Animal Genetic Resource
+Utilization and Management.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Dr. Julie Ojango">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://www.ilri.org/people/julie-ojango">
+View Institutional Profile
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 8
+========================= -->
+
+<article
+class="expert-card"
+data-category="business"
+data-search="joseph karugia agricultural economics policy markets food systems ilri">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+JK
+</div>
+
+<div>
+
+<div class="expert-name">
+Joseph Karugia
+</div>
+
+<div class="expert-title">
+Principal Scientist & Agricultural Economist
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+International Livestock Research
+Institute (ILRI)
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Agricultural economics,
+agricultural policy, markets
+and food systems.
+</p>
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Agricultural Economics,
+University of Alberta.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Joseph Karugia">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://www.ilri.org/people/joseph-karugia">
+View Institutional Profile
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 9
+========================= -->
+
+<article
+class="expert-card"
+data-category="soil"
+data-search="john recha climate smart agriculture soil fertility hydrology">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+JR
+</div>
+
+<div>
+
+<div class="expert-name">
+Dr. John W. Recha
+</div>
+
+<div class="expert-title">
+Climate-Smart Agriculture
+& Policy Scientist
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+CGIAR / ILRI
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Climate-smart agriculture,
+soil fertility, hydrology and
+climate adaptation.
+</p>
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Soil Science.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Dr. John W. Recha">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://ccafs.cgiar.org/people/john-w-recha">
+View Institutional Profile
+</button>
+
+</article>
+
+
+<!-- =========================
+     EXPERT 10
+========================= -->
+
+<article
+class="expert-card"
+data-category="horticulture"
+data-search="robert gesimba horticulture crop protection fruit postharvest egerton">
+
+<div class="expert-top">
+
+<div class="expert-avatar">
+RG
+</div>
+
+<div>
+
+<div class="expert-name">
+Prof. Robert Morwani Gesimba
+</div>
+
+<div class="expert-title">
+Associate Professor
+</div>
+
+</div>
+
+</div>
+
+<p class="expert-info">
+<strong>Institution:</strong>
+Egerton University
+</p>
+
+<p class="expert-info">
+<strong>Expertise:</strong>
+Crop production physiology,
+crop protection, fruit science
+and postharvest technology.
+</p>
+
+<p class="expert-info">
+<strong>Qualification:</strong>
+PhD in Horticulture and
+Crop Science.
+</p>
+
+<div class="credential-badge">
+✓ Public institutional profile
+</div>
+
+<button
+class="ask-button"
+data-expert="Prof. Robert Morwani Gesimba">
+Ask About This Field
+</button>
+
+<button
+class="source-button"
+data-url="https://profiles.egerton.ac.ke/eprofile/18253">
+View Institutional Profile
+</button>
+
+</article>
+
+
+</div>
+
+
+<!-- =========================
+     EXPERT CARD STYLES
+========================= -->
+
+<style>
+
+.expert-info {
+    color: #91a49a;
+    font-size: 12px;
+    line-height: 1.55;
+    margin: 12px 0 0;
+}
+
+.expert-info strong {
+    color: #dcece5;
+}
+
+.credential-badge {
+    display: inline-block;
+    margin-top: 13px;
+    padding: 6px 9px;
+    border-radius: 8px;
+    background: rgba(0,200,120,.08);
+    border: 1px solid rgba(0,200,120,.2);
+    color: #00c878;
+    font-size: 10px;
+}
+
+.ask-button,
+.source-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.ask-button {
+    background: #00c878;
+    color: #031109;
+    border: 1px solid #00c878;
+    font-weight: bold;
+}
+
+.source-button {
+    background: #0b1712;
+    color: #00c878;
+    border: 1px solid #164d36;
+}
+
+.ask-button:hover {
+    background: #18e28e;
+}
+
+.source-button:hover {
+    border-color: #00c878;
+}
+
+</style>
+<!-- =========================
+     EXPERT QUESTIONS
+========================= -->
+
+<section
+id="questionPanel"
+style="display:none;">
+
+<div class="question-box">
+
+<h2>
+Ask About Agriculture
+</h2>
+
+<p id="selectedExpert">
+</p>
+
+<textarea
+id="expertQuestion"
+placeholder="Describe your farming question clearly..."
+></textarea>
+
+<div class="question-buttons">
+
+<button
+id="cancelQuestion"
+class="cancel-button">
+Cancel
+</button>
+
+<button
+id="sendQuestion"
+class="ask-button">
+Send Question
+</button>
+
+</div>
+
+<p
+id="questionMessage">
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     IMPORTANT NOTICE
+========================= -->
+
+<section class="notice">
+
+<h3>
+FARMERS Expert Directory
+</h3>
+
+<p>
+The people displayed above are real
+agricultural professionals identified
+through publicly available institutional
+profiles.
+</p>
+
+<p>
+Their appearance in this directory does
+<strong>not</strong> mean that they are
+FARMERS members or that they have agreed
+to answer questions through FARMERS.
+</p>
+
+<p>
+The future FARMERS verification system
+will separately verify professionals who
+voluntarily create accounts on the platform.
+</p>
+
+</section>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+<button onclick="location.href='index.html'">
+Home
+</button>
+
+<button onclick="location.href='community.html'">
+Community
+</button>
+
+<button onclick="location.href='farm-hub.html'">
+Farm Hub
+</button>
+
+<button onclick="location.href='marketplace.html'">
+Marketplace
+</button>
+
+</div>
+
+
+<footer>
+
+<strong>
+FARMERS
+</strong>
+
+<br>
+
+Agriculture • Community • Knowledge • Enterprise
+
+<p>
+Contact:
+<a href="mailto:farmersrevolutionarysystem@gmail.com">
+farmersrevolutionarysystem@gmail.com
+</a>
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   SEARCH
+========================= */
+
+const searchInput =
+    document.getElementById(
+        "expertSearch"
+    );
+
+
+const cards =
+    document.querySelectorAll(
+        ".expert-card"
+    );
+
+
+function filterExperts() {
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const activeFilter =
+        document.querySelector(
+            ".filter.active"
+        );
+
+
+    const category =
+        activeFilter
+        ? activeFilter.dataset.category
+        : "all";
+
+
+    cards.forEach(
+        function(card) {
+
+            const text =
+                card.dataset.search
+                    .toLowerCase();
+
+
+            const cardCategory =
+                card.dataset.category;
+
+
+            const searchMatch =
+                text.includes(search);
+
+
+            const categoryMatch =
+                category === "all" ||
+                cardCategory === category;
+
+
+            if (
+                searchMatch &&
+                categoryMatch
+            ) {
+
+                card.style.display =
+                    "";
+
+            } else {
+
+                card.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+searchInput.addEventListener(
+    "input",
+    filterExperts
+);
+
+
+/* =========================
+   CATEGORY FILTERS
+========================= */
+
+document
+    .querySelectorAll(".filter")
+    .forEach(
+        function(filter) {
+
+            filter.addEventListener(
+                "click",
+                function() {
+
+                    document
+                        .querySelectorAll(
+                            ".filter"
+                        )
+                        .forEach(
+                            function(button) {
+
+                                button.classList
+                                    .remove(
+                                        "active"
+                                    );
+
+                            }
+                        );
+
+
+                    filter.classList
+                        .add("active");
+
+
+                    filterExperts();
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================
+   ASK EXPERT
+========================= */
+
+let currentExpert = "";
+
+
+document
+    .querySelectorAll(".ask-button")
+    .forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    currentExpert =
+                        button.dataset.expert;
+
+
+                    document
+                        .getElementById(
+                            "selectedExpert"
+                        )
+                        .textContent =
+                        "Question for " +
+                        currentExpert;
+
+
+                    document
+                        .getElementById(
+                            "questionPanel"
+                        )
+                        .style.display =
+                        "block";
+
+
+                    document
+                        .getElementById(
+                            "expertQuestion"
+                        )
+                        .focus();
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================
+   CANCEL
+========================= */
+
+document
+    .getElementById(
+        "cancelQuestion"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            document
+                .getElementById(
+                    "questionPanel"
+                )
+                .style.display =
+                "none";
+
+
+            document
+                .getElementById(
+                    "expertQuestion"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "questionMessage"
+                )
+                .textContent = "";
+
+        }
+    );
+
+
+/* =========================
+   SEND QUESTION
+========================= */
+
+document
+    .getElementById(
+        "sendQuestion"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            const question =
+                document
+                    .getElementById(
+                        "expertQuestion"
+                    )
+                    .value
+                    .trim();
+
+
+            const message =
+                document
+                    .getElementById(
+                        "questionMessage"
+                    );
+
+
+            if (!question) {
+
+                message.textContent =
+                    "Please write a question.";
+
+                return;
+
+            }
+
+
+            if (question.length < 10) {
+
+                message.textContent =
+                    "Please provide more detail.";
+
+                return;
+
+            }
+
+
+            const savedQuestions =
+                JSON.parse(
+                    localStorage.getItem(
+                        "farmersExpertQuestions"
+                    )
+                ) || [];
+
+
+            savedQuestions.push({
+
+                expert:
+                    currentExpert,
+
+                question:
+                    question,
+
+                date:
+                    new Date()
+                        .toLocaleString(),
+
+                status:
+                    "Pending"
+
+            });
+
+
+            localStorage.setItem(
+                "farmersExpertQuestions",
+                JSON.stringify(
+                    savedQuestions
+                )
+            );
+
+
+            message.textContent =
+                "✓ Your question has been saved.";
+
+
+            document
+                .getElementById(
+                    "expertQuestion"
+                )
+                .value = "";
+
+        }
+    );
+
+
+/* =========================
+   CREDENTIAL BUTTONS
+========================= */
+
+document
+    .querySelectorAll(".source-button")
+    .forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const url =
+                        button.dataset.url;
+
+
+                    window.open(
+                        url,
+                        "_blank"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+console.log(
+    "FARMERS Experts loaded successfully."
+);
+
+</script>
+
+
+<style>
+
+/* =========================
+   QUESTION PANEL
+========================= */
+
+.question-box {
+    margin-top: 20px;
+    padding: 18px;
+    background: #09130f;
+    border: 1px solid #164d36;
+    border-radius: 16px;
+}
+
+.question-box h2 {
+    color: #00c878;
+    margin-top: 0;
+}
+
+.question-box p {
+    color: #91a49a;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.question-box textarea {
+    width: 100%;
+    min-height: 120px;
+    margin-top: 12px;
+    padding: 12px;
+    background: #050807;
+    color: white;
+    border: 1px solid #164d36;
+    border-radius: 10px;
+    resize: vertical;
+    outline: none;
+}
+
+.question-box textarea:focus {
+    border-color: #00c878;
+}
+
+.question-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.question-buttons button {
+    flex: 1;
+}
+
+.cancel-button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    background: #0b1712;
+    color: #9aaba3;
+    border: 1px solid #164d36;
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice {
+    margin-top: 20px;
+    padding: 16px;
+    background: #07100c;
+    border: 1px solid #164d36;
+    border-radius: 15px;
+}
+
+.notice h3 {
+    color: #00c878;
+    margin-top: 0;
+}
+
+.notice p {
+    color: #91a49a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.navigation button {
+    padding: 11px 5px;
+    background: #0b1712;
+    color: #00c878;
+    border: 1px solid #164d36;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.navigation button:hover {
+    background: #00c878;
+    color: #031109;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    color: #52635b;
+    font-size: 10px;
+    line-height: 1.8;
+    padding: 30px 10px;
+}
+
+
+@media (max-width: 500px) {
+
+    .navigation {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+</style>
+
+
+</main>
+
+</body>
+
+</html>

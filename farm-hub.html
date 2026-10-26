@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Farm Hub | FARMERS</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<style>
+
+/* FARM HUB */
+
+.page-container {
+    width: min(950px, 100%);
+    margin: auto;
+    padding: 25px 17px 100px;
+}
+
+.back-row {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.back-btn:hover {
+    color: var(--emerald);
+}
+
+
+/* HERO */
+
+.hub-hero {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,200,120,.13),
+            rgba(0,0,0,.1)
+        );
+
+    border:
+        1px solid
+        rgba(0,255,156,.2);
+
+    margin-bottom: 25px;
+}
+
+.hub-label {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+.hub-hero h1 {
+
+    font-size:
+        clamp(30px,8vw,48px);
+
+    margin-top: 8px;
+}
+
+.hub-hero h1 span {
+
+    color: var(--emerald);
+}
+
+.hub-hero p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 600px;
+
+    margin-top: 10px;
+}
+
+
+/* SEARCH */
+
+.hub-search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 13px;
+
+    padding: 8px;
+
+    margin-bottom: 25px;
+}
+
+.hub-search span {
+
+    padding-left: 8px;
+}
+
+.hub-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    background: none;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    padding: 10px 0;
+}
+
+
+/* SECTION */
+
+.hub-section {
+
+    margin-top: 28px;
+}
+
+.hub-title {
+
+    margin-bottom: 13px;
+}
+
+.hub-title span {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: bold;
+}
+
+.hub-title h2 {
+
+    margin-top: 5px;
+
+    font-size: 20px;
+}
+
+
+/* CATEGORIES */
+
+.category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+}
+
+.farm-category {
+
+    position: relative;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    text-align: left;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.farm-category:hover {
+
+    border-color:
+        rgba(0,255,156,.4);
+
+    transform:
+        translateY(-2px);
+}
+
+.category-icon {
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+
+    display: block;
+}
+
+.farm-category strong {
+
+    display: block;
+
+    font-size: 14px;
+}
+
+.farm-category small {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 5px;
+}
+
+.category-count {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    color: var(--emerald);
+
+    font-size: 9px;
+}
+
+
+/* RESULTS */
+
+#farmResults {
+
+    display: none;
+
+    margin-top: 10px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 13px;
+
+    padding: 12px;
+}
+
+.guide-list {
+    display: grid;
+    gap: 10px;
+}
+
+.guide {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.guide-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(0,200,120,.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.guide-content {
+    flex: 1;
+}
+
+.guide-content strong {
+    display: block;
+    font-size: 13px;
+}
+
+.guide-content p {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+.guide-btn {
+    border: 1px solid var(--border);
+    background: rgba(0,200,120,.05);
+    color: var(--emerald);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.farm-guide-dialog {
+    width: min(600px, calc(100% - 32px));
+    max-height: min(85vh, 760px);
+    padding: 0;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.farm-guide-dialog::backdrop {
+    background: rgba(0, 0, 0, .72);
+}
+
+.farm-guide-content {
+    padding: 22px;
+    overflow-y: auto;
+}
+
+.farm-guide-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.farm-guide-header h2 {
+    color: var(--emerald);
+    font-size: 22px;
+}
+
+.farm-guide-close {
+    flex-shrink: 0;
+    padding: 7px 11px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    background: transparent;
+    cursor: pointer;
+}
+
+.farm-guide-overview {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.farm-guide-content h3 {
+    margin: 20px 0 10px;
+    font-size: 15px;
+}
+
+.farm-guide-steps {
+    display: grid;
+    gap: 10px;
+    padding-left: 22px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.farm-guide-note {
+    margin-top: 18px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.farm-guide-empty {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.offline-box {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,255,156,.2);
+    background: rgba(0,200,120,.05);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.offline-icon {
+    font-size: 27px;
+}
+
+.offline-box strong {
+    display: block;
+    font-size: 13px;
+}
+
+.offline-box p {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 4px;
+    line-height: 1.4;
+}@media (min-width:700px) {
+
+    .category-grid {
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<div class="logo">
+    F
+</div>
+
+<div class="brand-text">
+
+<strong>
+    FARMERS
+</strong>
+
+<span>
+    Agricultural Network
+</span>
+
+</div>
+
+</a>
+
+
+<div class="top-actions">
+
+<span
+    class="status-btn"
+    id="connectionStatus"
+>
+
+<span class="status-dot"></span>
+
+<span id="statusText">
+    Online
+</span>
+
+</span>
+
+
+<button
+    class="menu-btn"
+    onclick="history.back()"
+>
+    ←
+</button>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item active" aria-current="page"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<!-- MAIN -->
+
+<main class="page-container">
+
+
+<div class="back-row">
+
+<a
+    href="index.html"
+    class="back-btn"
+>
+    ← Back to Dashboard
+</a>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hub-hero">
+
+<span class="hub-label">
+    FARMERS KNOWLEDGE CENTER
+</span>
+
+<h1>
+
+Welcome to the
+
+<span>
+    Farm Hub.
+</span>
+
+</h1>
+
+<p>
+
+Explore farming knowledge,
+production guides, livestock
+information, crop management
+and practical agricultural
+resources.
+
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section>
+
+<div class="hub-search">
+
+<span>
+</span>
+
+<input
+    id="farmSearch"
+    type="search"
+    placeholder="Search farming topics..."
+>
+
+</div>
+
+
+<div id="farmResults"></div>
+
+</section>
+<!-- AGRICULTURAL SECTORS -->
+
+<section class="hub-section">
+
+<div class="hub-title">
+
+<span>
+    AGRICULTURAL SECTORS
+</span>
+
+<h2>
+    Explore farming
+</h2>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<button
+    class="farm-category"
+    data-category="crops"
+>
+
+<span class="category-icon">
+    <img src="crop-rows.jpg" alt="" loading="lazy">
+</span>
+
+<strong>
+    Crop Farming
+</strong>
+
+<small>
+    Maize, vegetables,
+    fruits & grains
+</small>
+
+<span class="category-count">
+    20+
+</span>
+
+</button>
+
+
+<button
+    class="farm-category"
+    data-category="livestock"
+>
+
+<span class="category-icon">
+    <img src="dairy-cow.jpg" alt="" loading="lazy">
+</span>
+
+<strong>
+    Livestock
+</strong>
+
+<small>
+    Cattle, goats,
+    sheep & pigs
+</small>
+
+<span class="category-count">
+    15+
+</span>
+
+</button>
+
+
+<button
+    class="farm-category"
+    data-category="poultry"
+>
+
+<span class="category-icon">
+    <img src="poultry.jpg" alt="" loading="lazy">
+</span>
+
+<strong>
+    Poultry
+</strong>
+
+<small>
+    Chicken, ducks,
+    turkeys & more
+</small>
+
+<span class="category-count">
+    12+
+</span>
+
+</button>
+
+
+<button
+    class="farm-category"
+    data-category="aquaculture"
+>
+
+<span class="category-icon">
+    <img src="fish.jpg" alt="" loading="lazy">
+</span>
+
+<strong>
+    Aquaculture
+</strong>
+
+<small>
+    Fish farming &
+    water management
+</small>
+
+<span class="category-count">
+    10+
+</span>
+
+</button>
+
+
+</div>
+
+</section>
+
+
+<!-- FARM MANAGEMENT -->
+
+<section class="hub-section">
+
+<div class="hub-title">
+
+<span>
+    FARM MANAGEMENT
+</span>
+
+<h2>
+    Learn & improve
+</h2>
+
+</div>
+
+
+<div class="guide-list">
+
+
+<div class="guide">
+
+<div class="guide-icon">
+    <img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+<div class="guide-content">
+
+<strong>
+    Soil Management
+</strong>
+
+<p>
+    Soil preparation,
+    fertility, nutrients
+    and conservation.
+</p>
+
+</div>
+
+<button
+    class="guide-btn"
+    data-topic="soil"
+>
+    Open
+</button>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-icon">
+    <img src="seedlings.jpg" alt="" loading="lazy">
+</div>
+
+<div class="guide-content">
+
+<strong>
+    Irrigation
+</strong>
+
+<p>
+    Water management
+    and irrigation
+    techniques.
+</p>
+
+</div>
+
+<button
+    class="guide-btn"
+    data-topic="irrigation"
+>
+    Open
+</button>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-icon">
+    <img src="fresh-produce.jpg" alt="" loading="lazy">
+</div>
+
+<div class="guide-content">
+
+<strong>
+    Pest & Disease
+</strong>
+
+<p>
+    Identify common
+    agricultural pests
+    and crop diseases.
+</p>
+
+</div>
+
+<button
+    class="guide-btn"
+    data-topic="pests"
+>
+    Open
+</button>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-icon">
+    <img src="sunset-field.jpg" alt="" loading="lazy">
+</div>
+
+<div class="guide-content">
+
+<strong>
+    Farm Planning
+</strong>
+
+<p>
+    Plan production,
+    seasons, resources
+    and activities.
+</p>
+
+</div>
+
+<button
+    class="guide-btn"
+    data-topic="planning"
+>
+    Open
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- OFFLINE -->
+
+<section class="offline-box">
+
+<div class="offline-icon">
+    <img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+<div>
+
+<strong>
+    Offline Knowledge
+</strong>
+
+<p>
+    Basic agricultural guides
+    are available even when
+    you don't have an internet
+    connection.
+</p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<dialog
+    class="farm-guide-dialog"
+    id="farmGuideDialog"
+    aria-labelledby="farmGuideTitle"
+>
+    <div class="farm-guide-content">
+        <div class="farm-guide-header">
+            <h2 id="farmGuideTitle"></h2>
+            <button
+                type="button"
+                class="farm-guide-close"
+                id="closeFarmGuide"
+                aria-label="Close guide"
+            >
+                Close
+            </button>
+        </div>
+        <p class="farm-guide-overview" id="farmGuideOverview"></p>
+        <h3 id="farmGuideStepsHeading">Practical steps and guidelines</h3>
+        <ol class="farm-guide-steps" id="farmGuideSteps"></ol>
+        <p class="farm-guide-note" id="farmGuideNote"></p>
+    </div>
+</dialog>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+
+<a
+    href="index.html"
+    class="bottom-item"
+>
+
+<span>
+    ⌂
+</span>
+
+<small>
+    Home
+</small>
+
+</a>
+
+
+<a
+    href="farm-hub.html"
+    class="bottom-item active"
+>
+
+<span>
+    Farm
+</span>
+
+<small>
+    Farm
+</small>
+
+</a>
+
+
+<a
+    href="marketplace.html"
+    class="bottom-item market"
+>
+
+<span>
+    Market
+</span>
+
+<small>
+    Market
+</small>
+
+</a>
+
+
+<a
+    href="agribusiness.html"
+    class="bottom-item"
+>
+
+<span>
+    ▥
+</span>
+
+<small>
+    Business
+</small>
+
+</a>
+
+
+<a
+    href="profile.html"
+    class="bottom-item"
+>
+
+<span>
+    Profile
+</span>
+
+<small>
+    Profile
+</small>
+
+</a>
+
+
+</nav>
+<script>
+
+/* =========================
+   CONNECTION
+========================= */
+
+function updateConnection() {
+
+    const online =
+        navigator.onLine;
+
+    const text =
+        document.getElementById(
+            "statusText"
+        );
+
+
+    text.textContent =
+        online
+        ? "Online"
+        : "Offline";
+
+}
+
+
+updateConnection();
+
+
+window.addEventListener(
+    "online",
+    updateConnection
+);
+
+
+window.addEventListener(
+    "offline",
+    updateConnection
+);
+
+
+/* =========================
+   OFFLINE FARM KNOWLEDGE
+========================= */
+
+const topics = [
+
+    "Maize farming",
+
+    "Tomato farming",
+
+    "Potato farming",
+
+    "Onion farming",
+
+    "Beans farming",
+
+    "Cabbage farming",
+
+    "Avocado farming",
+
+    "Dairy cattle",
+
+    "Beef cattle",
+
+    "Goat farming",
+
+    "Sheep farming",
+
+    "Pig farming",
+
+    "Broiler chickens",
+
+    "Layer chickens",
+
+    "Kuku kienyeji",
+
+    "Kenbro (Kenbroo) chickens",
+
+    "Turkey farming",
+
+    "Guinea fowl farming",
+
+    "Duck farming",
+
+    "Chicken diseases",
+
+    "Poultry feeding",
+
+    "Tilapia farming",
+
+    "Catfish farming",
+
+    "Soil management",
+
+    "Irrigation",
+
+    "Pest management",
+
+    "Disease management",
+
+    "Farm planning"
+
+];
+
+
+const search =
+    document.getElementById(
+        "farmSearch"
+    );
+
+
+const results =
+    document.getElementById(
+        "farmResults"
+    );
+
+
+search.addEventListener(
+    "input",
+    () => {
+
+        const query =
+            search.value
+                .trim()
+                .toLowerCase();
+
+
+        if (!query) {
+
+            results.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        const matches =
+            topics.filter(topic =>
+
+                topic
+                    .toLowerCase()
+                    .includes(query)
+
+            );
+
+
+        results.style.display =
+            "block";
+
+
+        if (!matches.length) {
+
+            results.innerHTML = `
+
+                <p style="
+                    color:#83938b;
+                    font-size:12px;
+                ">
+
+                    No offline topic found.
+
+                    <br><br>
+
+                    ${
+                        navigator.onLine
+
+                        ? "Online resources can provide broader information."
+
+                        : "Connect to the internet to search broader resources."
+
+                    }
+
+                </p>
+
+            `;
+
+            return;
+
+        }
+
+
+        results.innerHTML =
+
+            matches.map(topic => `
+
+                <div style="
+                    padding:10px 4px;
+                    border-bottom:
+                    1px solid
+                    rgba(0,200,120,.1);
+                    font-size:13px;
+                ">
+
+                    ${topic}
+
+                </div>
+
+            `).join("");
+
+    }
+);
+
+
+/* =========================
+   FARMING GUIDES
+========================= */
+
+const categoryGuides = {
+    crops: {
+        title: "Crop Farming",
+        overview: "Plan crops around local climate, soil, water, and market needs. Keep simple records so you can learn from each season.",
+        steps: [
+            "Choose crop varieties suited to your area and the season; ask a local agricultural extension officer about locally recommended options.",
+            "Prepare the field by clearing weeds and checking drainage. Use a soil test where available before deciding on soil amendments.",
+            "Use healthy seed or planting material and follow the supplier or extension guidance for spacing, planting depth, and timing.",
+            "Check the crop regularly for moisture stress, weeds, pests, and disease. Keep notes on what you observe and when.",
+            "Harvest at the right maturity, handle produce gently, and plan storage or transport to reduce losses."
+        ],
+        note: "Input rates and crop calendars depend on the crop, variety, soil, and local conditions. Follow product labels and locally approved recommendations."
+    },
+    livestock: {
+        title: "Livestock",
+        overview: "Good animal care combines suitable housing, feed, clean water, hygiene, routine observation, and timely veterinary support.",
+        steps: [
+            "Provide secure, dry, well-ventilated shelter with enough room for animals to move and rest comfortably.",
+            "Offer clean water daily and feed suited to the species, age, and production stage. Introduce feed changes gradually.",
+            "Check animals each day for changes in appetite, movement, breathing, or behavior; keep sick animals separate where practical.",
+            "Keep housing, feeding areas, and equipment clean. Use a locally appropriate vaccination and parasite-control plan developed with a veterinarian.",
+            "Record births, treatments, feed use, production, and costs to help track animal health and farm performance."
+        ],
+        note: "For sick or injured animals, contact a qualified veterinarian or local livestock extension officer. Do not use medicines without professional guidance."
+    },
+    poultry: {
+        title: "Poultry",
+        overview: "Healthy poultry production depends on clean housing, reliable water, balanced feed, careful flock observation, and biosecurity.",
+        steps: [
+            "Prepare a dry, draft-protected, well-ventilated house with enough space for the type and number of birds.",
+            "Provide clean drinking water and feed formulated for the birds' species and age; keep feeders and drinkers clean.",
+            "Limit unnecessary visitors, use clean footwear and equipment, and avoid mixing new birds with the flock until appropriate health checks are completed.",
+            "Observe the flock daily for changes in eating, drinking, droppings, activity, or egg production and act promptly on unusual signs.",
+            "Keep records of flock numbers, feed, eggs or growth, mortality, cleaning, and veterinary care."
+        ],
+        note: "Ask a veterinarian or extension officer for a vaccination and disease-response plan suited to local poultry risks. Follow local rules for disposal of dead birds."
+    },
+    aquaculture: {
+        title: "Aquaculture",
+        overview: "Fish farming works best when water quality, stocking, feed, and pond or tank maintenance are monitored consistently.",
+        steps: [
+            "Select a site with a dependable water source and plan safe drainage that will not contaminate nearby water or land.",
+            "Prepare the pond or tank and confirm that water conditions are suitable before stocking healthy fingerlings from a reputable supplier.",
+            "Stock at a level suited to the system, species, water supply, and management capacity; seek local aquaculture advice before deciding numbers.",
+            "Use feed appropriate for the fish and their size, avoid overfeeding, and remove uneaten feed or waste where appropriate.",
+            "Check water and fish behavior regularly. Keep records of stocking, feeding, growth, water changes, and fish losses."
+        ],
+        note: "Water-quality needs differ by fish species and system. Consult a local fisheries or aquaculture officer for suitable measurements and stocking guidance."
+    }
+};
+
+const managementGuides = {
+    soil: {
+        title: "Soil Management",
+        overview: "Healthy soil supports crop roots, stores water, and supplies nutrients. Build soil care around observation, testing, and reducing erosion.",
+        steps: [
+            "Observe soil texture, drainage, slope, and crop performance across the field; note areas that differ.",
+            "Use a soil test where possible before adding fertilizer or lime, and follow recommendations for the specific crop.",
+            "Protect soil with suitable ground cover, crop residues, mulching, or cover crops where appropriate.",
+            "Reduce erosion by maintaining vegetation, contouring, or using other locally suitable measures on sloping land.",
+            "Rotate crops where practical and add well-managed organic matter to support soil structure."
+        ],
+        note: "Do not apply manure or other amendments without considering crop needs, food-safety guidance, and local environmental requirements."
+    },
+    irrigation: {
+        title: "Irrigation",
+        overview: "Efficient irrigation supplies water near the root zone when crops need it while avoiding runoff, waterlogging, and waste.",
+        steps: [
+            "Check the crop's growth stage, recent rainfall, soil moisture, and weather before deciding when to irrigate.",
+            "Choose a method suited to the crop, field layout, water source, and available budget; maintain pipes, emitters, and channels.",
+            "Apply water steadily near the root zone and avoid runoff. Smaller, well-timed applications may be preferable on some soils.",
+            "Check fields after watering for dry patches, pooling, leaks, or signs of waterlogging and adjust the system.",
+            "Keep irrigation water sources protected from contamination and record water use and irrigation dates."
+        ],
+        note: "Water needs vary with crop, soil, climate, and growth stage. Follow local water-use rules and seek extension advice for scheduling."
+    },
+    pests: {
+        title: "Pest & Disease Management",
+        overview: "Integrated pest management starts with correct identification and regular monitoring, then combines prevention and suitable control measures.",
+        steps: [
+            "Inspect crops regularly and record where symptoms or pests appear and whether the problem is spreading.",
+            "Confirm the cause before acting; nutrient stress, weather, insects, and diseases can look similar.",
+            "Use prevention such as crop rotation, field sanitation, resistant varieties, healthy planting material, and appropriate spacing.",
+            "Where practical, remove affected plant material safely and encourage beneficial organisms; follow local guidance on control options.",
+            "Use a pesticide only when appropriate, legally registered for the crop and problem, and exactly as directed on its label."
+        ],
+        note: "Never mix or apply crop-protection products contrary to label directions. Use required protective equipment, observe re-entry and harvest intervals, and keep products away from children, animals, and water."
+    },
+    planning: {
+        title: "Farm Planning",
+        overview: "A farm plan helps align production goals with available land, labor, inputs, cash, and likely market opportunities.",
+        steps: [
+            "Set clear seasonal goals and list the crops or livestock enterprises you plan to manage.",
+            "Make a calendar for land preparation, planting or breeding, routine care, and expected harvest or sales.",
+            "Estimate input, labor, transport, and other costs; compare these with realistic expected income and available cash.",
+            "Check input availability and potential buyers early, and include storage, transport, and price changes in your plan.",
+            "Keep records during the season and review results afterward to improve the next plan."
+        ],
+        note: "Keep a contingency for weather, price, health, and supply disruptions. Avoid borrowing or spending based only on best-case yield or price estimates."
+    }
+};
+
+const farmGuideDialog = document.getElementById("farmGuideDialog");
+const farmGuideTitle = document.getElementById("farmGuideTitle");
+const farmGuideOverview = document.getElementById("farmGuideOverview");
+const farmGuideSteps = document.getElementById("farmGuideSteps");
+const farmGuideNote = document.getElementById("farmGuideNote");
+
+function openFarmGuide(guide) {
+    if (!guide) {
+        return;
+    }
+
+    farmGuideTitle.textContent = guide.title;
+    farmGuideOverview.textContent = guide.overview;
+    farmGuideNote.textContent = guide.note;
+    farmGuideSteps.replaceChildren(
+        ...guide.steps.map(step => {
+            const item = document.createElement("li");
+            item.textContent = step;
+            return item;
+        })
+    );
+    farmGuideDialog.showModal();
+}
+
+document.querySelectorAll(".farm-category").forEach(button => {
+    button.addEventListener("click", () => {
+        openFarmGuide(categoryGuides[button.dataset.category]);
+    });
+});
+
+document.querySelectorAll(".guide-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        openFarmGuide(managementGuides[button.dataset.topic]);
+    });
+});
+
+document.getElementById("closeFarmGuide").addEventListener("click", () => {
+    farmGuideDialog.close();
+});
+
+farmGuideDialog.addEventListener("click", event => {
+    if (event.target === farmGuideDialog) {
+        farmGuideDialog.close();
+    }
+});
+
+</script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

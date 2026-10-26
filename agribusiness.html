@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Agribusiness | FARMERS</title>
+
+<style>
+
+/* =========================
+   AGRIBUSINESS PAGE
+========================= */
+
+.business-page {
+
+    width: min(950px,100%);
+
+    margin: auto;
+
+    padding: 25px 17px 100px;
+}
+
+
+.business-back {
+
+    margin-bottom: 20px;
+}
+
+
+.business-back a {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* HERO */
+
+.business-hero {
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,200,120,.14),
+            rgba(0,0,0,.08)
+        );
+
+    border:
+        1px solid
+        rgba(0,255,156,.22);
+
+    margin-bottom: 20px;
+}
+
+
+.business-label {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+.business-hero h1 {
+
+    font-size:
+        clamp(28px,8vw,45px);
+
+    margin-top: 8px;
+}
+
+
+.business-hero h1 span {
+
+    color: var(--emerald);
+}
+
+
+.business-hero p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-top: 9px;
+}
+
+
+/* OVERVIEW */
+
+.overview-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.stat-card {
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    position: relative;
+}
+
+
+.stat-card span {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    display: block;
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    color: var(--emerald);
+
+    font-size: 20px;
+
+    margin-top: 7px;
+}
+
+
+.stat-card small {
+
+    color: #64736b;
+
+    font-size: 9px;
+
+    display: block;
+
+    margin-top: 4px;
+}
+
+
+.stat-icon {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 12px;
+
+    font-size: 20px;
+}
+
+
+/* SECTION */
+
+.business-section {
+
+    margin-top: 28px;
+}
+
+
+.business-heading {
+
+    margin-bottom: 13px;
+}
+
+
+.business-heading span {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: bold;
+}
+
+
+.business-heading h2 {
+
+    font-size: 20px;
+
+    margin-top: 5px;
+}
+
+
+/* TOOLS */
+
+.business-tools {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+}
+
+
+.business-tool {
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 15px;
+
+    padding: 16px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.business-tool:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(0,255,156,.4);
+}
+
+
+.business-tool-icon {
+
+    font-size: 24px;
+
+    margin-bottom: 10px;
+}
+
+
+.business-tool strong {
+
+    display: block;
+
+    font-size: 13px;
+}
+
+
+.business-tool p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.4;
+
+    margin-top: 5px;
+}
+
+
+/* QUICK TRANSACTION */
+
+.transaction-box {
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    padding: 17px;
+}
+
+
+.business-record-form {
+
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.business-record-form label {
+
+    display: grid;
+
+    gap: 6px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.business-record-form input,
+.business-record-form select {
+
+    width: 100%;
+
+    min-height: 42px;
+
+    padding: 9px 11px;
+}
+
+.business-submit {
+
+    min-height: 44px;
+
+    padding: 10px 14px;
+
+    border: 0;
+
+    background: var(--green);
+
+    color: #092015;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.business-message {
+
+    min-height: 1.4em;
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.business-message[data-state="error"] {
+
+    color: #ff9c91;
+}
+
+.memory-status {
+
+    margin-top: 14px;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.memory-status a {
+
+    color: var(--green);
+
+    font-weight: 700;
+}
+
+.enterprise-tool {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--green);
+
+    cursor: pointer;
+}
+
+.activity-entry {
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--line);
+
+    font-size: 12px;
+}
+
+.activity-entry:last-child {
+
+    border-bottom: 0;
+}
+
+.activity-entry strong {
+
+    color: var(--green);
+}
+
+.activity-entry p {
+
+    margin: 4px 0;
+
+    color: var(--text);
+}
+
+.activity-entry time {
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.business-tool {
+
+    width: 100%;
+
+    color: var(--text);
+
+    font: inherit;
+
+    text-align: left;
+}
+
+
+/* RESPONSIVE */
+
+@media (min-width:700px) {
+
+    .overview-grid {
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+
+    .business-tools {
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<div class="logo">
+    F
+</div>
+
+<div class="brand-text">
+
+<strong>
+    FARMERS
+</strong>
+
+<span>
+    Agricultural Network
+</span>
+
+</div>
+
+</a>
+
+
+<div class="top-actions">
+
+<span class="status-btn">
+
+<span class="status-dot"></span>
+
+<span id="statusText">
+    Online
+</span>
+
+</span>
+
+
+<a
+    href="index.html"
+    class="menu-btn"
+    style="
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    "
+>
+    ←
+</a>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item active" aria-current="page"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="business-page">
+
+
+<div class="business-back">
+
+<a href="index.html">
+    ← Back to Dashboard
+</a>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="business-hero">
+
+<span class="business-label">
+    FARM BUSINESS MANAGEMENT
+</span>
+
+<h1>
+
+Run your farm
+<span>
+    like a business.
+</span>
+
+</h1>
+
+<p>
+
+Track money, production,
+inventory and farm activities
+from one place.
+
+</p>
+
+</section>
+
+
+<!-- OVERVIEW -->
+
+<section>
+
+<div class="business-heading">
+
+<span>
+    BUSINESS OVERVIEW
+</span>
+
+<h2>
+    Your numbers
+</h2>
+
+</div>
+
+
+<div class="overview-grid">
+
+
+<div class="stat-card">
+
+<span>
+    REVENUE
+</span>
+
+<strong id="revenue">
+    KSh 0
+</strong>
+
+<small>
+    This month
+</small>
+
+<div class="stat-icon">
+    <img src="market-produce.jpg" alt="" loading="lazy">
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<span>
+    EXPENSES
+</span>
+
+<strong id="expenses">
+    KSh 0
+</strong>
+
+<small>
+    This month
+</small>
+
+<div class="stat-icon">
+    <img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<span>
+    PROFIT
+</span>
+
+<strong id="profit">
+    KSh 0
+</strong>
+
+<small>
+    This month
+</small>
+
+<div class="stat-icon">
+    <img src="sunset-field.jpg" alt="" loading="lazy">
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<span>
+    INVENTORY
+</span>
+
+<strong id="inventory">
+    0
+</strong>
+
+<small>
+    Items recorded
+</small>
+
+<div class="stat-icon">
+    <img src="fresh-produce.jpg" alt="" loading="lazy">
+</div>
+
+</div>
+
+
+</div>
+
+<p class="memory-status" id="memoryStatus" role="status"></p>
+
+</section>
+<!-- BUSINESS TOOLS -->
+
+<section class="business-section">
+
+<div class="business-heading">
+
+<span>
+    MANAGEMENT TOOLS
+</span>
+
+<h2>
+    Manage your operation
+</h2>
+
+</div>
+
+
+<div class="business-tools">
+
+    <button class="business-tool" type="button" data-action="sale">
+        <span class="business-tool-icon">
+            <img src="market-produce.jpg" alt="" loading="lazy">
+        </span>
+        <strong>Sales</strong>
+        <p>Record produce, livestock and other sales.</p>
+    </button>
+
+    <button class="business-tool" type="button" data-action="expense">
+        <span class="business-tool-icon">
+            <img src="crop-rows.jpg" alt="" loading="lazy">
+        </span>
+        <strong>Expenses</strong>
+        <p>Track feed, labour, transport and other costs.</p>
+    </button>
+
+    <button class="business-tool" type="button" data-action="stock">
+        <span class="business-tool-icon">
+            <img src="fresh-produce.jpg" alt="" loading="lazy">
+        </span>
+        <strong>Inventory</strong>
+        <p>Monitor stock, supplies and products.</p>
+    </button>
+
+    <button class="business-tool" type="button" data-action="records">
+        <span class="business-tool-icon">
+            <img src="sunset-field.jpg" alt="" loading="lazy">
+        </span>
+        <strong>Farm Records</strong>
+        <p>Keep organized production records.</p>
+    </button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- QUICK TRANSACTIONS -->
+
+<section class="business-section">
+
+<div class="business-heading">
+
+<span>
+    QUICK ACTIONS
+</span>
+
+<h2>
+    Record something
+</h2>
+
+</div>
+
+
+<div class="transaction-box">
+
+<form class="business-record-form" id="businessRecordForm">
+    <label for="recordType">
+        Record type
+        <select id="recordType" name="type">
+            <option value="sale">Sale</option>
+            <option value="expense">Expense</option>
+            <option value="stock">Stock</option>
+        </select>
+    </label>
+    <label for="recordDescription">
+        Description
+        <input id="recordDescription" name="description" type="text" maxlength="100" placeholder="e.g. Tomato harvest" required>
+    </label>
+    <label for="recordAmount">
+        <span id="amountLabel">Amount (KSh)</span>
+        <input id="recordAmount" name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" required>
+    </label>
+    <button class="business-submit" type="submit">Save record</button>
+</form>
+<p class="business-message" id="businessMessage" role="status" aria-live="polite"></p>
+<button class="enterprise-tool" id="exportRecords" type="button" hidden>
+    Export business records (Enterprise)
+</button>
+
+</div>
+
+</section>
+
+
+<!-- RECENT ACTIVITY -->
+
+<section class="business-section">
+
+<div class="business-heading">
+
+<span>
+    ACTIVITY
+</span>
+
+<h2>
+    Recent records
+</h2>
+
+</div>
+
+
+<div
+    id="activityList"
+    class="transaction-box"
+    aria-live="polite"
+>
+
+<p style="
+    color:#83938b;
+    font-size:11px;
+">
+
+No transactions recorded yet.
+
+<br><br>
+
+Use the buttons above to
+start recording your farm
+business activity.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- BUSINESS TIP -->
+
+<section class="business-section">
+
+<div class="transaction-box">
+
+<div style="
+    color:#00c878;
+    font-size:10px;
+    letter-spacing:1px;
+    font-weight:bold;
+">
+
+FARM BUSINESS TIP
+
+</div>
+
+<p style="
+    color:#83938b;
+    font-size:11px;
+    line-height:1.6;
+    margin-top:8px;
+">
+
+Knowing your revenue,
+expenses and profit helps
+you make better decisions
+about your farm.
+
+</p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+<a
+    href="index.html"
+    class="bottom-item"
+>
+
+<span>
+    ⌂
+</span>
+
+<small>
+    Home
+</small>
+
+</a>
+
+
+<a
+    href="farm-hub.html"
+    class="bottom-item"
+>
+
+<span>
+    Farm
+</span>
+
+<small>
+    Farm
+</small>
+
+</a>
+
+
+<a
+    href="marketplace.html"
+    class="bottom-item market"
+>
+
+<span>
+    Market
+</span>
+
+<small>
+    Market
+</small>
+
+</a>
+
+
+<a
+    href="agribusiness.html"
+    class="bottom-item active"
+>
+
+<span>
+    ▥
+</span>
+
+<small>
+    Business
+</small>
+
+</a>
+
+
+<a
+    href="profile.html"
+    class="bottom-item"
+>
+
+<span>
+    Profile
+</span>
+
+<small>
+    Profile
+</small>
+
+</a>
+
+
+</nav>
+<script src="plan-access.js"></script>
+<script>
+const storageKey = "farmers-business-records-v1";
+const recordForm = document.getElementById("businessRecordForm");
+const recordType = document.getElementById("recordType");
+const recordDescription = document.getElementById("recordDescription");
+const recordAmount = document.getElementById("recordAmount");
+const amountLabel = document.getElementById("amountLabel");
+const businessMessage = document.getElementById("businessMessage");
+const activityList = document.getElementById("activityList");
+const memoryStatus = document.getElementById("memoryStatus");
+const exportButton = document.getElementById("exportRecords");
+const recordLimits = {
+    basic: 50,
+    premium: 500,
+    enterprise: Infinity
+};
+const formatter = new Intl.NumberFormat("en-KE", {
+    maximumFractionDigits: 2
+});
+const typeLabels = {
+    sale: "Sale",
+    expense: "Expense",
+    stock: "Stock added"
+};
+
+let records = [];
+
+function setMessage(message, state = "success") {
+    businessMessage.textContent = message;
+    businessMessage.dataset.state = state;
+}
+
+function isValidRecord(record) {
+    return record &&
+        ["sale", "expense", "stock"].includes(record.type) &&
+        typeof record.description === "string" &&
+        Number.isFinite(record.amount) &&
+        record.amount > 0 &&
+        typeof record.createdAt === "string" &&
+        !Number.isNaN(Date.parse(record.createdAt));
+}
+
+function loadRecords() {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === null) {
+        return [];
+    }
+
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed) || !parsed.every(isValidRecord)) {
+        throw new Error("Saved business records are invalid.");
+    }
+    return parsed;
+}
+
+function saveRecords(nextRecords) {
+    localStorage.setItem(storageKey, JSON.stringify(nextRecords));
+}
+
+function updateDashboard() {
+    const thisMonth = new Date();
+    const monthRecords = records.filter((record) => {
+        const date = new Date(record.createdAt);
+        return date.getFullYear() === thisMonth.getFullYear() &&
+            date.getMonth() === thisMonth.getMonth();
+    });
+    const revenue = monthRecords
+        .filter((record) => record.type === "sale")
+        .reduce((total, record) => total + record.amount, 0);
+    const expenses = monthRecords
+        .filter((record) => record.type === "expense")
+        .reduce((total, record) => total + record.amount, 0);
+    const inventory = records
+        .filter((record) => record.type === "stock")
+        .reduce((total, record) => total + record.amount, 0);
+
+    document.getElementById("revenue").textContent = `KSh ${formatter.format(revenue)}`;
+    document.getElementById("expenses").textContent = `KSh ${formatter.format(expenses)}`;
+    document.getElementById("profit").textContent = `KSh ${formatter.format(revenue - expenses)}`;
+    document.getElementById("inventory").textContent = formatter.format(inventory);
+    updateMemoryStatus();
+    exportButton.hidden = window.FarmersAccess.getPlan() !== "enterprise";
+}
+
+function updateMemoryStatus() {
+    const plan = window.FarmersAccess.getPlan();
+    const limit = recordLimits[plan];
+    memoryStatus.replaceChildren();
+
+    const usage = document.createElement("span");
+    usage.textContent = plan === "enterprise"
+        ? `Enterprise record memory: ${records.length} records saved (no app record cap).`
+        : `${plan === "premium" ? "Premium" : "Basic"} record memory: ${records.length} of ${limit} records used.`;
+    memoryStatus.append(usage);
+
+    if (records.length >= limit && Number.isFinite(limit)) {
+        const note = document.createElement("span");
+        note.textContent = " New records are paused at this plan limit. ";
+        const link = document.createElement("a");
+        link.href = "subscription.html";
+        link.textContent = plan === "basic" ? "Upgrade for more memory." : "Contact us about Enterprise.";
+        memoryStatus.append(note, link);
+    }
+}
+
+function renderActivity() {
+    activityList.replaceChildren();
+    if (records.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.className = "activity-empty";
+        emptyMessage.textContent = "No records yet. Use the form above to record a sale, expense, or stock.";
+        activityList.append(emptyMessage);
+        return;
+    }
+
+    [...records].reverse().slice(0, 10).forEach((record) => {
+        const entry = document.createElement("article");
+        entry.className = "activity-entry";
+
+        const title = document.createElement("strong");
+        title.textContent = typeLabels[record.type];
+        const description = document.createElement("p");
+        description.textContent = record.description;
+        const details = document.createElement("time");
+        details.dateTime = record.createdAt;
+        details.textContent = record.type === "stock"
+            ? `${formatter.format(record.amount)} items · ${new Date(record.createdAt).toLocaleString()}`
+            : `KSh ${formatter.format(record.amount)} · ${new Date(record.createdAt).toLocaleString()}`;
+
+        entry.append(title, description, details);
+        activityList.append(entry);
+    });
+}
+
+function updateAmountField() {
+    const isStock = recordType.value === "stock";
+    amountLabel.textContent = isStock ? "Quantity to add" : "Amount (KSh)";
+    recordAmount.min = isStock ? "1" : "0.01";
+    recordAmount.step = isStock ? "1" : "0.01";
+    recordAmount.inputMode = isStock ? "numeric" : "decimal";
+    recordAmount.placeholder = isStock ? "e.g. 12" : "e.g. 2500";
+}
+
+function selectAction(action) {
+    if (action === "records") {
+        document.getElementById("activityList").scrollIntoView({ behavior: "smooth" });
+        return;
+    }
+
+    recordType.value = action;
+    updateAmountField();
+    recordForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    recordDescription.focus({ preventScroll: true });
+}
+
+document.querySelectorAll(".business-tool").forEach((tool) => {
+    tool.addEventListener("click", () => selectAction(tool.dataset.action));
+});
+
+recordType.addEventListener("change", updateAmountField);
+recordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const currentPlan = window.FarmersAccess.getPlan();
+    const currentLimit = recordLimits[currentPlan];
+    if (records.length >= currentLimit) {
+        setMessage(`Your ${currentPlan} record memory is full. Upgrade your plan to save more records.`, "error");
+        memoryStatus.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+    }
+
+    const amount = Number(recordAmount.value);
+    if (!Number.isFinite(amount) || amount <= 0 ||
+        (recordType.value === "stock" && !Number.isInteger(amount))) {
+        setMessage(recordType.value === "stock"
+            ? "Enter a whole number of items greater than zero."
+            : "Enter an amount greater than zero.", "error");
+        recordAmount.focus();
+        return;
+    }
+
+    const nextRecord = {
+        type: recordType.value,
+        description: recordDescription.value.trim(),
+        amount,
+        createdAt: new Date().toISOString()
+    };
+    if (!nextRecord.description) {
+        setMessage("Add a short description before saving.", "error");
+        recordDescription.focus();
+        return;
+    }
+
+    const nextRecords = [...records, nextRecord];
+    try {
+        saveRecords(nextRecords);
+    } catch (error) {
+        setMessage("Could not save this record in this browser. Check available storage and try again.", "error");
+        console.error("Unable to save business record.", error);
+        return;
+    }
+
+    records = nextRecords;
+    updateDashboard();
+    renderActivity();
+    recordForm.reset();
+    recordType.value = "sale";
+    updateAmountField();
+    setMessage("Record saved.");
+});
+
+exportButton.addEventListener("click", () => {
+    if (window.FarmersAccess.getPlan() !== "enterprise") {
+        window.location.href = "subscription.html";
+        return;
+    }
+
+    const columns = ["Type", "Description", "Amount", "Created At"];
+    const rows = records.map((record) => [
+        record.type,
+        record.description,
+        record.amount,
+        record.createdAt
+    ]);
+    const escapeCsv = (value) => `"${String(value).replace(/"/g, '""')}"`;
+    const csv = [columns, ...rows]
+        .map((row) => row.map(escapeCsv).join(","))
+        .join("\r\n");
+    const file = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(file);
+    const download = document.createElement("a");
+    download.href = url;
+    download.download = "farmers-business-records.csv";
+    download.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+window.addEventListener("online", () => {
+    document.getElementById("statusText").textContent = "Online";
+});
+window.addEventListener("offline", () => {
+    document.getElementById("statusText").textContent = "Offline";
+});
+document.getElementById("statusText").textContent = navigator.onLine ? "Online" : "Offline";
+updateAmountField();
+
+try {
+    records = loadRecords();
+    updateDashboard();
+    renderActivity();
+} catch (error) {
+    setMessage("Saved business records could not be read. Your existing data was not changed.", "error");
+    recordForm.querySelectorAll("input, select, button").forEach((field) => {
+        field.disabled = true;
+    });
+    console.error("Unable to load business records.", error);
+}
+
+</script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

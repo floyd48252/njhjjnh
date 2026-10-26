@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS - Logistics</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050807;
+    color: #e8f5ef;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background: #07100c;
+    border-bottom: 1px solid #164d36;
+    padding: 18px;
+}
+
+.header-inner {
+    max-width: 950px;
+    margin: auto;
+}
+
+.logo {
+    color: #00c878;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #718078;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 16px;
+}
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #0b2117,
+        #07100c
+    );
+
+    border: 1px solid #164d36;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    color: #00c878;
+    margin: 0 0 8px;
+    font-size: 25px;
+}
+
+.hero p {
+    color: #9aaba3;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.section-title {
+    color: #00c878;
+    font-size: 17px;
+    margin: 20px 0 12px;
+}
+
+.logistics-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 12px;
+}
+
+.logistics-card {
+    background: #09130f;
+    border: 1px solid #123d2b;
+    border-radius: 16px;
+    padding: 17px;
+}
+
+.logistics-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.logistics-card h3 {
+    margin: 0 0 7px;
+    color: #e8f5ef;
+    font-size: 15px;
+}
+
+.logistics-card p {
+    color: #91a49a;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.logistics-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 11px;
+    border-radius: 9px;
+    border: 1px solid #164d36;
+    background: #0b1712;
+    color: #00c878;
+    cursor: pointer;
+}
+
+.logistics-button:hover {
+    background: #00c878;
+    color: #031109;
+}
+
+@media (max-width: 600px) {
+
+    .logistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="logo">
+<a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+</div>
+
+<div class="subtitle">
+Agricultural Logistics Network
+</div>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+
+
+<section class="hero">
+
+<h1>
+Farm Logistics
+</h1>
+
+<p>
+Connect farmers, buyers and transport
+services so agricultural products,
+equipment and supplies can move more
+efficiently.
+</p>
+
+</section>
+
+
+<h2 class="section-title">
+What do you need?
+</h2>
+
+
+<div class="logistics-grid">
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="transport-truck.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+Find Transport
+</h3>
+
+<p>
+Find suitable transport for crops,
+feeds, equipment and other agricultural
+goods.
+</p>
+
+<button
+class="logistics-button"
+data-action="transport">
+
+Find Transport
+</button>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="market-produce.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+Move My Products
+</h3>
+
+<p>
+Create a delivery request for products
+you need transported to a buyer,
+market or storage facility.
+</p>
+
+<button
+class="logistics-button"
+data-action="delivery">
+
+Create Delivery
+</button>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="fresh-produce.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+Storage
+</h3>
+
+<p>
+Find available agricultural storage
+facilities such as warehouses,
+cold storage and grain storage.
+</p>
+
+<button
+class="logistics-button"
+data-action="storage">
+
+Find Storage
+</button>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+Farm Equipment
+</h3>
+
+<p>
+Find equipment transport and
+services for tractors, machinery,
+tools and other farm equipment.
+</p>
+
+<button
+class="logistics-button"
+data-action="equipment">
+
+Find Equipment Services
+</button>
+
+</div>
+
+
+</div>
+<!-- =========================
+     LOGISTICS REQUEST
+========================= -->
+
+<section class="request-section">
+
+<h2 class="section-title">
+Create a Logistics Request
+</h2>
+
+<div class="request-card">
+
+<label>
+What are you moving?
+</label>
+
+<select id="cargoType">
+
+<option value="">
+Select cargo
+</option>
+
+<option value="crops">
+Crops
+</option>
+
+<option value="livestock">
+Livestock
+</option>
+
+<option value="feeds">
+Animal Feeds
+</option>
+
+<option value="equipment">
+Farm Equipment
+</option>
+
+<option value="fertilizer">
+Fertilizer / Inputs
+</option>
+
+<option value="other">
+Other
+</option>
+
+</select>
+
+
+<label>
+Pickup location
+</label>
+
+<input
+id="pickupLocation"
+type="text"
+placeholder="Example: Nakuru">
+
+
+<label>
+Destination
+</label>
+
+<input
+id="destination"
+type="text"
+placeholder="Example: Nairobi">
+
+
+<label>
+Estimated quantity
+</label>
+
+<input
+id="cargoQuantity"
+type="text"
+placeholder="Example: 20 bags">
+
+
+<label>
+Preferred transport
+</label>
+
+<select id="transportType">
+
+<option value="">
+Select transport
+</option>
+
+<option value="pickup">
+Pickup
+</option>
+
+<option value="truck">
+Truck
+</option>
+
+<option value="lorry">
+Lorry
+</option>
+
+<option value="refrigerated">
+Refrigerated Transport
+</option>
+
+<option value="livestock">
+Livestock Transport
+</option>
+
+</select>
+
+
+<label>
+Additional information
+</label>
+
+<textarea
+id="cargoNotes"
+placeholder="Add any important information about your cargo..."
+></textarea>
+
+
+<button
+id="createRequest"
+class="primary-button">
+
+Create Logistics Request
+
+</button>
+
+
+<p
+id="requestMessage"
+class="request-message">
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ACTIVE REQUESTS
+========================= -->
+
+<section>
+
+<h2 class="section-title">
+My Logistics Requests
+</h2>
+
+<div
+id="requestList"
+class="request-list">
+
+<div class="empty-state">
+
+No logistics requests yet.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     LOGISTICS SAFETY
+========================= -->
+
+<section class="safety-box">
+
+<h3>
+Logistics Safety
+</h3>
+
+<p>
+Never send money to a transporter
+before checking their identity,
+vehicle information and reputation.
+</p>
+
+<p>
+FARMERS will eventually introduce
+transporter verification, user ratings,
+secure communication and transaction
+protection.
+</p>
+
+</section>
+<!-- =========================
+     REQUEST CARDS
+========================= -->
+
+<style>
+
+.request-section {
+    margin-top: 20px;
+}
+
+.request-card {
+    background: #09130f;
+    border: 1px solid #123d2b;
+    border-radius: 16px;
+    padding: 17px;
+}
+
+.request-card label {
+    display: block;
+    color: #b9cbc2;
+    font-size: 11px;
+    margin-top: 13px;
+    margin-bottom: 6px;
+}
+
+.request-card input,
+.request-card select,
+.request-card textarea {
+    width: 100%;
+    padding: 11px;
+    border-radius: 9px;
+    border: 1px solid #164d36;
+    background: #050807;
+    color: #e8f5ef;
+    outline: none;
+    font-family: Arial, sans-serif;
+}
+
+.request-card textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.request-card input:focus,
+.request-card select:focus,
+.request-card textarea:focus {
+    border-color: #00c878;
+}
+
+.primary-button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #00c878;
+    background: #00c878;
+    color: #031109;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #18e28e;
+}
+
+.request-message {
+    color: #00c878;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.request-list {
+    display: grid;
+    gap: 10px;
+}
+
+.request-item {
+    background: #09130f;
+    border: 1px solid #123d2b;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+.request-title {
+    color: #00c878;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.request-route {
+    margin-top: 8px;
+    color: #e8f5ef;
+    font-size: 12px;
+}
+
+.request-details {
+    margin-top: 8px;
+    color: #91a49a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    background: rgba(0,200,120,.08);
+    border: 1px solid rgba(0,200,120,.2);
+    color: #00c878;
+    font-size: 10px;
+}
+
+.delete-request {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #0b1712;
+    border: 1px solid #164d36;
+    color: #83938b;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.delete-request:hover {
+    border-color: #00c878;
+    color: #00c878;
+}
+
+.empty-state {
+    padding: 25px;
+    text-align: center;
+    color: #52635b;
+    background: #07100c;
+    border: 1px dashed #164d36;
+    border-radius: 14px;
+}
+
+.safety-box {
+    margin-top: 20px;
+    padding: 16px;
+    background: #07100c;
+    border: 1px solid #164d36;
+    border-radius: 15px;
+}
+
+.safety-box h3 {
+    margin-top: 0;
+    color: #00c878;
+}
+
+.safety-box p {
+    color: #91a49a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+</style>
+
+
+<!-- =========================
+     LOGISTICS INFORMATION
+========================= -->
+
+<section>
+
+<h2 class="section-title">
+How FARMERS Logistics Works
+</h2>
+
+
+<div class="logistics-grid">
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="crop-rows.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+1. Create Request
+</h3>
+
+<p>
+Tell the network what you need
+transported and where it needs to go.
+</p>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="transport-truck.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+2. Find Transport
+</h3>
+
+<p>
+The future online system will search
+for suitable transport providers.
+</p>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="market-produce.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+3. Connect
+</h3>
+
+<p>
+Farmers and transport providers can
+communicate before accepting a job.
+</p>
+
+</div>
+
+
+<div class="logistics-card">
+
+<div class="logistics-icon">
+<img src="sunset-field.jpg" alt="" loading="lazy">
+</div>
+
+<h3>
+4. Rate
+</h3>
+
+<p>
+After a completed delivery, users can
+rate their experience.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FUTURE VERIFICATION
+========================= -->
+
+<section class="safety-box">
+
+<h3>
+✓ Future Transporter Verification
+</h3>
+
+<p>
+Transport providers on the future
+FARMERS network can be required to
+verify their identity and provide
+relevant vehicle or business details.
+</p>
+
+<p>
+A verification badge should only appear
+after FARMERS has actually completed
+the verification process.
+</p>
+
+</section>
+<!-- =========================
+     LOGISTICS JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   STORAGE
+========================= */
+
+let logisticsRequests =
+    JSON.parse(
+        localStorage.getItem(
+            "farmersLogisticsRequests"
+        )
+    ) || [];
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const cargoType =
+    document.getElementById(
+        "cargoType"
+    );
+
+const pickupLocation =
+    document.getElementById(
+        "pickupLocation"
+    );
+
+const destination =
+    document.getElementById(
+        "destination"
+    );
+
+const cargoQuantity =
+    document.getElementById(
+        "cargoQuantity"
+    );
+
+const transportType =
+    document.getElementById(
+        "transportType"
+    );
+
+const cargoNotes =
+    document.getElementById(
+        "cargoNotes"
+    );
+
+const requestMessage =
+    document.getElementById(
+        "requestMessage"
+    );
+
+const requestList =
+    document.getElementById(
+        "requestList"
+    );
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveRequests() {
+
+    localStorage.setItem(
+        "farmersLogisticsRequests",
+        JSON.stringify(
+            logisticsRequests
+        )
+    );
+
+}
+
+
+/* =========================
+   DISPLAY REQUESTS
+========================= */
+
+function displayRequests() {
+
+    requestList.innerHTML = "";
+
+
+    if (
+        logisticsRequests.length === 0
+    ) {
+
+        requestList.innerHTML = `
+        
+        <div class="empty-state">
+        
+        No logistics requests yet.
+        
+        </div>
+        
+        `;
+
+        return;
+
+    }
+
+
+    logisticsRequests
+        .slice()
+        .reverse()
+        .forEach(
+            function(request) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "request-item";
+
+
+                item.innerHTML = `
+
+                <div class="request-title">
+
+                    ${request.cargo}
+
+                </div>
+
+
+                <div class="request-route">
+
+                    Pickup: ${request.pickup}
+
+                    →
+
+                    Destination: ${request.destination}
+
+                </div>
+
+
+                <div class="request-details">
+
+                    Quantity:
+                    ${request.quantity}
+
+                    <br>
+
+                    Transport:
+                    ${request.transport}
+
+                    <br>
+
+                    ${request.notes || "No additional notes"}
+
+                    <br>
+
+                    Created:
+                    ${request.date}
+
+                </div>
+
+
+                <span class="status">
+
+                    ${request.status}
+
+                </span>
+
+
+                <br>
+
+
+                <button
+                    class="delete-request"
+                    data-id="${request.id}">
+
+                    Delete Request
+
+                </button>
+
+                `;
+
+
+                requestList.appendChild(
+                    item
+                );
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            ".delete-request"
+        )
+        .forEach(
+            function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        const id =
+                            button.dataset.id;
+
+
+                        logisticsRequests =
+                            logisticsRequests
+                                .filter(
+                                    function(request) {
+
+                                        return String(
+                                            request.id
+                                        ) !== String(id);
+
+                                    }
+                                );
+
+
+                        saveRequests();
+
+                        displayRequests();
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================
+   CREATE REQUEST
+========================= */
+
+document
+    .getElementById(
+        "createRequest"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            const cargo =
+                cargoType.value;
+
+            const pickup =
+                pickupLocation.value
+                    .trim();
+
+            const destinationValue =
+                destination.value
+                    .trim();
+
+            const quantity =
+                cargoQuantity.value
+                    .trim();
+
+            const transport =
+                transportType.value;
+
+            const notes =
+                cargoNotes.value
+                    .trim();
+
+
+            if (
+                !cargo ||
+                !pickup ||
+                !destinationValue ||
+                !quantity ||
+                !transport
+            ) {
+
+                requestMessage.textContent =
+                    "Please complete all required fields.";
+
+                return;
+
+            }
+
+
+            const request = {
+
+                id:
+                    Date.now(),
+
+                cargo:
+                    cargoType.options[
+                        cargoType.selectedIndex
+                    ].text,
+
+                pickup:
+                    pickup,
+
+                destination:
+                    destinationValue,
+
+                quantity:
+                    quantity,
+
+                transport:
+                    transportType.options[
+                        transportType.selectedIndex
+                    ].text,
+
+                notes:
+                    notes,
+
+                status:
+                    "Waiting for transport",
+
+                date:
+                    new Date()
+                        .toLocaleString()
+
+            };
+
+
+            logisticsRequests.push(
+                request
+            );
+
+
+            saveRequests();
+
+            displayRequests();
+
+
+            requestMessage.textContent =
+                "✓ Logistics request created.";
+
+
+            cargoType.value = "";
+
+            pickupLocation.value = "";
+
+            destination.value = "";
+
+            cargoQuantity.value = "";
+
+            transportType.value = "";
+
+            cargoNotes.value = "";
+
+        }
+    );
+
+
+/* =========================
+   QUICK ACTIONS
+========================= */
+
+document
+    .querySelectorAll(
+        ".logistics-button"
+    )
+    .forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const action =
+                        button.dataset.action;
+
+
+                    if (
+                        action ===
+                        "transport"
+                    ) {
+
+                        document
+                            .getElementById(
+                                "cargoType"
+                            )
+                            .focus();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        action ===
+                        "delivery"
+                    ) {
+
+                        document
+                            .getElementById(
+                                "createRequest"
+                            )
+                            .scrollIntoView({
+                                behavior:
+                                    "smooth"
+                            });
+
+                        return;
+
+                    }
+
+
+                    if (
+                        action ===
+                        "storage"
+                    ) {
+
+                        alert(
+                            "FARMERS Storage Network\n\n" +
+                            "Storage listings will be connected " +
+                            "to the online marketplace later."
+                        );
+
+                        return;
+
+                    }
+
+
+                    if (
+                        action ===
+                        "equipment"
+                    ) {
+
+                        alert(
+                            "FARMERS Equipment Services\n\n" +
+                            "Equipment transport and service " +
+                            "providers will be added to the " +
+                            "online network later."
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+displayRequests();
+
+
+console.log(
+    "FARMERS Logistics loaded successfully."
+);
+
+</script>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+<button
+onclick="location.href='index.html'">
+
+Home
+
+</button>
+
+
+<button
+onclick="location.href='community.html'">
+
+Community
+
+</button>
+
+
+<button
+onclick="location.href='marketplace.html'">
+
+Marketplace
+
+</button>
+
+
+<button
+onclick="location.href='profile.html'">
+
+Profile
+
+</button>
+
+</div>
+
+
+<footer>
+
+<strong>
+FARMERS
+</strong>
+
+<br>
+
+Agriculture • Logistics • Community
+
+<p>
+Contact:
+<a href="mailto:farmersrevolutionarysystem@gmail.com">
+farmersrevolutionarysystem@gmail.com
+</a>
+</p>
+
+</footer>
+
+
+<style>
+
+.navigation {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+}
+
+.navigation button {
+
+    padding: 11px 5px;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    border: 1px solid #164d36;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+}
+
+.navigation button:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+footer {
+
+    text-align: center;
+
+    color: #52635b;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    padding: 30px 10px;
+
+}
+
+
+@media (max-width: 500px) {
+
+    .navigation {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+</style>
+
+
+</main>
+
+</body>
+
+</html>

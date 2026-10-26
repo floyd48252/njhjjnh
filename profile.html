@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS | Profile</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050807;
+    color: #e8f5ef;
+    min-height: 100vh;
+}
+
+.header {
+    background: #07100c;
+    border-bottom: 1px solid rgba(0,200,120,.18);
+    padding: 16px;
+}
+
+.header-inner {
+    max-width: 700px;
+    margin: auto;
+}
+
+.logo {
+    color: #00c878;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #718078;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+}
+
+.profile-card,
+.section {
+    background: #09130f;
+    border: 1px solid rgba(0,200,120,.15);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #00c878;
+    color: #031109;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.profile-name {
+    margin-top: 12px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.verified {
+    color: #00c878;
+}
+
+.profile-role {
+    color: #00c878;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.profile-bio {
+    color: #9aaba3;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 14px 0;
+}
+
+.edit-button {
+    background: #00c878;
+    color: #031109;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.stat {
+    background: #0d1b15;
+    border-radius: 10px;
+    padding: 11px;
+}
+
+.stat-number {
+    color: #00c878;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stat-label {
+    color: #718078;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.section-title {
+    color: #00c878;
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #718078;
+    font-size: 12px;
+}
+
+.info-value {
+    color: #d7e3dd;
+    font-size: 13px;
+    text-align: right;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tag {
+    background: rgba(0,200,120,.08);
+    border: 1px solid rgba(0,200,120,.15);
+    color: #00c878;
+    padding: 7px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+}
+.privacy-box {
+    background: #07100c;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.privacy-title {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.privacy-description {
+    color: #718078;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.toggle-text strong {
+    display: block;
+    font-size: 12px;
+}
+
+.toggle-text span {
+    color: #718078;
+    font-size: 10px;
+}
+
+.toggle {
+    width: 42px;
+    height: 23px;
+    background: #26352d;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle.active {
+    background: #00c878;
+}
+
+.toggle-circle {
+    width: 17px;
+    height: 17px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.toggle.active .toggle-circle {
+    left: 22px;
+}
+
+.network-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.78);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #09130f;
+    border: 1px solid rgba(0,200,120,.2);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.modal-title {
+    color: #00c878;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #83938b;
+    font-size: 11px;
+    margin: 12px 0 5px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    background: #050807;
+    border: 1px solid rgba(0,200,120,.15);
+    color: white;
+    padding: 11px;
+    border-radius: 10px;
+    outline: none;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 11px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cancel {
+    background: #16221c;
+    color: #aab8b1;
+}
+
+.save {
+    background: #00c878;
+    color: #031109;
+    font-weight: bold;
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="logo">
+<a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+</div>
+
+<div class="subtitle">
+Your agricultural identity
+</div>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item active" aria-current="page"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+  <!-- PROFILE -->
+
+<section class="profile-card">
+
+<div
+id="profilePicture"
+class="profile-picture">
+Y
+</div>
+
+<div class="profile-name">
+
+<span id="profileName">
+Your Name
+</span>
+
+<span
+id="verifiedBadge"
+class="verified"
+style="display:none;">
+✓
+</span>
+
+</div>
+
+<div
+id="profileRole"
+class="profile-role">
+Farmer
+</div>
+
+<p
+id="profileBio"
+class="profile-bio">
+Tell the FARMERS community about yourself.
+</p>
+
+<button
+id="editProfile"
+class="edit-button">
+Edit Profile
+</button>
+
+<div class="stats">
+
+<div class="stat">
+
+<div
+id="postCount"
+class="stat-number">
+0
+</div>
+
+<div class="stat-label">
+Posts
+</div>
+
+</div>
+
+<div class="stat">
+
+<div
+id="connectionCount"
+class="stat-number">
+0
+</div>
+
+<div class="stat-label">
+Connections
+</div>
+
+</div>
+
+<div class="stat">
+
+<div
+id="reputation"
+class="stat-number">
+0
+</div>
+
+<div class="stat-label">
+Reputation
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FARMING INFORMATION -->
+
+<section class="section">
+
+<h2 class="section-title">
+About My Farming
+</h2>
+
+<div class="info-row">
+
+<div class="info-label">
+Experience
+</div>
+
+<div
+id="experience"
+class="info-value">
+Not specified
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="info-label">
+Location
+</div>
+
+<div
+id="location"
+class="info-value">
+Private
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="info-label">
+Farm type
+</div>
+
+<div
+id="farmType"
+class="info-value">
+Not specified
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CROPS -->
+
+<section class="section">
+
+<h2 class="section-title">
+Crops & Plants
+</h2>
+
+<div
+id="cropTags"
+class="tags">
+
+<span class="tag">
+No crops added
+</span>
+
+</div>
+
+</section>
+
+
+<!-- LIVESTOCK -->
+
+<section class="section">
+
+<h2 class="section-title">
+Livestock
+</h2>
+
+<div
+id="livestockTags"
+class="tags">
+
+<span class="tag">
+No livestock added
+</span>
+
+</div>
+
+</section>
+
+
+<!-- PRIVACY -->
+
+<section class="section">
+
+<h2 class="section-title">
+Privacy
+</h2>
+
+<div class="privacy-box">
+
+<div class="privacy-title">
+Your privacy comes first
+</div>
+
+<div class="privacy-description">
+Your exact location is never displayed by
+this prototype. You control whether your
+general location is visible.
+</div>
+
+</div>
+
+<div class="toggle-row">
+
+<div class="toggle-text">
+
+<strong>
+Show my general location
+</strong>
+
+<span>
+County or region only
+</span>
+
+</div>
+
+<div
+id="locationToggle"
+class="toggle">
+
+<div class="toggle-circle"></div>
+
+</div>
+
+</div>
+
+<div class="toggle-row">
+
+<div class="toggle-text">
+
+<strong>
+Allow messages
+</strong>
+
+<span>
+Allow other users to contact you
+</span>
+
+</div>
+
+<div
+id="messageToggle"
+class="toggle active">
+
+<div class="toggle-circle"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NETWORK -->
+
+<section class="section">
+
+<h2 class="section-title">
+FARMERS Network
+</h2>
+
+<div class="info-row">
+
+<div class="info-label">
+Connection
+</div>
+
+<div
+id="networkStatus"
+class="info-value">
+Checking...
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="info-label">
+Messaging
+</div>
+
+<div
+id="messageStatus"
+class="info-value">
+Allowed
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NETWORK BUTTONS -->
+
+<div class="network-buttons">
+
+<button
+id="communityButton"
+class="edit-button">
+Community
+</button>
+
+<button
+id="messageButton"
+class="edit-button">
+Message
+</button>
+
+</div>
+
+
+<!-- EDIT PROFILE WINDOW -->
+
+<div
+id="editModal"
+class="modal">
+
+<div class="modal-box">
+
+<h2 class="modal-title">
+Edit FARMERS Profile
+</h2>
+
+<label>Name</label>
+
+<input
+id="editName"
+placeholder="Your name">
+
+<label>Role</label>
+
+<select id="editRole">
+
+<option>Farmer</option>
+<option>Home gardener</option>
+<option>Agribusiness owner</option>
+<option>Agricultural expert</option>
+<option>Student</option>
+<option>Consumer</option>
+
+</select>
+
+<label>About you</label>
+
+<textarea
+id="editBio"
+placeholder="Tell the community about yourself...">
+</textarea>
+
+<label>Experience</label>
+
+<input
+id="editExperience"
+placeholder="e.g. 5 years">
+
+<label>General location</label>
+
+<input
+id="editLocation"
+placeholder="e.g. Kiambu County">
+
+<label>Farm type</label>
+
+<input
+id="editFarmType"
+placeholder="e.g. Vegetable farming">
+
+<label>Crops / plants</label>
+
+<input
+id="editCrops"
+placeholder="e.g. Tomatoes, maize, roses">
+
+<label>Livestock</label>
+
+<input
+id="editLivestock"
+placeholder="e.g. Chicken, cattle">
+
+<div class="modal-buttons">
+
+<button
+id="closeEdit"
+class="modal-button cancel">
+Cancel
+</button>
+
+<button
+id="saveProfile"
+class="modal-button save">
+Save Profile
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+/* =========================
+   PROFILE DATA
+========================= */
+
+let profileData =
+    JSON.parse(
+        localStorage.getItem("farmersProfile")
+    ) || {
+
+        name: "Your Name",
+        role: "Farmer",
+        bio: "Tell the FARMERS community about yourself.",
+        experience: "Not specified",
+        location: "",
+        farmType: "Not specified",
+        crops: [],
+        livestock: [],
+        posts: 0,
+        connections: 0,
+        reputation: 0,
+        verified: false,
+        showLocation: false,
+        allowMessages: true
+
+    };
+
+
+/* =========================
+   SAVE DATA
+========================= */
+
+function saveProfileData() {
+
+    localStorage.setItem(
+        "farmersProfile",
+        JSON.stringify(profileData)
+    );
+
+}
+
+
+/* =========================
+   DISPLAY TAGS
+========================= */
+
+function renderTags(id, items, emptyText) {
+
+    const box =
+        document.getElementById(id);
+
+    box.innerHTML = "";
+
+    if (!items || items.length === 0) {
+
+        const tag =
+            document.createElement("span");
+
+        tag.className = "tag";
+        tag.textContent = emptyText;
+
+        box.appendChild(tag);
+
+        return;
+    }
+
+    items.forEach(function(item) {
+
+        const tag =
+            document.createElement("span");
+
+        tag.className = "tag";
+        tag.textContent = item;
+
+        box.appendChild(tag);
+
+    });
+
+}
+
+
+/* =========================
+   TOGGLE DISPLAY
+========================= */
+
+function updateToggle(id, active) {
+
+    const element =
+        document.getElementById(id);
+
+    if (!element) return;
+
+    if (active) {
+
+        element.classList.add("active");
+
+    } else {
+
+        element.classList.remove("active");
+
+    }
+
+}
+
+
+/* =========================
+   MESSAGE STATUS
+========================= */
+
+function updateMessageStatus() {
+
+    const element =
+        document.getElementById(
+            "messageStatus"
+        );
+
+    if (profileData.allowMessages) {
+
+        element.textContent = "Allowed";
+        element.style.color = "#00c878";
+
+    } else {
+
+        element.textContent = "Disabled";
+        element.style.color = "#83938b";
+
+    }
+
+}
+
+
+/* =========================
+   NETWORK STATUS
+========================= */
+
+function updateNetworkStatus() {
+
+    const element =
+        document.getElementById(
+            "networkStatus"
+        );
+
+    if (navigator.onLine) {
+
+        element.textContent = "Online";
+        element.style.color = "#00c878";
+
+    } else {
+
+        element.textContent = "Offline";
+        element.style.color = "#83938b";
+
+    }
+
+}
+
+
+/* =========================
+   UPDATE PROFILE
+========================= */
+
+function updateProfile() {
+
+    document.getElementById(
+        "profileName"
+    ).textContent =
+        profileData.name;
+
+    document.getElementById(
+        "profileRole"
+    ).textContent =
+        profileData.role;
+
+    document.getElementById(
+        "profileBio"
+    ).textContent =
+        profileData.bio;
+
+    document.getElementById(
+        "experience"
+    ).textContent =
+        profileData.experience ||
+        "Not specified";
+
+    document.getElementById(
+        "farmType"
+    ).textContent =
+        profileData.farmType ||
+        "Not specified";
+
+
+    if (
+        profileData.showLocation &&
+        profileData.location
+    ) {
+
+        document.getElementById(
+            "location"
+        ).textContent =
+            profileData.location;
+
+    } else {
+
+        document.getElementById(
+            "location"
+        ).textContent =
+            "Private";
+
+    }
+
+
+    document.getElementById(
+        "postCount"
+    ).textContent =
+        profileData.posts;
+
+    document.getElementById(
+        "connectionCount"
+    ).textContent =
+        profileData.connections;
+
+    document.getElementById(
+        "reputation"
+    ).textContent =
+        profileData.reputation;
+
+
+    const firstLetter =
+        profileData.name
+            .trim()
+            .charAt(0)
+            .toUpperCase();
+
+    document.getElementById(
+        "profilePicture"
+    ).textContent =
+        firstLetter || "Y";
+
+
+    document.getElementById(
+        "verifiedBadge"
+    ).style.display =
+        profileData.verified
+            ? "inline"
+            : "none";
+
+
+    renderTags(
+        "cropTags",
+        profileData.crops,
+        "No crops added"
+    );
+
+    renderTags(
+        "livestockTags",
+        profileData.livestock,
+        "No livestock added"
+    );
+
+
+    updateToggle(
+        "locationToggle",
+        profileData.showLocation
+    );
+
+    updateToggle(
+        "messageToggle",
+        profileData.allowMessages
+    );
+
+    updateMessageStatus();
+
+}
+
+
+/* =========================
+   OPEN EDIT PROFILE
+========================= */
+
+document
+    .getElementById("editProfile")
+    .addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "editName"
+            ).value =
+                profileData.name;
+
+            document.getElementById(
+                "editRole"
+            ).value =
+                profileData.role;
+
+            document.getElementById(
+                "editBio"
+            ).value =
+                profileData.bio;
+
+            document.getElementById(
+                "editExperience"
+            ).value =
+                profileData.experience;
+
+            document.getElementById(
+                "editLocation"
+            ).value =
+                profileData.location;
+
+            document.getElementById(
+                "editFarmType"
+            ).value =
+                profileData.farmType;
+
+            document.getElementById(
+                "editCrops"
+            ).value =
+                profileData.crops.join(", ");
+
+            document.getElementById(
+                "editLivestock"
+            ).value =
+                profileData.livestock.join(", ");
+
+            document.getElementById(
+                "editModal"
+            ).classList.add("show");
+
+        }
+    );
+
+
+/* =========================
+   CLOSE EDIT
+========================= */
+
+document
+    .getElementById("closeEdit")
+    .addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "editModal"
+            ).classList.remove("show");
+
+        }
+    );
+
+
+/* =========================
+   SAVE PROFILE
+========================= */
+
+document
+    .getElementById("saveProfile")
+    .addEventListener(
+        "click",
+        function() {
+
+            const name =
+                document.getElementById(
+                    "editName"
+                ).value.trim();
+
+
+            if (!name) {
+
+                alert(
+                    "Please enter your name."
+                );
+
+                return;
+
+            }
+
+
+            profileData.name =
+                name;
+
+            profileData.role =
+                document.getElementById(
+                    "editRole"
+                ).value;
+
+            profileData.bio =
+                document.getElementById(
+                    "editBio"
+                ).value.trim() ||
+                "No biography added yet.";
+
+            profileData.experience =
+                document.getElementById(
+                    "editExperience"
+                ).value.trim() ||
+                "Not specified";
+
+            profileData.location =
+                document.getElementById(
+                    "editLocation"
+                ).value.trim();
+
+            profileData.farmType =
+                document.getElementById(
+                    "editFarmType"
+                ).value.trim() ||
+                "Not specified";
+
+
+            profileData.crops =
+                document.getElementById(
+                    "editCrops"
+                ).value
+                .split(",")
+                .map(function(item) {
+                    return item.trim();
+                })
+                .filter(function(item) {
+                    return item !== "";
+                });
+
+
+            profileData.livestock =
+                document.getElementById(
+                    "editLivestock"
+                ).value
+                .split(",")
+                .map(function(item) {
+                    return item.trim();
+                })
+                .filter(function(item) {
+                    return item !== "";
+                });
+
+
+            saveProfileData();
+
+            updateProfile();
+
+
+            document.getElementById(
+                "editModal"
+            ).classList.remove("show");
+
+
+            alert(
+                "Profile saved successfully."
+            );
+
+        }
+    );
+
+
+/* =========================
+   LOCATION PRIVACY
+========================= */
+
+document
+    .getElementById("locationToggle")
+    .addEventListener(
+        "click",
+        function() {
+
+            profileData.showLocation =
+                !profileData.showLocation;
+
+            saveProfileData();
+
+            updateProfile();
+
+        }
+    );
+
+
+/* =========================
+   MESSAGE PRIVACY
+========================= */
+
+document
+    .getElementById("messageToggle")
+    .addEventListener(
+        "click",
+        function() {
+
+            profileData.allowMessages =
+                !profileData.allowMessages;
+
+            saveProfileData();
+
+            updateProfile();
+
+        }
+    );
+
+
+/* =========================
+   COMMUNITY
+========================= */
+
+document
+    .getElementById("communityButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            window.location.href =
+                "community.html";
+
+        }
+    );
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+document
+    .getElementById("messageButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            if (
+                !profileData.allowMessages
+            ) {
+
+                alert(
+                    "Messaging is disabled."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "FARMERS Messaging\n\n" +
+                "Secure messaging will be " +
+                "connected to the FARMERS " +
+                "online network."
+            );
+
+        }
+    );
+
+
+/* =========================
+   CLOSE MODAL BY BACKGROUND
+========================= */
+
+document
+    .getElementById("editModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                document.getElementById(
+                    "editModal"
+                )
+            ) {
+
+                document.getElementById(
+                    "editModal"
+                ).classList.remove("show");
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   INTERNET STATUS
+========================= */
+
+window.addEventListener(
+    "online",
+    updateNetworkStatus
+);
+
+window.addEventListener(
+    "offline",
+    updateNetworkStatus
+);
+
+
+/* =========================
+   START FARMERS PROFILE
+========================= */
+
+saveProfileData();
+
+updateProfile();
+
+updateNetworkStatus();
+
+console.log(
+    "FARMERS Profile loaded successfully."
+);
+
+</script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

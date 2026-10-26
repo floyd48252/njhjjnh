@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS Community</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050807;
+    color: #e8f5ef;
+    min-height: 100vh;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #07100c;
+    border-bottom: 1px solid rgba(0,200,120,.18);
+    padding: 15px;
+}
+
+.header-inner {
+    max-width: 700px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00c878;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #83938b;
+    margin-top: 3px;
+}
+
+.search {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(0,200,120,.2);
+    background: #0b1511;
+    color: white;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #00c878;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin-bottom: 15px;
+}
+
+.tab {
+    border: 1px solid rgba(0,200,120,.18);
+    background: #0a120e;
+    color: #a8b8b0;
+    padding: 9px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #00c878;
+    color: #031109;
+    font-weight: bold;
+}
+
+.create-post {
+    background: #09130f;
+    border: 1px solid rgba(0,200,120,.15);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 18px;
+}
+
+.create-top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    background: #00c878;
+    color: #031109;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.post-input {
+    flex: 1;
+    background: #0d1b15;
+    border: 1px solid rgba(0,200,120,.12);
+    color: #83938b;
+    border-radius: 22px;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+.create-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.action-button {
+    flex: 1;
+    border: none;
+    background: #0d1b15;
+    color: #9eb0a7;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background: #10251b;
+    color: #00c878;
+}
+
+.post {
+    background: #09130f;
+    border: 1px solid rgba(0,200,120,.13);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-role {
+    font-size: 11px;
+    color: #00c878;
+    margin-top: 2px;
+}
+
+.post-date {
+    margin-left: auto;
+    font-size: 10px;
+    color: #66766e;
+}
+
+.post-text {
+    margin-top: 13px;
+    line-height: 1.6;
+    color: #d2ddd7;
+}
+
+.topic {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 9px;
+    border-radius: 12px;
+    background: rgba(0,200,120,.08);
+    color: #00c878;
+    font-size: 10px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.post-action {
+    border: none;
+    background: transparent;
+    color: #84938c;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.post-action:hover {
+    color: #00c878;
+}
+
+.comments {
+    margin-top: 10px;
+    display: none;
+}
+
+.comments.show {
+    display: block;
+}
+
+.comment {
+    background: #0d1b15;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 7px;
+    font-size: 13px;
+}
+
+.comment strong {
+    color: #00c878;
+}
+
+.comment-box {
+    display: flex;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    background: #07100c;
+    border: 1px solid rgba(0,200,120,.15);
+    color: white;
+    padding: 9px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.comment-send {
+    border: none;
+    background: #00c878;
+    color: #031109;
+    padding: 9px 13px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 500px;
+    background: #09130f;
+    border: 1px solid rgba(0,200,120,.2);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.modal-title {
+    color: #00c878;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    background: #050807;
+    border: 1px solid rgba(0,200,120,.18);
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    outline: none;
+}
+
+select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 11px;
+    background: #050807;
+    color: white;
+    border: 1px solid rgba(0,200,120,.18);
+    border-radius: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 11px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cancel {
+    background: #16221c;
+    color: #aab8b1;
+}
+
+.publish {
+    background: #00c878;
+    color: #031109;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    padding: 50px 20px;
+    color: #718078;
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    .post {
+        border-radius: 12px;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="logo">
+<a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+</div>
+
+<div class="subtitle">
+Community • Knowledge • Agriculture
+</div>
+
+<input
+id="search"
+class="search"
+placeholder="Search FARMERS..."
+>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+
+<div class="tabs">
+
+<button class="tab active" data-topic="all">
+For You
+</button>
+
+<button class="tab" data-topic="crops">
+Crops
+</button>
+
+<button class="tab" data-topic="gardening">
+Gardening
+</button>
+
+<button class="tab" data-topic="livestock">
+Livestock
+</button>
+
+<button class="tab" data-topic="business">
+Business
+</button>
+
+</div>
+
+<section class="create-post">
+
+<div class="create-top">
+
+<div class="avatar">
+Y
+</div>
+
+<div
+class="post-input"
+id="openComposer"
+>
+Share something with FARMERS...
+</div>
+
+</div>
+
+<div class="create-actions">
+
+<button
+class="action-button"
+id="questionButton"
+>
+Ask a question
+</button>
+
+<button
+class="action-button"
+id="postButton"
+>
+Create post
+</button>
+
+</div>
+
+</section>
+
+<section id="feed"></section>
+
+</main>
+
+<div class="modal" id="postModal">
+
+<div class="modal-box">
+
+<h2 class="modal-title">
+Create a FARMERS post
+</h2>
+
+<textarea
+id="postText"
+placeholder="Share your knowledge, ask a question, or tell the community about your experience..."
+></textarea>
+
+<select id="postTopic">
+
+<option value="crops">
+Crops
+</option>
+
+<option value="gardening">
+Gardening
+</option>
+
+<option value="livestock">
+Livestock
+</option>
+
+<option value="business">
+Business
+</option>
+
+<option value="general">
+General
+</option>
+
+</select>
+
+<div class="modal-buttons">
+
+<button
+class="modal-button cancel"
+id="closeModal"
+>
+Cancel
+</button>
+
+<button
+class="modal-button publish"
+id="publishPost"
+>
+Publish
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const feed =
+    document.getElementById("feed");
+
+const search =
+    document.getElementById("search");
+
+const modal =
+    document.getElementById("postModal");
+
+let currentTopic = "all";
+
+
+/* =========================
+   COMMUNITY DATA
+========================= */
+
+let posts = JSON.parse(
+    localStorage.getItem(
+        "farmersCommunityPosts"
+    )
+) || [
+
+    {
+        id: 1,
+
+        user: "Peter",
+
+        role: "Farmer",
+
+        topic: "crops",
+
+        text:
+            "My tomato leaves are turning yellow. Does anyone know what could be causing this?",
+
+        likes: 12,
+
+        liked: false,
+
+        comments: [
+
+            {
+                user: "Sarah",
+
+                text:
+                    "Check whether you are watering them too much."
+            },
+
+            {
+                user: "James",
+
+                text:
+                    "Look underneath the leaves for pests as well."
+            }
+
+        ],
+
+        date: "Today"
+    },
+
+
+    {
+        id: 2,
+
+        user: "Mary",
+
+        role: "Home gardener",
+
+        topic: "gardening",
+
+        text:
+            "My roses finally flowered! What plants are everyone growing at home?",
+
+        likes: 28,
+
+        liked: false,
+
+        comments: [],
+
+        date: "Yesterday"
+    },
+
+
+    {
+        id: 3,
+
+        user: "David",
+
+        role: "Small-scale farmer",
+
+        topic: "business",
+
+        text:
+            "What are some good ways for small farmers to find reliable buyers without relying on middlemen?",
+
+        likes: 19,
+
+        liked: false,
+
+        comments: [],
+
+        date: "2 days ago"
+    }
+
+];
+
+
+/* =========================
+   SAVE DATA
+========================= */
+
+function savePosts() {
+
+    localStorage.setItem(
+
+        "farmersCommunityPosts",
+
+        JSON.stringify(posts)
+
+    );
+
+}
+
+
+/* =========================
+   TOPIC NAMES
+========================= */
+
+const topicNames = {
+
+    crops: "Crops",
+
+    gardening: "Gardening",
+
+    livestock: "Livestock",
+
+    business: "Business",
+
+    general: "General"
+
+};
+
+
+/* =========================
+   DISPLAY POSTS
+========================= */
+
+function renderPosts() {
+
+    const searchText =
+        search.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtered =
+        posts.filter(post => {
+
+            const correctTopic =
+                currentTopic === "all" ||
+                post.topic === currentTopic;
+
+
+            const matchesSearch =
+                post.text
+                    .toLowerCase()
+                    .includes(searchText) ||
+
+                post.user
+                    .toLowerCase()
+                    .includes(searchText) ||
+
+                post.role
+                    .toLowerCase()
+                    .includes(searchText);
+
+
+            return correctTopic &&
+                   matchesSearch;
+
+        });
+
+
+    feed.innerHTML = "";
+
+
+    if (filtered.length === 0) {
+
+        feed.innerHTML = `
+
+            <div class="empty">
+
+                <h3>No posts found</h3>
+
+                <p>
+                    Try another search or topic.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtered.forEach(post => {
+
+        const article =
+            document.createElement("article");
+
+
+        article.className = "post";
+
+
+        article.innerHTML = `
+
+            <div class="post-header">
+
+                <div class="avatar">
+
+                    ${post.user
+                        .charAt(0)
+                        .toUpperCase()}
+
+                </div>
+
+
+                <div>
+
+                    <div class="user-name">
+
+                        ${escapeHTML(
+                            post.user
+                        )}
+
+                    </div>
+
+
+                    <div class="user-role">
+
+                        ${escapeHTML(
+                            post.role
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <div class="post-date">
+
+                    ${post.date}
+
+                </div>
+
+            </div>
+
+
+            <div class="post-text">
+
+                ${escapeHTML(
+                    post.text
+                )}
+
+            </div>
+
+
+            <span class="topic">
+
+                ${topicNames[post.topic] ||
+                  "General"}
+
+            </span>
+
+
+            <div class="post-actions">
+
+                <button
+                    class="post-action"
+                    onclick="likePost(${post.id})"
+                >
+
+                    ${post.liked ? "Liked" : "Like"}
+
+                    ${post.likes}
+
+                </button>
+
+
+                <button
+                    class="post-action"
+                    onclick="toggleComments(${post.id})"
+                >
+
+                    ${post.comments.length} comments
+
+                </button>
+
+
+                <button
+                    class="post-action"
+                    onclick="sharePost(${post.id})"
+                >
+
+                    ↗ Share
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="comments"
+                id="comments-${post.id}"
+            >
+
+                ${renderComments(post)}
+
+
+                <div class="comment-box">
+
+                    <input
+                        class="comment-input"
+                        id="comment-${post.id}"
+                        placeholder="Write a reply..."
+                    >
+
+
+                    <button
+                        class="comment-send"
+                        onclick="addComment(${post.id})"
+                    >
+
+                        Send
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        feed.appendChild(article);
+
+    });
+
+}
+
+
+/* =========================
+   COMMENTS DISPLAY
+========================= */
+
+function renderComments(post) {
+
+    if (
+        !post.comments ||
+        post.comments.length === 0
+    ) {
+
+        return `
+
+            <div
+                style="
+                    color:#66766e;
+                    font-size:12px;
+                    padding:8px 0;
+                "
+            >
+
+                No replies yet.
+
+            </div>
+
+        `;
+
+    }
+
+
+    return post.comments
+        .map(comment => `
+
+            <div class="comment">
+
+                <strong>
+
+                    ${escapeHTML(
+                        comment.user
+                    )}
+
+                </strong>
+
+                <br>
+
+                ${escapeHTML(
+                    comment.text
+                )}
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* =========================
+   LIKE POST
+========================= */
+
+function likePost(id) {
+
+    const post =
+        posts.find(
+            item => item.id === id
+        );
+
+
+    if (!post) {
+
+        return;
+
+    }
+
+
+    if (post.liked) {
+
+        post.likes--;
+
+        post.liked = false;
+
+    }
+
+    else {
+
+        post.likes++;
+
+        post.liked = true;
+
+    }
+
+
+    savePosts();
+
+    renderPosts();
+
+}
+
+
+/* =========================
+   SHOW COMMENTS
+========================= */
+
+function toggleComments(id) {
+
+    const comments =
+        document.getElementById(
+            "comments-" + id
+        );
+
+
+    if (!comments) {
+
+        return;
+
+    }
+
+
+    comments.classList.toggle(
+        "show"
+    );
+
+}
+
+
+/* =========================
+   ADD COMMENT
+========================= */
+
+function addComment(id) {
+
+    const input =
+        document.getElementById(
+            "comment-" + id
+        );
+
+
+    if (!input) {
+
+        return;
+
+    }
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+
+        alert(
+            "Please write a reply first."
+        );
+
+        return;
+
+    }
+    const moderation =
+    checkContent(text);
+
+
+if (!moderation.allowed) {
+
+    alert(
+
+        "You can't post this on FARMERS.\n\n" +
+
+        moderation.reason +
+
+        "\n\nPlease rewrite your reply respectfully."
+
+    );
+
+    return;
+
+}
+
+
+    const post =
+        posts.find(
+            item => item.id === id
+        );
+
+
+    if (!post) {
+
+        return;
+
+    }
+
+
+    post.comments.push({
+
+        user: "You",
+
+        text: text
+
+    });
+
+
+    savePosts();
+
+    renderPosts();
+
+
+    setTimeout(() => {
+
+        const comments =
+            document.getElementById(
+                "comments-" + id
+            );
+
+
+        if (comments) {
+
+            comments.classList.add(
+                "show"
+            );
+
+        }
+
+    }, 50);
+
+}
+
+
+/* =========================
+   SHARE
+========================= */
+
+function sharePost(id) {
+
+    const post =
+        posts.find(
+            item => item.id === id
+        );
+
+
+    if (!post) {
+
+        return;
+
+    }
+
+
+    if (
+        navigator.share
+    ) {
+
+        navigator.share({
+
+            title:
+                "FARMERS Community",
+
+            text:
+                post.text
+
+        });
+
+    }
+
+    else {
+
+        alert(
+
+            "Share this FARMERS post:\n\n" +
+
+            post.text
+
+        );
+
+    }
+
+}
+
+
+/* =========================
+   SAFETY
+========================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent = text;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+search.addEventListener(
+    "input",
+    renderPosts
+);
+
+
+/* =========================
+   TOPIC BUTTONS
+========================= */
+
+document
+    .querySelectorAll(".tab")
+    .forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".tab"
+                    )
+                    .forEach(button => {
+
+                        button.classList
+                            .remove(
+                                "active"
+                            );
+
+                    });
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                currentTopic =
+                    tab.dataset.topic;
+
+
+                renderPosts();
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   OPEN POST WINDOW
+========================= */
+
+function openComposer() {
+
+    modal.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================
+   CLOSE POST WINDOW
+========================= */
+
+function closeComposer() {
+
+    modal.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================
+   OPEN COMPOSER
+========================= */
+
+document
+    .getElementById(
+        "openComposer"
+    )
+    .addEventListener(
+        "click",
+        openComposer
+    );
+
+
+document
+    .getElementById(
+        "postButton"
+    )
+    .addEventListener(
+        "click",
+        openComposer
+    );
+
+
+document
+    .getElementById(
+        "questionButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            openComposer();
+
+
+            document
+                .getElementById(
+                    "postText"
+                )
+                .placeholder =
+                "What would you like to ask the FARMERS community?";
+
+        }
+    );
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+document
+    .getElementById(
+        "closeModal"
+    )
+    .addEventListener(
+        "click",
+        closeComposer
+    );
+    /* =========================
+   FARMERS CONTENT GUARD
+========================= */
+
+function checkContent(text) {
+
+    const blockedWords = [
+
+        "idiot",
+        "stupid",
+        "dumb",
+        "moron",
+        "useless",
+        "shut up",
+        "hate you"
+
+    ];
+
+
+    const lowerText =
+        text.toLowerCase();
+
+
+    for (
+        const word of blockedWords
+    ) {
+
+        if (
+            lowerText.includes(word)
+        ) {
+
+            return {
+
+                allowed: false,
+
+                reason:
+                    "Your message contains insulting or disrespectful language."
+
+            };
+
+        }
+
+    }
+
+
+    return {
+
+        allowed: true,
+
+        reason: ""
+
+    };
+
+}
+    /* =========================
+   PUBLISH POST
+========================= */
+
+document
+    .getElementById(
+        "publishPost"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const text =
+                document
+                    .getElementById(
+                        "postText"
+                    )
+                    .value
+                    .trim();
+
+
+            const topic =
+                document
+                    .getElementById(
+                        "postTopic"
+                    )
+                    .value;
+
+
+            if (!text) {
+
+                alert(
+                    "Please write something first."
+                );
+
+                return;
+
+            }
+const moderation =
+    checkContent(text);
+
+
+if (!moderation.allowed) {
+
+    alert(
+
+        "You can't post this on FARMERS.\n\n" +
+
+        moderation.reason +
+
+        "\n\nPlease rewrite your message respectfully."
+
+    );
+
+    return;
+
+}
+
+            /* =========================
+               CREATE NEW POST
+            ========================= */
+
+            const newPost = {
+
+                id:
+                    Date.now(),
+
+                user:
+                    "You",
+
+                role:
+                    "Community member",
+
+                topic:
+                    topic,
+
+                text:
+                    text,
+
+                likes:
+                    0,
+
+                liked:
+                    false,
+
+                comments:
+                    [],
+
+                date:
+                    "Just now"
+
+            };
+
+
+            /* =========================
+               ADD TO TOP OF FEED
+            ========================= */
+
+            posts.unshift(
+                newPost
+            );
+
+
+            /* =========================
+               SAVE
+            ========================= */
+
+            savePosts();
+
+
+            /* =========================
+               CLEAR FORM
+            ========================= */
+
+            document
+                .getElementById(
+                    "postText"
+                )
+                .value = "";
+
+
+            /* =========================
+               CLOSE WINDOW
+            ========================= */
+
+            closeComposer();
+
+
+            /* =========================
+               REFRESH FEED
+            ========================= */
+
+            renderPosts();
+
+        }
+    );
+
+
+/* =========================
+   CLOSE MODAL WHEN
+   CLICKING OUTSIDE
+========================= */
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === modal
+        ) {
+
+            closeComposer();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeComposer();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+renderPosts();
+
+
+console.log(
+    "FARMERS Community loaded successfully."
+);
+
+</script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

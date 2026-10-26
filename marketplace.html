@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Marketplace | FARMERS</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<style>
+
+/* =========================
+   MARKETPLACE
+========================= */
+
+.market-page {
+
+    width: min(950px,100%);
+
+    margin: auto;
+
+    padding: 25px 17px 100px;
+}
+
+
+.market-back {
+
+    margin-bottom: 20px;
+}
+
+
+.market-back a {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* HERO */
+
+.market-hero {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,200,120,.14),
+            rgba(0,0,0,.08)
+        );
+
+    border:
+        1px solid
+        rgba(0,255,156,.22);
+
+    margin-bottom: 20px;
+}
+
+
+.market-label {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+.market-hero h1 {
+
+    font-size:
+        clamp(30px,8vw,48px);
+
+    margin-top: 8px;
+}
+
+
+.market-hero h1 span {
+
+    color: var(--emerald);
+}
+
+
+.market-hero p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 600px;
+
+    margin-top: 10px;
+}
+
+
+/* SEARCH */
+
+.market-search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 13px;
+
+    padding: 7px;
+
+    margin-bottom: 15px;
+}
+
+
+.market-search span {
+
+    padding-left: 8px;
+}
+
+
+.market-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    background: none;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    padding: 10px 0;
+}
+
+
+.market-search button {
+
+    border: none;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    border-radius: 9px;
+
+    padding: 10px 13px;
+
+    font-weight: bold;
+}
+
+
+/* CATEGORIES */
+
+.market-categories {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.market-chip {
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        var(--border);
+
+    background: var(--card);
+
+    color: var(--muted);
+
+    border-radius: 20px;
+
+    padding: 9px 13px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+.market-chip.active,
+.market-chip:hover {
+
+    background:
+        rgba(0,200,120,.1);
+
+    color: var(--emerald);
+
+    border-color:
+        rgba(0,255,156,.3);
+}
+
+
+/* SECTION TITLE */
+
+.market-heading {
+
+    margin-bottom: 13px;
+}
+
+
+.market-heading span {
+
+    color: var(--emerald);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: bold;
+}
+
+
+.market-heading h2 {
+
+    font-size: 20px;
+
+    margin-top: 5px;
+}
+
+
+/* PRODUCTS */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+}
+
+
+.product-card {
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.product-image {
+
+    height: 130px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101914,
+            #17251d
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 48px;
+}
+
+
+.product-info {
+
+    padding: 13px;
+}
+
+
+.product-info strong {
+
+    display: block;
+
+    font-size: 13px;
+}
+
+
+.product-location {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-top: 4px;
+}
+
+
+.product-price {
+
+    color: var(--emerald);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+.product-unit {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: normal;
+}
+
+
+.product-seller {
+
+    color: #a7b6ae;
+
+    font-size: 9px;
+
+    margin-top: 6px;
+}
+
+
+.product-btn {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 9px;
+
+    border:
+        1px solid
+        rgba(0,255,156,.2);
+
+    background:
+        rgba(0,200,120,.07);
+
+    color: var(--emerald);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+.product-btn:hover {
+
+    background:
+        var(--emerald);
+
+    color: #001b0f;
+}
+
+
+.listing-dialog {
+
+    width: min(520px, calc(100% - 32px));
+
+    max-height: min(85vh, 720px);
+
+    padding: 0;
+
+    color: var(--text);
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+}
+
+
+.listing-dialog::backdrop {
+
+    background: rgba(0, 0, 0, .72);
+
+}
+
+
+.listing-dialog-content {
+
+    padding: 20px;
+
+}
+
+
+.listing-dialog-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 240px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.listing-dialog h2 {
+
+    margin: 0 36px 12px 0;
+
+    color: var(--emerald);
+
+}
+
+
+.listing-dialog-details {
+
+    display: grid;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.listing-dialog-details strong {
+
+    color: var(--text);
+
+}
+
+
+.listing-dialog-note {
+
+    margin: 16px 0;
+
+    padding: 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.listing-dialog-close {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* SELL BUTTON */
+
+.sell-banner {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(0,255,156,.2);
+
+    background:
+        rgba(0,200,120,.05);
+}
+
+
+.sell-banner strong {
+
+    display: block;
+
+    font-size: 16px;
+}
+
+
+.sell-banner p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 5px;
+
+    line-height: 1.5;
+}
+
+
+.sell-button {
+
+    display: inline-block;
+
+    margin-top: 13px;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* RESULTS */
+
+#marketResults {
+
+    display: none;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+/* DESKTOP */
+
+@media (min-width:700px) {
+
+    .product-grid {
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+}
+/* =========================
+   CREATE LISTING PANEL
+========================= */
+
+.listing-panel {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 18px;
+}
+
+
+.listing-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.listing-header h2 {
+
+    margin-top: 6px;
+
+    font-size: 20px;
+}
+
+
+.close-listing {
+
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    border-radius: 8px;
+
+    padding: 8px 11px;
+
+    cursor: pointer;
+}
+
+
+.close-listing:hover {
+
+    color: var(--emerald);
+
+    border-color: var(--emerald);
+}
+
+
+#listingForm {
+
+    display: grid;
+
+    gap: 9px;
+}
+
+
+#listingForm label {
+
+    color: #a7b6ae;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+}
+
+
+#listingForm input,
+#listingForm select,
+#listingForm textarea {
+
+    width: 100%;
+
+    padding: 11px;
+
+    background: #07100c;
+
+    color: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 11px;
+}
+
+
+#listingForm input:focus,
+#listingForm select:focus,
+#listingForm textarea:focus {
+
+    border-color:
+        var(--emerald);
+}
+
+
+#listingForm textarea {
+
+    resize: vertical;
+
+    min-height: 90px;
+}
+
+
+.submit-listing {
+
+    margin-top: 12px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.submit-listing:hover {
+
+    opacity: .85;
+}
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<div class="logo">
+    F
+</div>
+
+<div class="brand-text">
+
+<strong>
+    FARMERS
+</strong>
+
+<span>
+    Agricultural Network
+</span>
+
+</div>
+
+</a>
+
+
+<div class="top-actions">
+
+<span class="status-btn">
+
+<span class="status-dot"></span>
+
+<span id="statusText">
+    Online
+</span>
+
+</span>
+
+
+<a
+    href="index.html"
+    class="menu-btn"
+    style="
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    "
+>
+    ←
+</a>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item active" aria-current="page"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="market-page">
+
+
+<div class="market-back">
+
+<a href="index.html">
+    ← Back to Dashboard
+</a>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="market-hero">
+
+<span class="market-label">
+    FARMERS AGRICULTURAL MARKETPLACE
+</span>
+
+<h1>
+
+Buy.
+
+<span>
+    Sell.
+</span>
+
+Connect.
+
+</h1>
+
+<p>
+
+Connect agricultural producers,
+traders, buyers and businesses
+through one marketplace.
+
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="market-search">
+
+<input
+    id="marketSearch"
+    type="search"
+    placeholder="Search produce, livestock, supplies..."
+>
+
+<button id="marketSearchBtn">
+    Search
+</button>
+
+</div>
+
+
+<div id="marketResults"></div>
+
+
+<!-- CATEGORIES -->
+
+<div class="market-categories">
+
+<button
+    class="market-chip active"
+    data-filter="all"
+>
+    All
+</button>
+
+<button
+    class="market-chip"
+    data-filter="crops"
+>
+    Crops
+</button>
+
+<button
+    class="market-chip"
+    data-filter="livestock"
+>
+    Livestock
+</button>
+
+<button
+    class="market-chip"
+    data-filter="poultry"
+>
+    Poultry
+</button>
+
+<button
+    class="market-chip"
+    data-filter="fish"
+>
+    Fish
+</button>
+
+<button
+    class="market-chip"
+    data-filter="inputs"
+>
+    Farm Inputs
+</button>
+
+</div>
+<!-- PRODUCTS -->
+
+<section>
+
+<div class="market-heading">
+
+<span>
+    MARKETPLACE
+</span>
+
+<h2>
+    Available products
+</h2>
+
+</div>
+
+
+<div
+    class="product-grid"
+    id="productGrid"
+>
+
+
+<!-- MAIZE -->
+
+<div
+    class="product-card"
+    data-category="crops"
+    data-name="maize"
+>
+
+<div class="product-image">
+    <img src="crop-rows.jpg" alt="Rows of crops growing on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Fresh Maize
+</strong>
+
+<div class="product-location">
+    Local Farm
+</div>
+
+<div class="product-price">
+
+KSh 4,500
+
+<span class="product-unit">
+    / bag
+</span>
+
+</div>
+
+<div class="product-seller">
+    Farmer • Verified
+</div>
+
+<button
+    class="product-btn"
+    data-product="Fresh Maize"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TOMATOES -->
+
+<div
+    class="product-card"
+    data-category="crops"
+    data-name="tomatoes"
+>
+
+<div class="product-image">
+    <img src="market-produce.jpg" alt="Fresh farm vegetables" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Fresh Tomatoes
+</strong>
+
+<div class="product-location">
+    Local Farm
+</div>
+
+<div class="product-price">
+
+KSh 3,000
+
+<span class="product-unit">
+    / crate
+</span>
+
+</div>
+
+<div class="product-seller">
+    Farmer • Verified
+</div>
+
+<button
+    class="product-btn"
+    data-product="Fresh Tomatoes"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CATTLE -->
+
+<div
+    class="product-card"
+    data-category="livestock"
+    data-name="cattle"
+>
+
+<div class="product-image">
+    <img src="dairy-cow.jpg" alt="Dairy cow in a pasture" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Dairy Cattle
+</strong>
+
+<div class="product-location">
+    Local Farm
+</div>
+
+<div class="product-price">
+
+KSh 85,000
+
+<span class="product-unit">
+    / animal
+</span>
+
+</div>
+
+<div class="product-seller">
+    Farmer • Verified
+</div>
+
+<button
+    class="product-btn"
+    data-product="Dairy Cattle"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GOATS -->
+
+<div
+    class="product-card"
+    data-category="livestock"
+    data-name="goat goats"
+>
+
+<div class="product-image">
+    <img src="goat.jpg" alt="Goat raised on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Goats</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Goats">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- SHEEP -->
+
+<div
+    class="product-card"
+    data-category="livestock"
+    data-name="sheep"
+>
+
+<div class="product-image">
+    <img src="crop-rows.jpg" alt="Farm growing area" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Sheep</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Sheep">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- PIGS -->
+
+<div
+    class="product-card"
+    data-category="livestock"
+    data-name="pig pigs"
+>
+
+<div class="product-image">
+    <img src="cattle.jpg" alt="Pig raised on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Pigs</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Pigs">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- CHICKENS -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="chickens"
+>
+
+<div class="product-image">
+    <img src="poultry.jpg" alt="Chickens raised on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Broiler Chickens
+</strong>
+
+<div class="product-location">
+    Local Farm
+</div>
+
+<div class="product-price">
+
+KSh 650
+
+<span class="product-unit">
+    / bird
+</span>
+
+</div>
+
+<div class="product-seller">
+    Poultry Farmer
+</div>
+
+<button
+    class="product-btn"
+    data-product="Broiler Chickens"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TURKEYS -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="turkey turkeys"
+>
+
+<div class="product-image">
+    <img src="bird (3).jpeg" alt="Turkey standing in a grassy farmyard" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Turkeys</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about age and availability</div>
+<button class="product-btn" data-product="Turkeys">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- GUINEA FOWL -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="guinea fowl"
+>
+
+<div class="product-image">
+    <img src="bird (1).jpeg" alt="Guinea fowl with its keet on grass" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Guinea Fowl</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about age and availability</div>
+<button class="product-btn" data-product="Guinea Fowl">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- DUCKS -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="duck ducks"
+>
+
+<div class="product-image">
+    <img src="bird (2).jpeg" alt="Two white ducks beside a pond" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Ducks</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Ducks">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- KUKU KIENYEJI -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="kuku kienyeji indigenous chicken"
+>
+
+<div class="product-image">
+    <img src="poultry.jpg" alt="Free-range chickens on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Kuku Kienyeji</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Kuku Kienyeji">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- KENBRO CHICKENS -->
+
+<div
+    class="product-card"
+    data-category="poultry"
+    data-name="kenbro kenbroo chickens"
+>
+
+<div class="product-image">
+    <img src="poultry.jpg" alt="Chickens raised on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+<strong>Kenbro Chickens</strong>
+<div class="product-location">Local Farm</div>
+<div class="product-price">Contact seller</div>
+<div class="product-seller">Ask seller about breed, age and availability</div>
+<button class="product-btn" data-product="Kenbro Chickens">View Listing</button>
+</div>
+
+</div>
+
+
+<!-- FISH -->
+
+<div
+    class="product-card"
+    data-category="fish"
+    data-name="tilapia fish"
+>
+
+<div class="product-image">
+    <img src="fish.jpg" alt="Fresh farmed fish" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Fresh Tilapia
+</strong>
+
+<div class="product-location">
+    Fish Farm
+</div>
+
+<div class="product-price">
+
+KSh 450
+
+<span class="product-unit">
+    / kg
+</span>
+
+</div>
+
+<div class="product-seller">
+    Fish Farmer
+</div>
+
+<button
+    class="product-btn"
+    data-product="Fresh Tilapia"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FERTILIZER -->
+
+<div
+    class="product-card"
+    data-category="inputs"
+    data-name="fertilizer"
+>
+
+<div class="product-image">
+    <img src="seedlings.jpg" alt="Young plants growing in seed trays" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Farm Fertilizer
+</strong>
+
+<div class="product-location">
+    Agro Dealer
+</div>
+
+<div class="product-price">
+
+KSh 4,200
+
+<span class="product-unit">
+    / bag
+</span>
+
+</div>
+
+<div class="product-seller">
+    Agro Dealer
+</div>
+
+<button
+    class="product-btn"
+    data-product="Farm Fertilizer"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+<!-- PESTICIDE -->
+
+<div
+    class="product-card"
+    data-category="inputs"
+    data-name="pesticide crop protection pest control"
+>
+
+<div class="product-image">
+    <img src="seedlings.jpg" alt="Young crop seedlings" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Crop Pesticide
+</strong>
+
+<div class="product-location">
+    Input supplier
+</div>
+
+<div class="product-price">
+    Contact seller
+</div>
+
+<div class="product-seller">
+    Check product label and local regulations
+</div>
+
+<button
+    class="product-btn"
+    data-product="Crop Pesticide"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HERBICIDE -->
+
+<div
+    class="product-card"
+    data-category="inputs"
+    data-name="herbicide weed control"
+>
+
+<div class="product-image">
+    <img src="crop-rows.jpg" alt="Crop rows in a farm field" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Farm Herbicide
+</strong>
+
+<div class="product-location">
+    Input supplier
+</div>
+
+<div class="product-price">
+    Contact seller
+</div>
+
+<div class="product-seller">
+    Check product label and local regulations
+</div>
+
+<button
+    class="product-btn"
+    data-product="Farm Herbicide"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- LIVESTOCK FEED -->
+
+<div
+    class="product-card"
+    data-category="inputs"
+    data-name="livestock animal cattle dairy feed"
+>
+
+<div class="product-image">
+    <img src="dairy-cow.jpg" alt="Dairy cow on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Livestock Feed
+</strong>
+
+<div class="product-location">
+    Feed supplier
+</div>
+
+<div class="product-price">
+    Contact seller
+</div>
+
+<div class="product-seller">
+    Ask seller about feed type and bag size
+</div>
+
+<button
+    class="product-btn"
+    data-product="Livestock Feed"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+<!-- POULTRY FEED -->
+
+<div
+    class="product-card"
+    data-category="inputs"
+    data-name="poultry chicken feed"
+>
+
+<div class="product-image">
+    <img src="poultry.jpg" alt="Poultry raised on a farm" loading="lazy">
+</div>
+
+<div class="product-info">
+
+<strong>
+    Poultry Feed
+</strong>
+
+<div class="product-location">
+    Feed supplier
+</div>
+
+<div class="product-price">
+    Contact seller
+</div>
+
+<div class="product-seller">
+    Ask seller about feed type and bag size
+</div>
+
+<button
+    class="product-btn"
+    data-product="Poultry Feed"
+>
+    View Listing
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<dialog
+    class="listing-dialog"
+    id="productDialog"
+    aria-labelledby="productDialogTitle"
+>
+
+    <div class="listing-dialog-content">
+
+        <img
+            class="listing-dialog-image"
+            id="productDialogImage"
+            alt=""
+        >
+
+        <h2 id="productDialogTitle"></h2>
+
+        <div class="listing-dialog-details">
+            <div><strong>Price:</strong> <span id="productDialogPrice"></span></div>
+            <div><strong>Location:</strong> <span id="productDialogLocation"></span></div>
+            <div><strong>Seller:</strong> <span id="productDialogSeller"></span></div>
+        </div>
+
+        <p class="listing-dialog-note" id="productDialogNote"></p>
+
+        <button
+            type="button"
+            class="listing-dialog-close"
+            id="closeProductDialog"
+        >
+            Close listing
+        </button>
+
+    </div>
+
+</dialog>
+
+
+<!-- SELL -->
+
+<section class="sell-banner">
+
+<strong>
+    Have something to sell?
+</strong>
+
+<p>
+
+List your crops, livestock,
+poultry, fish or agricultural
+products and reach potential
+buyers.
+
+</p>
+
+<button
+    type="button"
+    class="sell-button"
+    id="sellButton"
+>
+    + Create Listing
+</button>
+
+</section>
+<section
+    class="listing-panel"
+    id="listingPanel"
+    style="display:none;"
+>
+
+    <div class="listing-header">
+
+        <div>
+
+            <span class="market-label">
+                SELL ON FARMERS
+            </span>
+
+            <h2>
+                Create a Listing
+            </h2>
+
+        </div>
+
+        <button
+            type="button"
+            class="close-listing"
+            id="closeListing"
+        >
+            Close
+        </button>
+
+    </div>
+
+
+    <form id="listingForm">
+
+        <label for="listingName">
+            Product name
+        </label>
+
+        <input
+            type="text"
+            id="listingName"
+            placeholder="e.g. Fresh Maize"
+            required
+        >
+
+
+        <label for="listingCategory">
+            Category
+        </label>
+
+        <select id="listingCategory" required>
+
+            <option value="">
+                Select category
+            </option>
+
+            <option value="crops">
+                Crops
+            </option>
+
+            <option value="livestock">
+                Livestock
+            </option>
+
+            <option value="poultry">
+                Poultry
+            </option>
+
+            <option value="fish">
+                Fish
+            </option>
+
+            <option value="inputs">
+                Farm Inputs
+            </option>
+
+        </select>
+
+
+        <label for="listingPrice">
+            Price (KSh)
+        </label>
+
+        <input
+            type="number"
+            id="listingPrice"
+            placeholder="e.g. 4500"
+            min="0"
+            required
+        >
+
+
+        <label for="listingUnit">
+            Unit
+        </label>
+
+        <input
+            type="text"
+            id="listingUnit"
+            placeholder="e.g. bag, kg, crate, animal"
+            required
+        >
+
+
+        <label for="listingLocation">
+            Location
+        </label>
+
+        <input
+            type="text"
+            id="listingLocation"
+            placeholder="e.g. Nakuru"
+            required
+        >
+
+
+        <label for="listingSeller">
+            Seller name
+        </label>
+
+        <input
+            type="text"
+            id="listingSeller"
+            placeholder="Your name or farm name"
+            required
+        >
+
+
+        <label for="listingDescription">
+            Description
+        </label>
+
+        <textarea
+            id="listingDescription"
+            placeholder="Describe your product..."
+        ></textarea>
+
+
+        <button
+            type="submit"
+            class="submit-listing"
+        >
+            + Publish Listing
+        </button>
+
+    </form>
+
+</section>
+<section
+    id="listingPanel"
+    class="listing-panel"
+    style="display:none;"
+>
+
+    <div class="listing-header">
+
+        <div>
+
+            <span class="market-label">
+                SELL ON FARMERS
+            </span>
+
+            <h2>
+                Create Product Listing
+            </h2>
+
+        </div>
+
+        <button
+            type="button"
+            id="closeListing"
+            class="close-listing"
+        >
+            Close
+        </button>
+
+    </div>
+
+
+    <form id="listingForm">
+
+        <label>
+            Product Name
+        </label>
+
+        <input
+            type="text"
+            id="listingName"
+            placeholder="e.g. Fresh Tomatoes"
+            required
+        >
+
+
+        <label>
+            Category
+        </label>
+
+        <select
+            id="listingCategory"
+            required
+        >
+
+            <option value="">
+                Select category
+            </option>
+
+            <option value="crops">
+                Crops
+            </option>
+
+            <option value="livestock">
+                Livestock
+            </option>
+
+            <option value="poultry">
+                Poultry
+            </option>
+
+            <option value="fish">
+                Fish
+            </option>
+
+            <option value="inputs">
+                Farm Inputs
+            </option>
+
+        </select>
+
+
+        <label>
+            Price
+        </label>
+
+        <input
+            type="number"
+            id="listingPrice"
+            placeholder="e.g. 4500"
+            min="0"
+            required
+        >
+
+
+        <label>
+            Unit
+        </label>
+
+        <input
+            type="text"
+            id="listingUnit"
+            placeholder="e.g. bag, kg, crate"
+            required
+        >
+
+
+        <label>
+            Location
+        </label>
+
+        <input
+            type="text"
+            id="listingLocation"
+            placeholder="e.g. Nairobi"
+            required
+        >
+
+
+        <label>
+            Seller Name
+        </label>
+
+        <input
+            type="text"
+            id="listingSeller"
+            placeholder="Your name or business"
+            required
+        >
+
+
+        <label>
+            Product Description
+        </label>
+
+        <textarea
+            id="listingDescription"
+            placeholder="Describe your product..."
+            rows="4"
+        ></textarea>
+
+
+        <label>
+            Product Image
+        </label>
+
+        <input
+            type="file"
+            id="listingImage"
+            accept="image/*"
+        >
+
+
+        <button
+            type="submit"
+            class="submit-listing"
+        >
+            Upload Product
+        </button>
+
+    </form>
+
+</section>
+<!-- =========================
+     CREATE LISTING PANEL
+========================= -->
+
+<section
+    id="listingPanel"
+    style="
+        display:none;
+        margin-top:25px;
+        padding:20px;
+        background:var(--card);
+        border:1px solid var(--border);
+        border-radius:16px;
+    "
+>
+
+    <h2 style="color:var(--emerald);">
+        Create Product Listing
+    </h2>
+
+    <p style="
+        color:var(--muted);
+        font-size:11px;
+    ">
+        Add a product to the FARMERS Marketplace.
+    </p>
+
+
+    <form id="listingForm">
+
+        <input
+            id="listingName"
+            type="text"
+            placeholder="Product name"
+            required
+        >
+
+        <select
+            id="listingCategory"
+            required
+        >
+            <option value="">
+                Select category
+            </option>
+
+            <option value="crops">
+                Crops
+            </option>
+
+            <option value="livestock">
+                Livestock
+            </option>
+
+            <option value="poultry">
+                Poultry
+            </option>
+
+            <option value="fish">
+                Fish
+            </option>
+
+            <option value="inputs">
+                Farm Inputs
+            </option>
+        </select>
+
+
+        <input
+            id="listingPrice"
+            type="number"
+            min="0"
+            placeholder="Price in KSh"
+            required
+        >
+
+
+        <input
+            id="listingUnit"
+            type="text"
+            placeholder="Unit e.g. bag, kg, crate"
+            required
+        >
+
+
+        <input
+            id="listingLocation"
+            type="text"
+            placeholder="Location"
+            required
+        >
+
+
+        <input
+            id="listingSeller"
+            type="text"
+            placeholder="Seller name"
+            required
+        >
+
+
+        <textarea
+            id="listingDescription"
+            placeholder="Product description"
+            rows="4"
+        ></textarea>
+
+
+        <button
+            type="submit"
+            class="plan-button"
+        >
+            Publish Listing
+        </button>
+
+
+        <button
+            type="button"
+            id="closeListing"
+            class="plan-button"
+            style="margin-top:8px;"
+        >
+            Cancel
+        </button>
+
+    </form>
+
+</section>
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+
+<a
+    href="index.html"
+    class="bottom-item"
+>
+
+<span>
+    ⌂
+</span>
+
+<small>
+    Home
+</small>
+
+</a>
+
+
+<a
+    href="farm-hub.html"
+    class="bottom-item"
+>
+
+<span>
+    Farm
+</span>
+
+<small>
+    Farm
+</small>
+
+</a>
+
+
+<a
+    href="marketplace.html"
+    class="bottom-item active market"
+>
+
+<span>
+    Market
+</span>
+
+<small>
+    Market
+</small>
+
+</a>
+
+
+<a
+    href="agribusiness.html"
+    class="bottom-item"
+>
+
+<span>
+    ▥
+</span>
+
+<small>
+    Business
+</small>
+
+</a>
+
+
+<a
+    href="profile.html"
+    class="bottom-item"
+>
+
+<span>
+    Profile
+</span>
+
+<small>
+    Profile
+</small>
+
+</a>
+
+
+</nav>
+<script>
+
+/* =========================
+   CONNECTION
+========================= */
+
+function updateConnection() {
+
+    const status =
+        document.getElementById(
+            "statusText"
+        );
+
+    status.textContent =
+        navigator.onLine
+        ? "Online"
+        : "Offline";
+
+}
+
+
+updateConnection();
+
+
+window.addEventListener(
+    "online",
+    updateConnection
+);
+
+
+window.addEventListener(
+    "offline",
+    updateConnection
+);
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+const chips =
+    document.querySelectorAll(
+        ".market-chip"
+    );
+
+
+const products =
+    document.querySelectorAll(
+        ".product-card"
+    );
+
+
+chips.forEach(chip => {
+
+    chip.addEventListener(
+        "click",
+        () => {
+
+            chips.forEach(item => {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            chip.classList.add(
+                "active"
+            );
+
+
+            const filter =
+                chip.dataset.filter;
+
+
+            products.forEach(product => {
+
+                if (
+                    filter === "all" ||
+                    product.dataset.category === filter
+                ) {
+
+                    product.style.display =
+                        "";
+
+                } else {
+
+                    product.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================
+   PRODUCT SEARCH
+========================= */
+
+const searchInput =
+    document.getElementById(
+        "marketSearch"
+    );
+
+
+const searchButton =
+    document.getElementById(
+        "marketSearchBtn"
+    );
+
+
+const searchResults =
+    document.getElementById(
+        "marketResults"
+    );
+
+
+function searchProducts() {
+
+    const query =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    if (!query) {
+
+        searchResults.style.display =
+            "none";
+
+        products.forEach(product => {
+
+            product.style.display =
+                "";
+
+        });
+
+        return;
+
+    }
+
+
+    let found = 0;
+
+
+    products.forEach(product => {
+
+        const searchable =
+            `${product.dataset.name} ${product.innerText}`
+                .toLowerCase();
+        const matches =
+            query
+                .split(/\s+/)
+                .every(term => searchable.includes(term));
+
+
+        if (matches) {
+
+            product.style.display =
+                "";
+
+            found++;
+
+        } else {
+
+            product.style.display =
+                "none";
+
+        }
+
+    });
+
+
+    searchResults.style.display =
+        "block";
+
+
+    if (found) {
+
+        searchResults.innerHTML = `
+
+            <div style="
+                color:#00c878;
+                font-size:10px;
+                margin-bottom:5px;
+            ">
+
+                MARKET SEARCH
+
+            </div>
+
+            ${found}
+            product(s) found.
+
+        `;
+
+    } else {
+
+        searchResults.innerHTML = `
+
+            <p style="
+                color:#83938b;
+                font-size:12px;
+            ">
+
+                No matching products found.
+
+                <br><br>
+
+                ${
+                    navigator.onLine
+                    ? "Online marketplace search can provide broader results."
+                    : "Connect to the internet for broader marketplace results."
+                }
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+searchButton.addEventListener(
+    "click",
+    searchProducts
+);
+
+
+searchInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            searchProducts();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   PRODUCT LISTING DETAILS
+========================= */
+
+const productDialog =
+    document.getElementById("productDialog");
+
+const productDialogImage =
+    document.getElementById("productDialogImage");
+
+document
+    .querySelectorAll(".product-btn")
+    .forEach(button => {
+        button.addEventListener("click", () => {
+            const card = button.closest(".product-card");
+            if (!card) {
+                return;
+            }
+
+            const image = card.querySelector(".product-image img");
+            const name = card.querySelector(".product-info > strong");
+            const price = card.querySelector(".product-price");
+            const location = card.querySelector(".product-location");
+            const seller = card.querySelector(".product-seller");
+
+            document.getElementById("productDialogTitle").textContent =
+                name?.textContent.trim() || button.dataset.product || "Product listing";
+            document.getElementById("productDialogPrice").textContent =
+                price?.textContent.trim() || "Contact seller";
+            document.getElementById("productDialogLocation").textContent =
+                location?.textContent.trim() || "Location not provided";
+            document.getElementById("productDialogSeller").textContent =
+                seller?.textContent.trim() || "Seller details not provided";
+            document.getElementById("productDialogNote").textContent =
+                "Contact details are not available for this listing. Use the seller information above to identify what to ask about before arranging a purchase.";
+
+            if (image) {
+                productDialogImage.src = image.getAttribute("src");
+                productDialogImage.alt = image.alt || "";
+                productDialogImage.hidden = false;
+            } else {
+                productDialogImage.removeAttribute("src");
+                productDialogImage.hidden = true;
+            }
+
+            productDialog.showModal();
+        });
+    });
+
+document
+    .getElementById("closeProductDialog")
+    .addEventListener("click", () => productDialog.close());
+
+productDialog.addEventListener("click", event => {
+    if (event.target === productDialog) {
+        productDialog.close();
+    }
+});
+
+
+/* =========================
+   CREATE LISTING
+========================= */
+
+document
+    .getElementById(
+        "sellButton"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+
+            alert(
+
+                "CREATE LISTING\n\n" +
+
+                "The seller listing system will allow farmers and businesses to add products, prices, quantities, photos and locations."
+
+            );
+
+        }
+    );
+
+</script>
+<script src="plan-access.js"></script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>

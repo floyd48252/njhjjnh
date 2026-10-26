@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FARMERS - Subscription</title>
+
+
+<style>
+
+/* =========================
+   FARMERS SUBSCRIPTION
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #050807;
+
+    color: #e8f5ef;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    background: #07100c;
+
+    border-bottom:
+        1px solid #164d36;
+
+    padding: 18px;
+
+}
+
+
+.header-inner {
+
+    max-width: 950px;
+
+    margin: auto;
+
+}
+
+
+.logo {
+
+    color: #00c878;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.subtitle {
+
+    color: #718078;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 16px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b2117,
+            #07100c
+        );
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+}
+
+
+.hero h1 {
+
+    color: #00c878;
+
+    font-size: 28px;
+
+    margin:
+        0 0 10px;
+
+}
+
+
+.hero p {
+
+    color: #9aaba3;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+/* =========================
+   PLAN GRID
+========================= */
+
+.plan-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* =========================
+   PLAN CARD
+========================= */
+
+.plan-card {
+
+    position: relative;
+
+    background: #09130f;
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+}
+
+
+.plan-card.featured {
+
+    border:
+        2px solid #00c878;
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+.plan-name {
+
+    color: #00c878;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.plan-description {
+
+    color: #83938b;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    min-height: 50px;
+
+}
+
+
+.plan-price {
+
+    margin:
+        18px 0;
+
+}
+
+
+.price {
+
+    color: #e8f5ef;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+
+.period {
+
+    color: #718078;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.plan-features {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 20px 0;
+
+}
+
+
+.plan-features li {
+
+    color: #91a49a;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    padding:
+        7px 0;
+
+    border-bottom:
+        1px solid #10271d;
+
+}
+
+
+.plan-features li::before {
+
+    content: "✓";
+
+    color: #00c878;
+
+    font-weight: bold;
+
+    margin-right: 8px;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.plan-button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.plan-button:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+/* =========================
+   FEATURED BADGE
+========================= */
+
+.featured-badge {
+
+    position: absolute;
+
+    top: -12px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background: #00c878;
+
+    color: #031109;
+
+    padding:
+        5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 750px) {
+
+    .plan-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .plan-card.featured {
+
+        transform: none;
+
+    }
+
+}
+/* =========================
+   FEATURE COMPARISON
+========================= */
+
+.comparison-section {
+
+    margin-top: 35px;
+
+}
+
+
+.comparison-section h2 {
+
+    color: #00c878;
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.comparison-subtitle {
+
+    color: #718078;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.comparison-table {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid #164d36;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+}
+
+
+.comparison-row {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    border-bottom:
+        1px solid #123d2b;
+
+}
+
+
+.comparison-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.comparison-row > div {
+
+    padding: 12px 10px;
+
+    color: #91a49a;
+
+    font-size: 10px;
+
+    text-align: center;
+
+}
+
+
+.comparison-row > div:first-child {
+
+    text-align: left;
+
+    color: #d9e9e2;
+
+}
+
+
+.comparison-header {
+
+    background: #0b2117;
+
+}
+
+
+.comparison-header > div {
+
+    color: #00c878;
+
+    font-weight: bold;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .comparison-row {
+
+        grid-template-columns:
+            1.7fr 0.8fr 0.8fr 0.8fr;
+
+    }
+
+
+    .comparison-row > div {
+
+        padding:
+            10px 5px;
+
+        font-size: 9px;
+
+    }
+
+}
+/* =========================
+   BILLING TOGGLE
+========================= */
+
+.billing-toggle {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 20px;
+
+    padding: 5px;
+
+    width: fit-content;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    background: #050807;
+
+    border: 1px solid #164d36;
+
+    border-radius: 12px;
+
+}
+
+
+.billing-option {
+
+    padding: 9px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #718078;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+}
+
+
+.billing-option.active {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+
+.billing-option:hover {
+
+    color: #00c878;
+
+}
+
+
+.billing-option.active:hover {
+
+    color: #031109;
+
+}
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">FARMERS</a>
+        </div>
+
+        <div class="subtitle">
+            Agricultural Knowledge • Community • Enterprise
+        </div>
+
+    </div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="container">
+
+
+<section class="hero">
+
+    <h1>
+        Choose Your FARMERS Plan
+    </h1>
+
+    <p>
+        Basic includes essential farming tools.
+        Premium unlocks FARMERS AI, Marketplace,
+        Market Intelligence, and the Resources Library.
+        Enterprise adds advanced business capabilities.
+    </p>
+
+
+    <div class="billing-toggle">
+
+    <button
+        type="button"
+        class="billing-option active"
+        data-billing="monthly">
+
+        Monthly
+
+    </button>
+
+</div>
+
+<p class="comparison-subtitle">
+    Premium trial access is a local preview only. Paid checkout is not connected, and no payment will be taken.
+</p>
+
+</section>
+
+<section class="plan-grid">
+
+
+    <!-- BASIC PLAN -->
+
+    <article class="plan-card">
+
+        <div class="plan-name">
+            FARMERS Basic
+        </div>
+
+        <p class="plan-description">
+            Essential farm tools and community
+            access for getting started.
+        </p>
+<div class="plan-price">
+
+    <span class="price">
+        Basic
+    </span>
+
+</div>
+
+
+        <ul class="plan-features">
+
+            <li>
+                Farm Hub and basic guides
+            </li>
+
+            <li>
+                Community access
+            </li>
+
+            <li>
+                Basic farmer tools
+            </li>
+
+            <li>
+                Business records: up to 50 entries
+            </li>
+
+        </ul>
+
+
+        <button
+            type="button"
+            class="plan-button"
+            data-plan="basic">
+
+            Use Basic
+
+        </button>
+
+    </article>
+
+
+
+    <!-- PREMIUM PLAN -->
+
+    <article
+        class="plan-card featured">
+
+        <div class="featured-badge">
+            MOST POPULAR
+        </div>
+
+
+        <div class="plan-name">
+            FARMERS Premium
+        </div>
+
+        <p class="plan-description">
+            Advanced tools and resources
+            for serious farmers.
+        </p>
+
+
+<div class="plan-price">
+
+    <span
+        class="price"
+        id="premiumPrice">
+
+        7 Days Free
+
+    </span>
+
+    <br>
+
+    <span
+        class="period"
+        id="premiumPeriod">
+
+        Then KSh 499 / month
+
+    </span>
+
+</div>
+
+        <ul class="plan-features">
+
+            <li>
+                Everything in Basic
+            </li>
+
+            <li>
+                FARMERS AI access
+            </li>
+
+            <li>
+                Marketplace and Market Intelligence
+            </li>
+
+            <li>
+                Full Resources Library
+            </li>
+
+            <li>
+                Farmers Library: Form One to university
+            </li>
+
+            <li>
+                Business records: up to 500 entries
+            </li>
+
+        </ul>
+
+
+<button
+    type="button"
+    class="plan-button"
+    id="startTrialButton"
+    data-premium-action>
+    Start 7-Day Free Trial
+
+</button>
+
+    </article>
+
+
+
+    <!-- ENTERPRISE PLAN -->
+
+    <article class="plan-card">
+
+        <div class="plan-name">
+            FARMERS Enterprise
+        </div>
+
+        <p class="plan-description">
+            Designed for large farms,
+            agribusinesses and organizations.
+        </p>
+
+
+        <div class="plan-price">
+
+            <span class="price">
+                Custom
+            </span>
+
+        </div>
+
+
+        <ul class="plan-features">
+
+            <li>
+                Everything in Premium
+            </li>
+
+            <li>
+                Advanced farm and business tools
+            </li>
+
+            <li>
+                Unlimited business record allowance
+            </li>
+
+            <li>
+                Multi-user and organization tools
+            </li>
+
+        </ul>
+
+
+        <button
+            type="button"
+            class="plan-button"
+            data-plan="enterprise">
+
+            Request Enterprise
+
+        </button>
+
+    </article>
+
+
+</section>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+<!-- =========================
+     SUBSCRIPTION STATUS
+========================= -->
+
+<section
+    id="subscriptionStatus"
+    style="display:none;">
+
+    <div class="status-box">
+
+        <h2 id="statusTitle">
+        </h2>
+
+        <p id="statusMessage">
+        </p>
+
+        <button
+            type="button"
+            id="closeStatus">
+
+            Close
+
+        </button>
+
+    </div>
+
+    <p class="comparison-subtitle">
+        Record limits are app limits; all plans still use storage available in this browser. Enterprise checkout is not connected in this preview.
+    </p>
+
+</section>
+
+
+<style>
+
+.status-box {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #09130f;
+
+    border: 1px solid #164d36;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+}
+
+.status-box h2 {
+
+    color: #00c878;
+
+    font-size: 20px;
+
+}
+
+.status-box p {
+
+    color: #91a49a;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+.status-box button {
+
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    border: 1px solid #164d36;
+
+    background: #0b1712;
+
+    color: #00c878;
+
+    cursor: pointer;
+
+}
+
+.status-box button:hover {
+
+    background: #00c878;
+
+    color: #031109;
+
+}
+
+</style>
+
+
+<script src="plan-access.js"></script>
+<script>
+
+/* =========================
+   SUBSCRIPTION BUTTONS
+========================= */
+
+const subscriptionStatus =
+    document.getElementById(
+        "subscriptionStatus"
+    );
+
+const statusTitle =
+    document.getElementById(
+        "statusTitle"
+    );
+
+const statusMessage =
+    document.getElementById(
+        "statusMessage"
+    );
+
+const closeStatus =
+    document.getElementById(
+        "closeStatus"
+    );
+
+
+const planKey = "farmersSubscriptionTier";
+const trialKey = "farmersPremiumTrialStart";
+const returnPage = new URLSearchParams(location.search).get("return");
+const protectedPages = new Set([
+    "farmers-ai.html",
+    "marketplace.html",
+    "market-intelligence.html",
+    "resources.html"
+]);
+
+function showReturnMessage() {
+    if (new URLSearchParams(location.search).get("required") === "premium") {
+        showStatus(
+            "Premium required",
+            "Choose the 7-day trial to preview Premium access. Paid checkout is not connected yet."
+        );
+    }
+}
+
+function goToRequestedService() {
+    if (protectedPages.has(returnPage) && window.FarmersAccess?.hasAccess("premium")) {
+        location.href = returnPage;
+    }
+}
+
+document.querySelector('[data-plan="basic"]').addEventListener("click", () => {
+    localStorage.setItem(planKey, "basic");
+    localStorage.removeItem(trialKey);
+    showStatus("FARMERS Basic", "Basic is active on this device. Your saved business records have not been deleted.");
+});
+
+document.querySelector('[data-plan="enterprise"]').addEventListener("click", () => {
+    showStatus(
+        "FARMERS Enterprise",
+        "Enterprise includes advanced tools and unlimited business record allowance. Contact and payment setup is not connected, so an Enterprise subscription cannot be purchased from this preview."
+    );
+});
+
+
+/* =========================
+   SHOW STATUS
+========================= */
+
+function showStatus(
+    title,
+    message
+) {
+
+    statusTitle.textContent =
+        title;
+
+    statusMessage.textContent =
+        message;
+
+    subscriptionStatus.style.display =
+        "block";
+
+
+    subscriptionStatus.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "start"
+
+    });
+
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+closeStatus.addEventListener(
+    "click",
+    function() {
+
+        subscriptionStatus.style.display =
+            "none";
+
+    }
+);
+
+/* =========================
+   7-DAY PREMIUM TRIAL
+========================= */
+
+const startTrialButton =
+    document.getElementById(
+        "startTrialButton"
+    );
+
+
+if (startTrialButton) {
+
+    startTrialButton.addEventListener(
+        "click",
+        function() {
+
+            const existingTrial =
+                localStorage.getItem(
+                    trialKey
+                );
+
+
+            if (existingTrial) {
+                const startTime = Number(existingTrial);
+                const stillActive = Number.isFinite(startTime) &&
+                    Date.now() >= startTime &&
+                    Date.now() - startTime < 7 * 24 * 60 * 60 * 1000;
+                if (stillActive) {
+                    goToRequestedService();
+                    showStatus("Premium Trial", "Your 7-day Premium trial is already active.");
+                } else {
+                    showStatus("Checkout unavailable", "Your trial has ended. Paid Premium checkout is not connected yet.");
+                }
+                return;
+            }
+
+            const trialStart =
+                new Date().getTime();
+
+
+            localStorage.setItem(
+                trialKey,
+                trialStart.toString()
+            );
+
+            localStorage.removeItem(planKey);
+            if (protectedPages.has(returnPage)) {
+                location.href = returnPage;
+                return;
+            }
+            showStatus(
+                "Premium Trial Started",
+                "Your 7-day Premium preview is active on this device. It is not a paid subscription, and no payment will be taken."
+            );
+        }
+    );
+
+}
+/* =========================
+   CHECK PREMIUM TRIAL
+========================= */
+
+function checkPremiumTrial() {
+
+    const currentPlan = window.FarmersAccess.getPlan();
+    const basicButton = document.querySelector('[data-plan="basic"]');
+    const enterpriseButton = document.querySelector('[data-plan="enterprise"]');
+
+    basicButton.textContent = currentPlan === "basic" ? "Current Plan" : "Switch to Basic";
+    enterpriseButton.textContent = currentPlan === "enterprise" ? "Current Plan" : "Request Enterprise";
+    enterpriseButton.disabled = currentPlan === "enterprise";
+
+    if (currentPlan === "enterprise") {
+        startTrialButton.textContent = "Included in Enterprise";
+        startTrialButton.disabled = true;
+        showStatus("FARMERS Enterprise", "Enterprise access is active on this device.");
+        return;
+    }
+
+    if (currentPlan === "premium" &&
+        localStorage.getItem(planKey) === "premium") {
+        startTrialButton.textContent = "Premium Active";
+        startTrialButton.disabled = true;
+        return;
+    }
+
+    const trialStart =
+        localStorage.getItem(
+            trialKey
+        );
+
+
+    if (!trialStart) {
+
+        return;
+
+    }
+    
+
+
+    const startTime = Number(trialStart);
+    if (!Number.isFinite(startTime) || startTime <= 0 || startTime > Date.now()) {
+        localStorage.removeItem(trialKey);
+        return;
+    }
+
+
+    const now =
+        new Date().getTime();
+
+
+    const trialLength =
+        7 * 24 * 60 * 60 * 1000;
+
+
+    const elapsed =
+        now - startTime;
+
+
+    const remaining =
+        trialLength - elapsed;
+
+
+    if (remaining <= 0) {
+
+    startTrialButton.textContent =
+        "Paid checkout unavailable";
+
+    startTrialButton.disabled =
+        true;
+
+    showStatus(
+        "Premium Trial Ended",
+        "Your 7-day Premium preview has ended. Basic remains available; paid checkout is not connected yet."
+    );
+
+    return;
+
+}
+startTrialButton.textContent =
+    "Premium Trial Active";
+
+startTrialButton.disabled =
+    true;
+
+
+    const daysRemaining =
+        Math.ceil(
+            remaining /
+            (24 * 60 * 60 * 1000)
+        );
+
+
+    showStatus(
+        "Premium Trial Active",
+        daysRemaining +
+        " day" +
+        (
+            daysRemaining === 1
+                ? ""
+                : "s"
+        ) +
+        " remaining in your Premium trial."
+    );
+
+}
+
+
+/* =========================
+   CHECK WHEN PAGE LOADS
+========================= */
+
+checkPremiumTrial();
+showReturnMessage();
+goToRequestedService();
+</script>
+
+<!-- =========================
+     FEATURE COMPARISON
+========================= -->
+
+<section class="comparison-section">
+
+    <h2>
+        Compare Plans
+    </h2>
+
+    <p class="comparison-subtitle">
+        See what each FARMERS plan is designed to provide.
+    </p>
+
+
+    <div class="comparison-table">
+
+        <div class="comparison-row comparison-header">
+
+            <div>
+                Feature
+            </div>
+
+            <div>
+                Basic
+            </div>
+
+            <div>
+                Premium
+            </div>
+
+            <div>
+                Enterprise
+            </div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Agricultural Resources
+            </div>
+
+            <div>Farm Hub</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Community
+            </div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Basic Farm Tools
+            </div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+        <div class="comparison-row">
+
+            <div>
+                AI, Marketplace, Market Intelligence, and Learning Libraries
+            </div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+        <div class="comparison-row">
+
+            <div>
+                Business record memory
+            </div>
+
+            <div>50 records</div>
+
+            <div>500 records</div>
+
+            <div>Unlimited*</div>
+
+        </div>
+
+        <div class="comparison-row">
+
+            <div>
+                Advanced business options
+            </div>
+
+            <div>—</div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+        </div>
+
+        <div class="comparison-row">
+
+            <div>
+                Advanced Farm Tools
+            </div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Premium Resources
+            </div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+            <div>✓</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Large-Farm Features
+            </div>
+
+            <div>—</div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Business Management
+            </div>
+
+            <div>Basic</div>
+
+            <div>Advanced</div>
+
+            <div>Advanced</div>
+
+        </div>
+
+
+        <div class="comparison-row">
+
+            <div>
+                Organization Support
+            </div>
+
+            <div>—</div>
+
+            <div>—</div>
+
+            <div>✓</div>
+
+        </div>
+
+    </div>
+
+</section>

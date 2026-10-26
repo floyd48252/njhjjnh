@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>FARMERS AI</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<style>
+
+.ai-page {
+
+    width: min(900px,100%);
+
+    margin: auto;
+
+    padding: 20px 14px 115px;
+
+}
+
+
+/* HEADER */
+
+.ai-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 4px 18px;
+
+}
+
+
+.ai-avatar {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,200,120,.1);
+
+    border:
+        1px solid
+        rgba(0,255,156,.3);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+}
+
+
+.ai-header strong {
+
+    display: block;
+
+    font-size: 17px;
+
+}
+
+
+.ai-header small {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+.ai-status {
+
+    margin-left: auto;
+
+    font-size: 9px;
+
+    color: var(--emerald);
+
+}
+
+
+/* WELCOME */
+
+.ai-welcome {
+
+    text-align: center;
+
+    padding: 25px 10px;
+
+}
+
+
+.ai-welcome-icon {
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+}
+
+
+.ai-welcome h1 {
+
+    font-size:
+        clamp(25px,7vw,38px);
+}
+
+
+.ai-welcome h1 span {
+
+    color: var(--emerald);
+}
+
+
+.ai-welcome p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    max-width: 550px;
+
+    margin: 10px auto;
+}
+
+
+/* SUGGESTIONS */
+
+.suggestions {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding: 5px 2px 15px;
+}
+
+
+.suggestion {
+
+    flex-shrink: 0;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    color: var(--muted);
+
+    border-radius: 18px;
+
+    padding: 9px 12px;
+
+    font-size: 10px;
+}
+
+
+.suggestion:hover {
+
+    color: var(--emerald);
+
+    border-color:
+        rgba(0,255,156,.3);
+}
+
+
+/* CHAT */
+
+.chat {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    min-height: 250px;
+
+    padding-bottom: 15px;
+}
+
+
+.message {
+
+    max-width: 85%;
+
+    padding: 12px 14px;
+
+    border-radius: 15px;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+
+.message.ai {
+
+    align-self: flex-start;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-bottom-left-radius: 4px;
+}
+
+
+.message.user {
+
+    align-self: flex-end;
+
+    background:
+        rgba(0,200,120,.12);
+
+    border:
+        1px solid
+        rgba(0,255,156,.2);
+
+    border-bottom-right-radius: 4px;
+}
+
+
+/* INPUT */
+
+.ai-input-area {
+
+    position: fixed;
+
+    bottom: 55px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(900px,100%);
+
+    padding: 9px 12px;
+
+    background:
+        rgba(5,10,8,.96);
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+
+.ai-input {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: var(--card);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 14px;
+
+    padding: 6px;
+}
+
+
+.ai-input textarea {
+
+    flex: 1;
+
+    resize: none;
+
+    min-width: 0;
+
+    height: 38px;
+
+    max-height: 100px;
+
+    background: none;
+
+    border: none;
+
+    outline: none;
+
+    color: white;
+
+    padding: 10px 7px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+}
+
+
+.ai-input button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: var(--emerald);
+
+    color: #001b0f;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* TYPING */
+
+.typing {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    padding: 5px;
+}
+
+
+@media (min-width:700px) {
+
+    .ai-page {
+
+        padding-left: 25px;
+
+        padding-right: 25px;
+
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<div class="logo">
+    F
+</div>
+
+<div class="brand-text">
+
+<strong>
+    FARMERS
+</strong>
+
+<span>
+    Agricultural Network
+</span>
+
+</div>
+
+</a>
+
+
+<div class="top-actions">
+
+<span class="status-btn">
+
+<span class="status-dot"></span>
+
+<span id="statusText">
+    Online
+</span>
+
+</span>
+
+
+<a
+    href="index.html"
+    class="menu-btn"
+    style="
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    "
+>
+    ←
+</a>
+
+</div>
+
+</header>
+
+<nav class="primary-nav" aria-label="Primary navigation">
+    <a href="index.html" class="primary-nav-item"><span>Home</span></a>
+    <a href="farm-hub.html" class="primary-nav-item"><span>Farm</span></a>
+    <a href="marketplace.html" class="primary-nav-item"><span>Market</span></a>
+    <a href="agribusiness.html" class="primary-nav-item"><span>Business</span></a>
+    <a href="profile.html" class="primary-nav-item"><span>Profile</span></a>
+</nav>
+
+<main class="ai-page">
+
+
+<!-- AI HEADER -->
+
+<div class="ai-header">
+
+<div class="ai-avatar">
+    <img src="seedlings.jpg" alt="Young plants growing in seed trays">
+</div>
+
+<div>
+
+<strong>
+    FARMERS AI
+</strong>
+
+<small>
+    Agricultural Intelligence
+</small>
+
+</div>
+
+<div
+    class="ai-status"
+    id="aiMode"
+>
+    OFFLINE READY
+</div>
+
+</div>
+
+
+<!-- WELCOME -->
+
+<section
+    class="ai-welcome"
+    id="welcome"
+>
+
+<div class="ai-welcome-icon">
+    <img src="crop-rows.jpg" alt="Rows of crops growing in a field">
+</div>
+
+<h1>
+
+Your farm.
+<br>
+
+Your data.
+<br>
+
+<span>
+    Smarter decisions.
+</span>
+
+</h1>
+
+<p>
+
+Ask me about crops, livestock,
+farm management, agribusiness,
+markets and agricultural
+problems.
+
+</p>
+
+</section>
+
+
+<!-- SUGGESTIONS -->
+
+<div class="suggestions">
+
+<button
+    class="suggestion"
+    data-question="How can I improve my maize yield?"
+>
+    Improve maize yield
+</button>
+
+<button
+    class="suggestion"
+    data-question="How do I calculate farm profit?"
+>
+    Calculate profit
+</button>
+
+<button
+    class="suggestion"
+    data-question="How should I manage my soil?"
+>
+    Soil management
+</button>
+
+<button
+    class="suggestion"
+    data-question="What should I consider before starting poultry farming?"
+>
+    Poultry farming
+</button>
+
+</div>
+
+
+<!-- CHAT -->
+
+<div
+    class="chat"
+    id="chat"
+></div>
+
+
+<!-- INPUT -->
+
+<div class="ai-input-area">
+
+<div class="ai-input">
+
+<textarea
+    id="aiInput"
+    placeholder="Ask FARMERS AI..."
+></textarea>
+
+
+<button
+    id="sendButton"
+    title="Send"
+>
+    ↑
+</button>
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+<a
+    href="index.html"
+    class="bottom-item"
+>
+
+<span>
+    ⌂
+</span>
+
+<small>
+    Home
+</small>
+
+</a>
+
+
+<a
+    href="farm-hub.html"
+    class="bottom-item"
+>
+
+<span>
+    Farm
+</span>
+
+<small>
+    Farm
+</small>
+
+</a>
+
+
+<a
+    href="marketplace.html"
+    class="bottom-item"
+>
+
+<span>
+    Market
+</span>
+
+<small>
+    Market
+</small>
+
+</a>
+
+
+<a
+    href="agribusiness.html"
+    class="bottom-item"
+>
+
+<span>
+    ▥
+</span>
+
+<small>
+    Business
+</small>
+
+</a>
+
+
+<a
+    href="profile.html"
+    class="bottom-item active"
+>
+
+<span>
+    AI
+</span>
+
+<small>
+    AI
+</small>
+
+</a>
+
+</nav>
+<script>
+
+/* =========================
+   FARMERS AI KNOWLEDGE
+========================= */
+
+const knowledge = {
+
+    maize: `
+For maize production, focus on:
+
+• Good quality seed
+• Suitable planting time
+• Proper spacing
+• Soil fertility
+• Adequate moisture
+• Weed control
+• Pest and disease monitoring
+
+Your exact recommendations
+depend on your location, soil,
+variety and growing conditions.
+`,
+
+    soil: `
+Good soil management starts with
+understanding your soil.
+
+Consider:
+
+• Soil testing
+• Organic matter
+• pH
+• Drainage
+• Nutrient availability
+• Crop rotation
+• Erosion control
+
+Avoid applying large amounts of
+fertilizer without understanding
+what the soil actually needs.
+`,
+
+    poultry: `
+For poultry farming, plan for:
+
+• Housing
+• Quality feed
+• Clean water
+• Biosecurity
+• Vaccination
+• Temperature management
+• Stocking density
+• Market access
+
+Calculate your feed, labour,
+housing and health costs before
+buying birds.
+`,
+
+    livestock: `
+Livestock management generally
+requires attention to:
+
+• Nutrition
+• Clean water
+• Housing
+• Disease prevention
+• Breeding
+• Record keeping
+• Animal welfare
+• Market planning
+
+Keep production and health
+records so you can identify
+changes early.
+`,
+
+    profit: `
+A simple farm profit calculation
+is:
+
+Profit = Revenue - Total Costs
+
+Revenue can include income from
+crops, livestock and other farm
+activities.
+
+Costs may include:
+
+• Feed
+• Seeds
+• Fertilizer
+• Labour
+• Transport
+• Veterinary costs
+• Equipment
+• Land and other expenses
+
+For serious decisions, include
+both direct and indirect costs.
+`,
+
+    irrigation: `
+Efficient irrigation should
+consider:
+
+• Crop water requirements
+• Soil type
+• Weather
+• Growth stage
+• Water availability
+• Irrigation method
+
+Avoid both prolonged water
+stress and unnecessary
+over-irrigation.
+`,
+
+    pests: `
+For pest management, first
+identify the pest correctly.
+
+Integrated pest management
+can combine:
+
+• Monitoring
+• Prevention
+• Cultural controls
+• Biological controls
+• Mechanical controls
+• Appropriate pesticides
+
+Always follow the label and
+local agricultural guidance
+when using agricultural
+chemicals.
+`,
+
+    market: `
+Before selling agricultural
+products, compare:
+
+• Selling price
+• Quantity demanded
+• Buyer reliability
+• Transport cost
+• Storage cost
+• Market fees
+• Product quality
+• Timing
+
+The highest advertised price
+is not always the highest
+actual profit.
+`,
+
+    fertilizer: `
+Fertilizer decisions should be
+based on crop requirements and,
+where possible, soil-test
+results.
+
+Consider:
+
+• Nutrient requirements
+• Soil fertility
+• Application timing
+• Application method
+• Moisture
+• Crop growth stage
+
+Avoid treating fertilizer as a
+one-size-fits-all solution.
+`,
+
+    greenhouse: `
+Greenhouse production allows
+greater control over the growing
+environment.
+
+Important factors include:
+
+• Ventilation
+• Temperature
+• Humidity
+• Irrigation
+• Nutrition
+• Pest management
+• Crop selection
+• Market planning
+`,
+
+    records: `
+Good farm records can include:
+
+• Sales
+• Expenses
+• Production
+• Labour
+• Inputs
+• Inventory
+• Livestock numbers
+• Crop activities
+
+Accurate records help you
+understand whether an enterprise
+is actually profitable.
+`
+
+};
+
+
+/* =========================
+   FIND TOPIC
+========================= */
+
+function findTopic(question) {
+
+    const text =
+        question.toLowerCase();
+
+
+    if (
+        text.includes("maize") ||
+        text.includes("corn")
+    ) {
+
+        return knowledge.maize;
+
+    }
+
+
+    if (
+        text.includes("soil") ||
+        text.includes("fertility")
+    ) {
+
+        return knowledge.soil;
+
+    }
+
+
+    if (
+        text.includes("poultry") ||
+        text.includes("chicken")
+    ) {
+
+        return knowledge.poultry;
+
+    }
+
+
+    if (
+        text.includes("cattle") ||
+        text.includes("goat") ||
+        text.includes("sheep") ||
+        text.includes("livestock")
+    ) {
+
+        return knowledge.livestock;
+
+    }
+
+
+    if (
+        text.includes("profit") ||
+        text.includes("revenue") ||
+        text.includes("expense")
+    ) {
+
+        return knowledge.profit;
+
+    }
+
+
+    if (
+        text.includes("irrigation") ||
+        text.includes("water")
+    ) {
+
+        return knowledge.irrigation;
+
+    }
+
+
+    if (
+        text.includes("pest") ||
+        text.includes("disease")
+    ) {
+
+        return knowledge.pests;
+
+    }
+
+
+    if (
+        text.includes("market") ||
+        text.includes("sell") ||
+        text.includes("price")
+    ) {
+
+        return knowledge.market;
+
+    }
+
+
+    if (
+        text.includes("fertilizer") ||
+        text.includes("fertiliser")
+    ) {
+
+        return knowledge.fertilizer;
+
+    }
+
+
+    if (
+        text.includes("greenhouse")
+    ) {
+
+        return knowledge.greenhouse;
+
+    }
+
+
+    if (
+        text.includes("record") ||
+        text.includes("bookkeeping")
+    ) {
+
+        return knowledge.records;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================
+   RESPONSE ENGINE
+========================= */
+
+function generateResponse(question) {
+
+    const text =
+        question.toLowerCase();
+
+
+    if (
+        text.includes("hello") ||
+        text.includes("hi") ||
+        text.includes("hey")
+    ) {
+
+        return `
+Hello!
+
+I'm FARMERS AI.
+
+I can help you with crops,
+livestock, agribusiness,
+farm records, markets and
+general agricultural questions.
+
+What are we working on?
+`;
+
+    }
+
+
+    const answer =
+        findTopic(question);
+
+
+    if (answer) {
+
+        return answer;
+
+    }
+
+
+    if (
+        text.includes("thank")
+    ) {
+
+        return `
+You're welcome!
+
+Keep your farm records,
+watch your costs and make
+decisions based on reliable
+information.
+`;
+
+    }
+
+
+    return `
+I don't have enough information
+in my offline knowledge base to
+give you a reliable answer to
+that question yet.
+
+You can try asking about:
+
+• Crops
+• Soil
+• Poultry
+• Livestock
+• Irrigation
+• Pests
+• Fertilizer
+• Markets
+• Farm profit
+• Farm records
+
+When FARMERS AI is connected to
+a real AI service, it will be able
+to handle much broader questions.
+`;
+
+}
+/* =========================
+   CHAT SYSTEM
+========================= */
+
+const chat =
+    document.getElementById(
+        "chat"
+    );
+
+
+const input =
+    document.getElementById(
+        "aiInput"
+    );
+
+
+const sendButton =
+    document.getElementById(
+        "sendButton"
+    );
+
+
+const welcome =
+    document.getElementById(
+        "welcome"
+    );
+
+
+/* =========================
+   ADD MESSAGE
+========================= */
+
+function addMessage(
+    text,
+    type
+) {
+
+    welcome.style.display =
+        "none";
+
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+
+    message.className =
+        "message " + type;
+
+
+    message.textContent =
+        text.trim();
+
+
+    chat.appendChild(
+        message
+    );
+
+
+    window.scrollTo({
+
+        top:
+            document.body
+                .scrollHeight,
+
+        behavior:
+            "smooth"
+
+    });
+
+}
+
+
+/* =========================
+   TYPING
+========================= */
+
+function showTyping() {
+
+    const typing =
+        document.createElement(
+            "div"
+        );
+
+
+    typing.id =
+        "typing";
+
+
+    typing.className =
+        "typing ai";
+
+
+    typing.textContent =
+        "FARMERS AI is thinking...";
+
+
+    chat.appendChild(
+        typing
+    );
+
+}
+
+
+function removeTyping() {
+
+    const typing =
+        document.getElementById(
+            "typing"
+        );
+
+
+    if (typing) {
+
+        typing.remove();
+
+    }
+
+}
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+function sendMessage() {
+
+    const question =
+        input.value.trim();
+
+
+    if (!question) {
+
+        return;
+
+    }
+
+
+    addMessage(
+        question,
+        "user"
+    );
+
+
+    input.value = "";
+
+
+    showTyping();
+
+
+    setTimeout(
+        () => {
+
+            removeTyping();
+
+
+            const response =
+                generateResponse(
+                    question
+                );
+
+
+            addMessage(
+                response,
+                "ai"
+            );
+
+
+        },
+        500
+    );
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+sendButton.addEventListener(
+    "click",
+    sendMessage
+);
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+input.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter" &&
+            !event.shiftKey
+        ) {
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SUGGESTIONS
+========================= */
+
+document
+    .querySelectorAll(
+        ".suggestion"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                input.value =
+                    button.dataset.question;
+
+
+                sendMessage();
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   ONLINE / OFFLINE
+========================= */
+
+function updateAIStatus() {
+
+    const status =
+        document.getElementById(
+            "statusText"
+        );
+
+
+    const mode =
+        document.getElementById(
+            "aiMode"
+        );
+
+
+    if (
+        navigator.onLine
+    ) {
+
+        status.textContent =
+            "Online";
+
+
+        mode.textContent =
+            "ONLINE READY";
+
+    } else {
+
+        status.textContent =
+            "Offline";
+
+
+        mode.textContent =
+            "OFFLINE READY";
+
+    }
+
+}
+
+
+updateAIStatus();
+
+
+window.addEventListener(
+    "online",
+    updateAIStatus
+);
+
+
+window.addEventListener(
+    "offline",
+    updateAIStatus
+);
+
+
+/* =========================
+   SAVE CHAT
+========================= */
+
+function saveChat() {
+
+    localStorage.setItem(
+        "farmersAIChat",
+        chat.innerHTML
+    );
+
+}
+
+
+function loadChat() {
+
+    const saved =
+        localStorage.getItem(
+            "farmersAIChat"
+        );
+
+
+    if (saved) {
+
+        chat.innerHTML =
+            saved;
+
+        welcome.style.display =
+            "none";
+
+    }
+
+}
+
+
+loadChat();
+
+
+/* SAVE AFTER MESSAGE */
+
+const observer =
+    new MutationObserver(
+        saveChat
+    );
+
+
+observer.observe(
+    chat,
+    {
+        childList: true
+    }
+);
+
+</script>
+<script src="plan-access.js"></script>
+
+<footer style="margin:32px auto 0;padding:20px 12px 90px;border-top:1px solid rgba(0,200,120,.18);text-align:center;color:#a0b1a6;font:12px Arial,sans-serif;">
+    Contact:
+    <a style="color:#00c878;" href="mailto:farmersrevolutionarysystem@gmail.com">farmersrevolutionarysystem@gmail.com</a>
+</footer>
+
+</body>
+
+</html>
